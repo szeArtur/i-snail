@@ -3,11 +3,10 @@ extends Button
 
 
 const input_action_names: Dictionary[StringName, String] = {
-	&"move_up": "Move Up",
-	&"move_down": "Move Down",
 	&"move_left": "Move Left",
 	&"move_right": "Move Right",
-	&"jump": "Jump",
+	&"drop_item": "Drop Item",
+	&"slime": "Toggle Slime-mode",
 }
 
 @export var action_name: StringName
