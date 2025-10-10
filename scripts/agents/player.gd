@@ -1,6 +1,7 @@
 class_name Player
 extends Agent
 
+
 @export var movement_speed := 60
 @export var shell: Item
 @export var shell_sprite: Sprite2D
@@ -43,4 +44,18 @@ func _physics_process(delta: float) -> void:
 	if cos(rotation) < -0.2 :
 		rotation = 0
 		falling = true
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("drop_item"):
+		drop_shell()
+
+
+func drop_shell() -> void:
+	if not shell:
+		return
 	
+	var at = position + global_transform.basis_xform(Vector2(20, -20))
+	var toward = velocity + global_transform.basis_xform(Vector2(100, -200))
+	EventBus.drop_item.emit(shell, at, toward)
+	shell = null
+	shell_sprite.texture = null
