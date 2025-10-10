@@ -2,7 +2,8 @@ class_name Player
 extends Agent
 
 @export var movement_speed := 60
-@export var inventory: Inventory
+@export var shell: Item
+@export var shell_sprite: Sprite2D
 @export var wheel1: ShapeCast2D
 @export var wheel2: ShapeCast2D
 
@@ -12,7 +13,9 @@ var falling := true
 
 func _on_hitbox_entered(body: CollisionObject2D) -> void:
 	if body is Collectable:
-		inventory.add_item(body.item, body.amount)
+		shell = body.item
+		shell_sprite.texture = shell.sprite
+		body.pickup()
 
 
 func _physics_process(delta: float) -> void:

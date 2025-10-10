@@ -1,14 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6p80qds44o8p"]
+[gd_scene load_steps=12 format=3 uid="uid://c6p80qds44o8p"]
 
 [ext_resource type="Script" uid="uid://bgej3e4xcq0v2" path="res://scripts/agents/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://b86rnpqgivra1" path="res://textures/Monster_walking_2.png" id="2_cvnsp"]
-[ext_resource type="Script" uid="uid://cjccjs7oqnf0x" path="res://scripts/resource_scripts/item.gd" id="2_x3wgy"]
-[ext_resource type="Script" uid="uid://bjjt05u1q1jy6" path="res://scripts/resource_scripts/inventory.gd" id="3_3smsa"]
 [ext_resource type="Script" uid="uid://ddn068wfg1yls" path="res://scripts/movement_controller.gd" id="5_qlg0r"]
-
-[sub_resource type="Resource" id="Resource_qlg0r"]
-script = ExtResource("3_3smsa")
-metadata/_custom_type_script = "uid://bjjt05u1q1jy6"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
 radius = 15.0
@@ -52,20 +46,18 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
-radius = 15.0
-height = 45.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 18.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("wheel1", "wheel2", "collision_shape", "hitbox", "movement_controller")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "wheel1", "wheel2", "collision_shape", "hitbox", "movement_controller")]
 z_index = 1
 collision_layer = 2
-collision_mask = 9
 motion_mode = 1
 floor_stop_on_slope = false
 floor_block_on_wall = false
 platform_floor_layers = 4294901761
 script = ExtResource("1_v0iea")
-inventory = SubResource("Resource_qlg0r")
+shell_sprite = NodePath("ShellSprite")
 wheel1 = NodePath("wheel1")
 wheel2 = NodePath("wheel2")
 collision_shape = NodePath("CollisionShape")
@@ -97,15 +89,16 @@ autoplay = "walking"
 frame_progress = 0.54584
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 32
+collision_layer = 2
+collision_mask = 8
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_6t5aa")
-disabled = true
+shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="MovementController" type="Node" parent="."]
 script = ExtResource("5_qlg0r")
 metadata/_custom_type_script = "uid://ddn068wfg1yls"
+
+[node name="ShellSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
