@@ -2,7 +2,6 @@ class_name GameWorld
 extends Node2D
 
 
-@export var levels: Dictionary[String, PackedScene]
 
 @onready var camera: Camera = $Camera
 @onready var player: Player = $Player
@@ -38,13 +37,13 @@ func reset() -> void:
 
 func on_level_completed() -> void:
 	await reset()
-	level_root.open("level02")
+	level_root.open("Level01Snail")
 
 
 ## takes one frame to reset, [param await] this method to function properly
 func create_new() -> void:
 	await reset()
-	level_root.open("level01")
+	level_root.open("Level01Snail")
 
 
 func close() -> void:
