@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6p80qds44o8p"]
+
+[ext_resource type="Script" uid="uid://bgej3e4xcq0v2" path="res://scripts/agents/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://b86rnpqgivra1" path="res://textures/monster_walking_2.png" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://cjccjs7oqnf0x" path="res://scripts/resource_scripts/item.gd" id="2_x3wgy"]
+[ext_resource type="Script" uid="uid://bjjt05u1q1jy6" path="res://scripts/resource_scripts/inventory.gd" id="3_3smsa"]
+[ext_resource type="Script" uid="uid://ddn068wfg1yls" path="res://scripts/movement_controller.gd" id="5_qlg0r"]
+
+[sub_resource type="Resource" id="Resource_qlg0r"]
+script = ExtResource("3_3smsa")
+item_slots = Dictionary[ExtResource("2_x3wgy"), int]({})
+metadata/_custom_type_script = "uid://bjjt05u1q1jy6"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
+radius = 9.0
+height = 40.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8erm5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 4.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("collision_shape", "hitbox", "movement_controller")]
+z_index = 1
+collision_layer = 2
+collision_mask = 9
+platform_floor_layers = 4294901761
+script = ExtResource("1_v0iea")
+inventory = SubResource("Resource_qlg0r")
+collision_shape = NodePath("CollisionShape")
+hitbox = NodePath("Hitbox")
+movement_controller = NodePath("MovementController")
+metadata/_custom_type_script = "uid://e8nulp3wmj6a"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_6t5aa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 2)
+sprite_frames = SubResource("SpriteFrames_8erm5")
+animation = &"walking"
+autoplay = "walking"
+frame_progress = 0.54584
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_6t5aa")
+
+[node name="MovementController" type="Node" parent="."]
+script = ExtResource("5_qlg0r")
+metadata/_custom_type_script = "uid://ddn068wfg1yls"

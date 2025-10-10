@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://ci3n7hxbk44xg"]
+
+[ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_wh2cv"]
+[ext_resource type="Script" uid="uid://dmbtibb2bd40a" path="res://scripts/collectable_manager.gd" id="2_xl5rn"]
+[ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="3_jaldj"]
+[ext_resource type="Resource" uid="uid://dn4sd3wmfxkos" path="res://resources/items/key.tres" id="4_xydm2"]
+[ext_resource type="PackedScene" uid="uid://cwd76yaufli7f" path="res://scenes/enemy.tscn" id="7_rnd6f"]
+[ext_resource type="Script" uid="uid://cgcvrx2rh0hk6" path="res://scripts/spawn_point_manager.gd" id="7_uqa8t"]
+[ext_resource type="Script" uid="uid://dneq33pg1h1cu" path="res://scripts/enemy_manager.gd" id="7_xl5rn"]
+[ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="8_if0f4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wh2cv"]
+
+[node name="Level01" type="Node2D" node_paths=PackedStringArray("collectable_manager", "spawn_point_manager", "enemy_manager")]
+script = ExtResource("1_wh2cv")
+collectable_manager = NodePath("CollectableManager")
+spawn_point_manager = NodePath("SpawnPointManager")
+enemy_manager = NodePath("EnemyManager")
+metadata/_custom_type_script = "uid://drqipnirsffjv"
+
+[node name="DebugTexture" type="Sprite2D" parent="."]
+scale = Vector2(44.5, 26.5)
+texture = SubResource("PlaceholderTexture2D_wh2cv")
+
+[node name="CollectableManager" type="Node" parent="."]
+script = ExtResource("2_xl5rn")
+metadata/_custom_type_script = "uid://dmbtibb2bd40a"
+
+[node name="Collectable" parent="CollectableManager" instance=ExtResource("3_jaldj")]
+position = Vector2(91, 68)
+
+[node name="Collectable2" parent="CollectableManager" instance=ExtResource("3_jaldj")]
+position = Vector2(47, 112)
+
+[node name="Collectable3" parent="CollectableManager" instance=ExtResource("3_jaldj")]
+position = Vector2(113, 9)
+item = ExtResource("4_xydm2")
+
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource("7_xl5rn")
+metadata/_custom_type_script = "uid://dneq33pg1h1cu"
+
+[node name="Enemy" parent="EnemyManager" instance=ExtResource("7_rnd6f")]
+position = Vector2(-109, -55)
+
+[node name="SpawnPointManager" type="Node" parent="."]
+script = ExtResource("7_uqa8t")
+metadata/_custom_type_script = "uid://cgcvrx2rh0hk6"
+
+[node name="SpawnPoint" type="Marker2D" parent="SpawnPointManager"]
+script = ExtResource("8_if0f4")
+metadata/_custom_type_script = "uid://bkcu3sc0w4ul3"

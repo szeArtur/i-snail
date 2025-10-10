@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://csq1nd60hipkc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nojw"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.118581, 0.118581, 0.118581, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pidlg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ols5k"]
+bg_color = Color(0.158472, 0.158472, 0.158472, 1)
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.118581, 0.118581, 0.118581, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_biaja"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.118581, 0.118581, 0.118581, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnc4k"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+border_width_left = 4
+border_width_top = 4
+border_color = Color(0.118581, 0.118581, 0.118581, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_2nojw")
+Button/styles/focus = SubResource("StyleBoxEmpty_pidlg")
+Button/styles/hover = SubResource("StyleBoxFlat_ols5k")
+Button/styles/normal = SubResource("StyleBoxFlat_biaja")
+Button/styles/pressed = SubResource("StyleBoxFlat_vnc4k")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+Tree/constants/margin_top = 10

@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctv1ou1p3tfwl"]
+
+[ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_frx6u"]
+[ext_resource type="Script" uid="uid://dmbtibb2bd40a" path="res://scripts/collectable_manager.gd" id="4_6btsd"]
+[ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="4_mn7hn"]
+[ext_resource type="Resource" uid="uid://dn4sd3wmfxkos" path="res://resources/items/key.tres" id="5_6btsd"]
+[ext_resource type="Script" uid="uid://cgcvrx2rh0hk6" path="res://scripts/spawn_point_manager.gd" id="5_d63au"]
+[ext_resource type="Script" uid="uid://dneq33pg1h1cu" path="res://scripts/enemy_manager.gd" id="6_d63au"]
+[ext_resource type="PackedScene" uid="uid://cwd76yaufli7f" path="res://scenes/enemy.tscn" id="7_hanoa"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_frx6u"]
+
+[node name="Level02" type="Node2D" node_paths=PackedStringArray("collectable_manager", "spawn_point_manager", "enemy_manager")]
+script = ExtResource("1_frx6u")
+collectable_manager = NodePath("CollectableManager")
+spawn_point_manager = NodePath("SpawnPointManager")
+enemy_manager = NodePath("EnemyManager")
+metadata/_custom_type_script = "uid://drqipnirsffjv"
+
+[node name="DebugTexture" type="Sprite2D" parent="."]
+position = Vector2(-1, 39)
+scale = Vector2(214.25, 26.5)
+texture = SubResource("PlaceholderTexture2D_frx6u")
+
+[node name="SpawnPointManager" type="Node" parent="."]
+script = ExtResource("5_d63au")
+metadata/_custom_type_script = "uid://cgcvrx2rh0hk6"
+
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource("6_d63au")
+metadata/_custom_type_script = "uid://dneq33pg1h1cu"
+
+[node name="Enemy" parent="EnemyManager" instance=ExtResource("7_hanoa")]
+position = Vector2(-207, -159)
+
+[node name="Enemy2" parent="EnemyManager" instance=ExtResource("7_hanoa")]
+position = Vector2(-123, -219)
+
+[node name="Enemy3" parent="EnemyManager" instance=ExtResource("7_hanoa")]
+position = Vector2(-19, -258)
+
+[node name="Enemy4" parent="EnemyManager" instance=ExtResource("7_hanoa")]
+position = Vector2(98, -247)
+
+[node name="Enemy5" parent="EnemyManager" instance=ExtResource("7_hanoa")]
+position = Vector2(202, -209)
+
+[node name="CollectableManager" type="Node" parent="."]
+script = ExtResource("4_6btsd")
+metadata/_custom_type_script = "uid://dmbtibb2bd40a"
+
+[node name="Collectable" parent="CollectableManager" instance=ExtResource("4_mn7hn")]
+position = Vector2(4, -131)
+item = ExtResource("5_6btsd")
+
+[node name="Collectable2" parent="CollectableManager" instance=ExtResource("4_mn7hn")]
+position = Vector2(128, -34)
+item = ExtResource("5_6btsd")
+
+[node name="Collectable3" parent="CollectableManager" instance=ExtResource("4_mn7hn")]
+position = Vector2(86, -104)
+item = ExtResource("5_6btsd")
+
+[node name="Collectable4" parent="CollectableManager" instance=ExtResource("4_mn7hn")]
+position = Vector2(-69, -105)
+item = ExtResource("5_6btsd")
+
+[node name="Collectable5" parent="CollectableManager" instance=ExtResource("4_mn7hn")]
+position = Vector2(-111, -36)
+item = ExtResource("5_6btsd")

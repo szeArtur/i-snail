@@ -1,0 +1,47 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3kyp7wchpb83"]
+
+[ext_resource type="Script" uid="uid://bdawwvism8vcw" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cv8x2tg6vxtq4" path="res://scripts/user_interface.gd" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://bui3s4bov4767" path="res://scripts/game_world.gd" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://dm7fgpjkablo5" path="res://scripts/camera_controller.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://ci3n7hxbk44xg" path="res://scenes/levels/level01.tscn" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://ctv1ou1p3tfwl" path="res://scenes/levels/level02.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c6p80qds44o8p" path="res://scenes/player.tscn" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://bwkwl8n2mcbu7" path="res://scripts/level_root.gd" id="7_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://c5uyltcmbbrci" path="res://scenes/ui/menu_main.tscn" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://c5naht0xe6c2b" path="res://scenes/ui/menu_options.tscn" id="9_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dw01jx0pxjbn4" path="res://scenes/ui/menu_pause.tscn" id="10_eb6dy"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_o5qli")
+
+[node name="GameWorld" type="Node2D" parent="." groups=["Persist"]]
+visible = false
+script = ExtResource("2_sugp2")
+levels = Dictionary[String, PackedScene]({
+"level01": ExtResource("3_o6xl0"),
+"level02": ExtResource("3_tefeu")
+})
+
+[node name="Camera" type="Camera2D" parent="GameWorld" node_paths=PackedStringArray("target")]
+zoom = Vector2(2, 2)
+script = ExtResource("3_jyhfs")
+target = NodePath("../Player")
+stiffness = 0.4
+
+[node name="Player" parent="GameWorld" instance=ExtResource("4_tbgi4")]
+
+[node name="LevelRoot" type="Node2D" parent="GameWorld"]
+script = ExtResource("7_ya4ey")
+levels = Dictionary[String, PackedScene]({
+"level01": ExtResource("3_o6xl0"),
+"level02": ExtResource("3_tefeu")
+})
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+script = ExtResource("2_0wfyh")
+menus = Dictionary[StringName, PackedScene]({
+&"main": ExtResource("8_choun"),
+&"options": ExtResource("9_ya4ey"),
+&"pause": ExtResource("10_eb6dy")
+})

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://dn4sd3wmfxkos"]
+
+[ext_resource type="Script" uid="uid://cjccjs7oqnf0x" path="res://scripts/resource_scripts/item.gd" id="1_7ur50"]
+[ext_resource type="AudioStream" uid="uid://cwa05ujn5qeli" path="res://audio/effects/doorsound.mp3" id="1_nv3up"]
+[ext_resource type="Texture2D" uid="uid://ewxxa40dxrj4" path="res://textures/1_bit_pack.png" id="2_ykwyx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv3up"]
+atlas = ExtResource("2_ykwyx")
+region = Rect2(512, 176, 16, 16)
+
+[resource]
+script = ExtResource("1_7ur50")
+name = "key"
+sprite = SubResource("AtlasTexture_nv3up")
+pickup_sound = ExtResource("1_nv3up")
+metadata/_custom_type_script = "uid://cjccjs7oqnf0x"

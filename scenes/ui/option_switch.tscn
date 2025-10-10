@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgob1kuvkdamb"]
+
+[ext_resource type="Script" uid="uid://dmylkhey1e8pt" path="res://scripts/ui/option_switch.gd" id="1_8wxiu"]
+
+[node name="OptionSwitch" type="Button"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 30)
+offset_right = 456.0
+offset_bottom = 30.0
+toggle_mode = true
+script = ExtResource("1_8wxiu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label: "
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Switch" type="CheckButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+flat = true
+
+[connection signal="toggled" from="." to="." method="_update"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/Switch" to="." method="_update"]

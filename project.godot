@@ -1,0 +1,55 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="i-snail"
+run/main_scene="uid://b3kyp7wchpb83"
+config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/fullsize=false
+boot_splash/image="uid://cd3ooeigvuhvi"
+config/icon="uid://b41fu3igt0idi"
+
+[audio]
+
+buses/default_bus_layout="res://resources/default_bus_layout.tres"
+
+[autoload]
+
+GameManager="*res://scripts/autoloads/game_manager.gd"
+SaveManager="*res://scripts/autoloads/save_manager.gd"
+OptionsManager="*res://scripts/autoloads/options_manager.gd"
+EventBus="*res://scripts/autoloads/event_bus.gd"
+AudioManager="*res://scripts/autoloads/audio_manager.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[global_group]
+
+Persist=""
+
+[layer_names]
+
+2d_physics/layer_1="World"
+3d_physics/layer_1="Layer 1"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Collectables"
+2d_physics/layer_5="Hit"
+2d_physics/layer_6="Hurt"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

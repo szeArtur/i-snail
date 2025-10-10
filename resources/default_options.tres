@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Options" load_steps=6 format=3 uid="uid://bwdd34s77vfvp"]
+
+[ext_resource type="Script" uid="uid://cudayr3tx1spe" path="res://scripts/resource_scripts/options.gd" id="1_405t4"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_0ty8m"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_t7ble"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_7qass"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_405t4"]
+device = -1
+keycode = 87
+unicode = 119
+
+[resource]
+script = ExtResource("1_405t4")
+master_volume = 0.0
+music_volume = 0.0
+vsync = true
+keymap = Dictionary[StringName, InputEvent]({
+&"move_down": SubResource("InputEventKey_0ty8m"),
+&"move_left": SubResource("InputEventKey_t7ble"),
+&"move_right": SubResource("InputEventKey_7qass"),
+&"move_up": SubResource("InputEventKey_405t4")
+})
+metadata/_custom_type_script = "uid://cudayr3tx1spe"
