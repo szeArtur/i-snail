@@ -11,5 +11,5 @@ func _on_hitbox_entered(body: CollisionObject2D) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var input_direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	movement_controller.move_and_slide_toward(input_direction, delta)
+	var input_direction := Input.get_axis("move_left", "move_right")
+	movement_controller.move_and_slide_toward(Vector2(input_direction,0), delta)
