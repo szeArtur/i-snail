@@ -5,9 +5,6 @@ extends Area2D
 func activate():
 	anime_sprite.play()
 
-
-
-
 func _on_body_entered(body: Node2D) -> void:
-	if body is Box:
-		body.jumppad(force)
+	body.jumppad(force)
+	activate()

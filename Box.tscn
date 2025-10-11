@@ -10,7 +10,7 @@ friction = 0.29
 size = Vector2(305.87634, 304.34784)
 
 [node name="RigidBody2D" type="RigidBody2D"]
-collision_layer = 3
+collision_layer = 64
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_0bkxv")
 linear_damp = 1.0

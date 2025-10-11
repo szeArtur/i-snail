@@ -1,16 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://by6ymyc8oo57a"]
+[gd_scene load_steps=15 format=3 uid="uid://by6ymyc8oo57a"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_xgd42"]
 [ext_resource type="Script" uid="uid://dmbtibb2bd40a" path="res://scripts/collectable_manager.gd" id="3_eoibp"]
 [ext_resource type="Script" uid="uid://cgcvrx2rh0hk6" path="res://scripts/spawn_point_manager.gd" id="4_p2e1a"]
 [ext_resource type="Script" uid="uid://dneq33pg1h1cu" path="res://scripts/enemy_manager.gd" id="5_8g0k0"]
 [ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_p2e1a"]
+[ext_resource type="PackedScene" uid="uid://cwd76yaufli7f" path="res://scenes/enemy.tscn" id="5_w2dm0"]
 [ext_resource type="Resource" uid="uid://cy4i21yitb6hm" path="res://resources/shells/debug_shell.tres" id="6_8g0k0"]
 [ext_resource type="PackedScene" uid="uid://jxksy6gjvswn" path="res://scenes/Platform.tscn" id="7_8g0k0"]
 [ext_resource type="Texture2D" uid="uid://bhqjrwqf62bwi" path="res://textures/Platform 3 Seiten.png" id="8_1ea61"]
 [ext_resource type="Texture2D" uid="uid://dgw5j0j77q1d6" path="res://textures/Plattform 2 Seiten.png" id="9_w2dm0"]
 [ext_resource type="Texture2D" uid="uid://cmtuiroablaoy" path="res://textures/Plattform Boden.png" id="10_kd8fp"]
 [ext_resource type="Texture2D" uid="uid://bh0k6xqk8wea8" path="res://textures/Hintergrund lvl 1.jpg" id="11_hktik"]
+[ext_resource type="PackedScene" uid="uid://n4y7igwhb6wj" path="res://scenes/turnaround_enemy.tscn" id="13_pqhrq"]
+[ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="14_lxjy1"]
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("collectable_manager", "spawn_point_manager", "enemy_manager")]
 script = ExtResource("1_xgd42")
@@ -131,3 +134,15 @@ position = Vector2(-170.36365, -253.45456)
 rotation = 3.1415925
 scale = Vector2(0.06991574, 0.107447185)
 texture = ExtResource("11_hktik")
+
+[node name="Enemy" parent="." instance=ExtResource("5_w2dm0")]
+position = Vector2(116, -121)
+
+[node name="Area2D" parent="." instance=ExtResource("13_pqhrq")]
+position = Vector2(16, -15)
+
+[node name="Jump_pad" parent="." instance=ExtResource("14_lxjy1")]
+position = Vector2(360, 8)
+
+[node name="Area2D2" parent="." instance=ExtResource("13_pqhrq")]
+position = Vector2(405, -108)

@@ -22,10 +22,9 @@ func _on_hitbox_entered(body: CollisionObject2D) -> void:
 		shell = body.item
 		shell_sprite.texture = shell.sprite
 		body.pickup()
-	if body is JumpPad:
-		movement_controller.jump(jumpforce)
-		body.activate()
-		
+
+func jumppad(force):		
+	movement_controller.jump(force/10)
 
 
 func _process(_delta: float) -> void:
