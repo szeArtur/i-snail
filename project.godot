@@ -48,6 +48,7 @@ Persist=""
 2d_physics/layer_5="Hit"
 2d_physics/layer_6="Hurt"
 2d_physics/layer_7="interactables"
+2d_physics/layer_8="enemylogic"
 
 [rendering]
 

@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 var initial_position: Vector2
 var movement_controller := MovementController.new(self)
-var is_falling := true
+var is_falling := false
 var stick := false
 
 

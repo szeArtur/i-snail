@@ -1,0 +1,2 @@
+class_name TurnaroundEnemy
+extends Area2D
