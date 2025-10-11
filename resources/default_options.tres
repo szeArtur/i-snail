@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cudayr3tx1spe" path="res://scripts/resource_scripts/options.gd" id="1_405t4"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_5nma2"]
+device = -1
+keycode = 81
+unicode = 113
+
 [sub_resource type="InputEventKey" id="InputEventKey_t7ble"]
 device = -1
 keycode = 65
@@ -12,15 +17,9 @@ device = -1
 keycode = 68
 unicode = 100
 
-[sub_resource type="InputEventKey" id="InputEventKey_5nma2"]
-device = -1
-keycode = 81
-unicode = 113
-
 [sub_resource type="InputEventKey" id="InputEventKey_405t4"]
 device = -1
-keycode = 32
-unicode = 32
+keycode = 4194325
 
 [resource]
 script = ExtResource("1_405t4")

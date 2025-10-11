@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://cjccjs7oqnf0x" path="res://scripts/resource_scripts/item.gd" id="2_1pg6c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_llfh3"]
-bounce = 0.23
+friction = 0.14
+bounce = 0.11
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_61c27"]
 

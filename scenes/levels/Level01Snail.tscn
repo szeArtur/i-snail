@@ -44,7 +44,7 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_3el4s")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(95, -48)
+position = Vector2(100, -44.000004)
 rotation = 1.921857
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("CapsuleShape2D_3el4s")
@@ -64,6 +64,24 @@ shape = SubResource("CapsuleShape2D_3el4s")
 position = Vector2(-285, 54.999996)
 rotation = 1.6194552
 scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_3el4s")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(415, 208.00002)
+rotation = 1.5643253
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("CapsuleShape2D_3el4s")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(328.99994, 205)
+rotation = 1.6377592
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("CapsuleShape2D_3el4s")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(203.72552, 98)
+rotation = 1.6708738
+scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("CapsuleShape2D_3el4s")
 
 [node name="Collectable" parent="." instance=ExtResource("5_p2e1a")]
