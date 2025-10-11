@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://by6ymyc8oo57a"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_xgd42"]
-[ext_resource type="Script" uid="uid://dmbtibb2bd40a" path="res://scripts/collectable_manager.gd" id="3_eoibp"]
+[ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="3_pqhrq"]
 [ext_resource type="Script" uid="uid://cgcvrx2rh0hk6" path="res://scripts/spawn_point_manager.gd" id="4_p2e1a"]
 [ext_resource type="Script" uid="uid://dneq33pg1h1cu" path="res://scripts/enemy_manager.gd" id="5_8g0k0"]
 [ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_p2e1a"]
@@ -14,26 +14,28 @@
 [ext_resource type="PackedScene" uid="uid://n4y7igwhb6wj" path="res://scenes/turnaround_enemy.tscn" id="13_pqhrq"]
 [ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="14_lxjy1"]
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("collectable_manager", "spawn_point_manager", "enemy_manager")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("spawn_point_manager", "enemy_manager", "player_spawn")]
 script = ExtResource("1_xgd42")
-collectable_manager = NodePath("CollectableManager")
 spawn_point_manager = NodePath("SpawnPointManager")
 enemy_manager = NodePath("EnemyManager")
+player_spawn = NodePath("SpawnPointManager/SpawnPoint")
 metadata/_custom_type_script = "uid://drqipnirsffjv"
-
-[node name="CollectableManager" type="Node" parent="."]
-script = ExtResource("3_eoibp")
-metadata/_custom_type_script = "uid://dmbtibb2bd40a"
 
 [node name="SpawnPointManager" type="Node" parent="."]
 script = ExtResource("4_p2e1a")
 metadata/_custom_type_script = "uid://cgcvrx2rh0hk6"
 
+[node name="SpawnPoint" type="Marker2D" parent="SpawnPointManager"]
+position = Vector2(76, -58)
+script = ExtResource("3_pqhrq")
+spawn_id = &"player"
+metadata/_custom_type_script = "uid://bkcu3sc0w4ul3"
+
 [node name="EnemyManager" type="Node" parent="."]
 script = ExtResource("5_8g0k0")
 metadata/_custom_type_script = "uid://dneq33pg1h1cu"
 
-[node name="Collectable" parent="." instance=ExtResource("5_p2e1a")]
+[node name="Shell" parent="." instance=ExtResource("5_p2e1a")]
 position = Vector2(225, -86)
 item = ExtResource("6_8g0k0")
 
@@ -56,14 +58,14 @@ rotation = -1.5707964
 scale = Vector2(0.07944904, 0.0937404)
 texture = ExtResource("11_hktik")
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("11_pqhrq")]
+[node name="Platform" parent="." instance=ExtResource("11_pqhrq")]
 position = Vector2(370, 29)
 
-[node name="StaticBody2D4" parent="." instance=ExtResource("11_pqhrq")]
+[node name="Platform2" parent="." instance=ExtResource("11_pqhrq")]
 position = Vector2(84, 40)
 scale = Vector2(0.12817563, 0.1)
 
-[node name="StaticBody2D3" parent="." instance=ExtResource("12_lxjy1")]
+[node name="Platform3" parent="." instance=ExtResource("12_lxjy1")]
 position = Vector2(238.00002, -23)
 scale = Vector2(0.135, 0.135)
 

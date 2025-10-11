@@ -5,6 +5,8 @@ extends Node2D
 var active_level: Level
 var active_level_name: StringName
 
+@onready var player: Player = $"../Player"
+
 @export var levels: Dictionary[StringName, PackedScene]
 
 var current_level_index := 0
@@ -20,6 +22,8 @@ func open(id : StringName):
 	active_level = levels[id].instantiate()
 
 	add_child(active_level)
+	
+	player.position = active_level.player_spawn.position
 
 func open_next_level() -> void:
 	current_level_index += 1
@@ -27,6 +31,7 @@ func open_next_level() -> void:
 		open(levels.keys()[current_level_index])
 	else:
 		print("GAME COMPLETE")
+	
 
 func close():
 	if not active_level:
