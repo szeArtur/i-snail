@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhq4p4qdh3rkd"]
+
+[ext_resource type="Script" uid="uid://35ivibrh8va2" path="res://scripts/Name.gd" id="1_hucap"]
+[ext_resource type="Script" uid="uid://bbfog81bv5ro3" path="res://scripts/Text.gd" id="1_wx2ho"]
+[ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="2_fst8j"]
+[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="4_a5b66"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a5b66"]
+
+[sub_resource type="Resource" id="Resource_iddvo"]
+script = ExtResource("2_fst8j")
+name = "Ich"
+position = 1
+text = "Meine mom schlägt deine in Yu-gi-Oh"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_ap3bi"]
+script = ExtResource("2_fst8j")
+name = "hdfdb"
+text = "sgcxbgfdfggfsdfgfgfdgf"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_a5b66"]
+script = ExtResource("2_fst8j")
+name = "fds"
+position = 2
+text = "sfddghfgfdghggfdghjgfgdsfghfdsfggdsfgfh"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_h7qi8"]
+script = ExtResource("4_a5b66")
+messages = Array[ExtResource("2_fst8j")]([SubResource("Resource_iddvo"), SubResource("Resource_ap3bi"), SubResource("Resource_a5b66"), SubResource("Resource_ap3bi"), SubResource("Resource_iddvo")])
+metadata/_custom_type_script = "uid://6cfcvrv5o8fd"
+
+[node name="Textszene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 6.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_right = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(500, 188)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "halllo"
+label_settings = SubResource("LabelSettings_a5b66")
+horizontal_alignment = 1
+autowrap_mode = 3
+autowrap_trim_flags = 128
+visible_characters_behavior = 1
+script = ExtResource("1_hucap")
+
+[node name="TextBox" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Hi ich möchte  gerne deune euner lecken und ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+autowrap_mode = 3
+autowrap_trim_flags = 128
+visible_characters_behavior = 1
+script = ExtResource("1_wx2ho")
+alles_text = SubResource("Resource_h7qi8")
