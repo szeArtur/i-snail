@@ -9,7 +9,5 @@ func activate():
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print("ja")
 	if body is Box:
-		print("baba")
 		body.jumppad(force)

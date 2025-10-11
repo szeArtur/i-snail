@@ -7,6 +7,11 @@ device = -1
 keycode = 81
 unicode = 113
 
+[sub_resource type="InputEventKey" id="InputEventKey_0ty8m"]
+device = -1
+keycode = 69
+unicode = 101
+
 [sub_resource type="InputEventKey" id="InputEventKey_t7ble"]
 device = -1
 keycode = 65
@@ -20,11 +25,6 @@ unicode = 100
 [sub_resource type="InputEventKey" id="InputEventKey_405t4"]
 device = -1
 keycode = 4194325
-
-[sub_resource type="InputEventKey" id="InputEventKey_0ty8m"]
-device = -1
-keycode = 69
-unicode = 101
 
 [resource]
 script = ExtResource("1_405t4")

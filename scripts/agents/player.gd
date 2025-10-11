@@ -25,7 +25,6 @@ func _on_hitbox_entered(body: CollisionObject2D) -> void:
 	if body is JumpPad:
 		movement_controller.jump(jumpforce)
 		body.activate()
-		print("scheiße")
 		
 
 
