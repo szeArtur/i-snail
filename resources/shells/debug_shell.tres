@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cy4i21yitb6hm"]
+
+[ext_resource type="Script" uid="uid://cjccjs7oqnf0x" path="res://scripts/resource_scripts/item.gd" id="1_l7c5r"]
+[ext_resource type="Texture2D" uid="uid://ewxxa40dxrj4" path="res://textures/1_bit_pack.png" id="2_po8ks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ena0m"]
+atlas = ExtResource("2_po8ks")
+region = Rect2(64, 320, 16, 16)
+
+[resource]
+script = ExtResource("1_l7c5r")
+name = "debug_shell"
+sprite = SubResource("AtlasTexture_ena0m")
+metadata/_custom_type_script = "uid://cjccjs7oqnf0x"

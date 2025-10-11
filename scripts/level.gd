@@ -13,6 +13,7 @@ func _ready() -> void:
 	assert(enemy_manager, name + " has no EnemyManager")
 
 	collectable_manager.all_collectables_collected.connect(all_collectables_collected)
+	EventBus.connect("drop_item", spawn_collectable)
 
 
 func get_spawn_points(spawn_id: String = "") -> Array[SpawnPoint]:
@@ -21,3 +22,10 @@ func get_spawn_points(spawn_id: String = "") -> Array[SpawnPoint]:
 
 func all_collectables_collected():
 	EventBus.level_completed.emit()
+
+func spawn_collectable(item: Item, at: Vector2, toward: Vector2) -> void:
+	var collectable: Collectable = load("res://scenes/collectable.tscn").instantiate()
+	collectable.item = item
+	collectable.position = at
+	collectable.linear_velocity = toward
+	add_child(collectable)

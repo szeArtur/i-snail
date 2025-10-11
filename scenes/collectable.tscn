@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv61jprq08u6b"]
+[gd_scene load_steps=7 format=3 uid="uid://cv61jprq08u6b"]
 
 [ext_resource type="Script" uid="uid://p5bmwuf3wm15" path="res://scripts/collectable.gd" id="1_bkg8t"]
 [ext_resource type="Script" uid="uid://cjccjs7oqnf0x" path="res://scripts/resource_scripts/item.gd" id="2_1pg6c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_llfh3"]
+friction = 0.14
+bounce = 0.11
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_61c27"]
 
@@ -13,9 +17,11 @@ metadata/_custom_type_script = "uid://cjccjs7oqnf0x"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bkg8t"]
 
-[node name="Collectable" type="Area2D"]
+[node name="Collectable" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_llfh3")
+angular_damp = 20.0
 script = ExtResource("1_bkg8t")
 item = SubResource("Resource_ga2k0")
 
@@ -23,10 +29,6 @@ item = SubResource("Resource_ga2k0")
 shape = SubResource("CircleShape2D_bkg8t")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 bus = &"Effects"
