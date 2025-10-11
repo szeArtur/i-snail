@@ -48,7 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			floor_max_angle = PI / 4
 			up_direction = Vector2.UP
 			stick = false
-
+	
 
 func drop_shell() -> void:
 	if not shell:

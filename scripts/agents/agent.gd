@@ -74,9 +74,9 @@ class MovementController:
 	func jump(force:float):
 		agent.velocity.y = -force 
 		#agent.is_falling=true
-		print("gigamist")
+		
 	func fall(delta: float) -> void:
-		print("plums")
+		
 		agent.rotation = lerp(agent.rotation, 0.0 , delta)
 		agent.velocity += agent.get_gravity() * delta
 		agent.move_and_slide()
@@ -84,7 +84,7 @@ class MovementController:
 			agent.is_falling = false
 	
 	func move(delta: float, direction: Vector2, stick := false) -> void:
-		print(agent.velocity.y)
+	
 		if agent.is_falling:
 			fall(delta)
 			return
