@@ -30,10 +30,10 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("drop_item"):
 		drop_shell()
-	if event.is_action_pressed("slime"):
+	if event.is_action_pressed("stick"):
 			floor_max_angle = TAU
 			stick = true
-	if event.is_action_released("slime"):
+	if event.is_action_released("stick"):
 			floor_max_angle = PI / 4
 			up_direction = Vector2.UP
 			stick = false
