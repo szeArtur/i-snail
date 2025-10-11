@@ -6,7 +6,8 @@ const input_action_names: Dictionary[StringName, String] = {
 	&"move_left": "Move Left",
 	&"move_right": "Move Right",
 	&"drop_item": "Drop Item",
-	&"slime": "Toggle Slime-mode",
+	&"stick": "Slime-mode",
+	&"interact": "Interact",
 }
 
 @export var action_name: StringName
