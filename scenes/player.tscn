@@ -20,8 +20,9 @@ platform_floor_layers = 4294901761
 script = ExtResource("1_v0iea")
 shell_sprite = NodePath("ShellSprite")
 jumpforce = 500.0
+pull_speed_max = 2000.0
+pull_acceleration = 1000.0
 hitbox = NodePath("Hitbox")
-base_speed = 10000.0
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
