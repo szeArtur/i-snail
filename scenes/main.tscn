@@ -15,7 +15,6 @@
 script = ExtResource("1_o5qli")
 
 [node name="GameWorld" type="Node2D" parent="." groups=["Persist"]]
-visible = false
 script = ExtResource("2_sugp2")
 
 [node name="Camera" type="Camera2D" parent="GameWorld"]
@@ -25,7 +24,7 @@ script = ExtResource("3_jyhfs")
 stiffness = 0.4
 
 [node name="Player" parent="GameWorld" instance=ExtResource("4_tbgi4")]
-position = Vector2(346, -167)
+position = Vector2(58, -69)
 
 [node name="LevelRoot" type="Node2D" parent="GameWorld"]
 script = ExtResource("7_ya4ey")
