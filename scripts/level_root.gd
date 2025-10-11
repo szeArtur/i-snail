@@ -7,6 +7,8 @@ var active_level_name: StringName
 
 @export var levels: Dictionary[StringName, PackedScene]
 
+var current_level_index := 0
+
 
 func open(id : StringName):
 	if not levels.has(id):
@@ -19,6 +21,12 @@ func open(id : StringName):
 
 	add_child(active_level)
 
+func open_next_level() -> void:
+	current_level_index += 1
+	if current_level_index < levels.keys().size():
+		open(levels.keys()[current_level_index])
+	else:
+		print("GAME COMPLETE")
 
 func close():
 	if not active_level:

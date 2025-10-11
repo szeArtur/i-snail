@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by6ymyc8oo57a"]
+[gd_scene load_steps=12 format=3 uid="uid://by6ymyc8oo57a"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_xgd42"]
 [ext_resource type="Script" uid="uid://dmbtibb2bd40a" path="res://scripts/collectable_manager.gd" id="3_eoibp"]
@@ -6,12 +6,11 @@
 [ext_resource type="Script" uid="uid://dneq33pg1h1cu" path="res://scripts/enemy_manager.gd" id="5_8g0k0"]
 [ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_p2e1a"]
 [ext_resource type="Resource" uid="uid://cy4i21yitb6hm" path="res://resources/shells/debug_shell.tres" id="6_8g0k0"]
-[ext_resource type="PackedScene" uid="uid://c1l6hkhcejtlw" path="res://Box.tscn" id="7_8g0k0"]
-[ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="8_1ea61"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3el4s"]
-radius = 20.0
-height = 130.0
+[ext_resource type="PackedScene" uid="uid://jxksy6gjvswn" path="res://scenes/Platform.tscn" id="7_8g0k0"]
+[ext_resource type="Texture2D" uid="uid://bhqjrwqf62bwi" path="res://textures/Platform 3 Seiten.png" id="8_1ea61"]
+[ext_resource type="Texture2D" uid="uid://dgw5j0j77q1d6" path="res://textures/Plattform 2 Seiten.png" id="9_w2dm0"]
+[ext_resource type="Texture2D" uid="uid://cmtuiroablaoy" path="res://textures/Plattform Boden.png" id="10_kd8fp"]
+[ext_resource type="Texture2D" uid="uid://bh0k6xqk8wea8" path="res://textures/Hintergrund lvl 1.jpg" id="11_hktik"]
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("collectable_manager", "spawn_point_manager", "enemy_manager")]
 script = ExtResource("1_xgd42")
@@ -32,66 +31,103 @@ metadata/_custom_type_script = "uid://cgcvrx2rh0hk6"
 script = ExtResource("5_8g0k0")
 metadata/_custom_type_script = "uid://dneq33pg1h1cu"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9.000001, 39.000004)
-rotation = 1.281277
-shape = SubResource("CapsuleShape2D_3el4s")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(52, -19)
-rotation = 3.1428308
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("CapsuleShape2D_3el4s")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(100, -44.000004)
-rotation = 1.921857
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("CapsuleShape2D_3el4s")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-84.99999, 57.000008)
-rotation = 1.5129068
-shape = SubResource("CapsuleShape2D_3el4s")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-187, 59.000008)
-rotation = 1.5863407
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("CapsuleShape2D_3el4s")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-285, 54.999996)
-rotation = 1.6194552
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("CapsuleShape2D_3el4s")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(415, 208.00002)
-rotation = 1.5643253
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("CapsuleShape2D_3el4s")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(328.99994, 205)
-rotation = 1.6377592
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("CapsuleShape2D_3el4s")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(203.72552, 98)
-rotation = 1.6708738
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("CapsuleShape2D_3el4s")
-
 [node name="Collectable" parent="." instance=ExtResource("5_p2e1a")]
-position = Vector2(-157, 8)
+position = Vector2(225, -86)
 item = ExtResource("6_8g0k0")
 
-[node name="RigidBody2D" parent="." instance=ExtResource("7_8g0k0")]
-position = Vector2(-114, 8)
+[node name="Plattformen Hitbox" type="Node2D" parent="."]
+position = Vector2(28, 16)
+rotation = 1.5707964
 
-[node name="Jump_pad" parent="." instance=ExtResource("8_1ea61")]
-position = Vector2(-235, 24)
+[node name="Platform0" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+
+[node name="Platform-1" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(2.861023e-06, 76)
+
+[node name="Platform-2" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-39.999996, 116)
+rotation = -1.5707964
+
+[node name="Platform-3" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-79.99999, 127)
+
+[node name="Platform1" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-2.861023e-06, -63)
+
+[node name="Platform2" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-40.000004, -100.999985)
+rotation = -1.3089969
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Platform3" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-80.00001, -152)
+
+[node name="Platform4" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-80.00001, -226)
+
+[node name="Platform5" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-40.00001, -266)
+rotation = -1.5707964
+
+[node name="Platform6" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-1.335144e-05, -306)
+
+[node name="Platform7" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-1.5258789e-05, -350)
+
+[node name="Platform8" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-40.00002, -390)
+rotation = -1.553343
+
+[node name="Platform9" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-118, -402)
+rotation = -1.3089969
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Platform10" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-157.00002, -453)
+
+[node name="Platform11" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-157.00003, -525)
+
+[node name="Platform12" parent="Plattformen Hitbox" instance=ExtResource("7_8g0k0")]
+position = Vector2(-157.00003, -604)
+
+[node name="Plattformen Textures" type="Node2D" parent="."]
+position = Vector2(28, 16)
+rotation = 1.5707964
+
+[node name="Plattform 3 Seiten" type="Sprite2D" parent="Plattformen Textures"]
+z_index = 3
+position = Vector2(-49.933895, -186.75247)
+rotation = 3.1415925
+scale = Vector2(0.10753892, 0.16237657)
+texture = ExtResource("8_1ea61")
+
+[node name="Plattform 2 Seiten" type="Sprite2D" parent="Plattformen Textures"]
+z_index = 3
+position = Vector2(-90.00002, -486)
+rotation = 3.1415925
+scale = Vector2(0.07993805, 0.11631087)
+texture = ExtResource("9_w2dm0")
+
+[node name="Plattform Boden 1" type="Sprite2D" parent="Plattformen Textures"]
+z_index = 2
+position = Vector2(-1.0000143, -330)
+rotation = 3.1415925
+scale = Vector2(0.056332804, 0.0678552)
+texture = ExtResource("10_kd8fp")
+
+[node name="Plattform Boden 2" type="Sprite2D" parent="Plattformen Textures"]
+z_index = 2
+position = Vector2(2.0000029, 14.999999)
+rotation = 3.1415925
+scale = Vector2(0.08464498, 0.1525066)
+texture = ExtResource("10_kd8fp")
+
+[node name="Hintergrund" type="Sprite2D" parent="Plattformen Textures"]
+z_index = -4096
+position = Vector2(-170.36365, -253.45456)
+rotation = 3.1415925
+scale = Vector2(0.06991574, 0.107447185)
+texture = ExtResource("11_hktik")
