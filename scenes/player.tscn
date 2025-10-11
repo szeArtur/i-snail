@@ -1,38 +1,92 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6p80qds44o8p"]
+[gd_scene load_steps=14 format=3 uid="uid://c6p80qds44o8p"]
 
 [ext_resource type="Script" uid="uid://bgej3e4xcq0v2" path="res://scripts/agents/player.gd" id="1_v0iea"]
-[ext_resource type="Texture2D" uid="uid://ewxxa40dxrj4" path="res://textures/1_bit_pack.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="3_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://dd6ahlab8pe08" path="res://textures/Einzug_ins_haus1.png" id="3_smehm"]
+[ext_resource type="Texture2D" uid="uid://bv8u3ydmdvbxm" path="res://textures/Schnecke2.png" id="4_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://dxmv54brf4523" path="res://textures/Einzug_ins_haus2.png" id="4_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://cl63d4jv4tv0o" path="res://textures/Schnecke3.png" id="5_jej6c"]
+[ext_resource type="Texture2D" uid="uid://c2nvg7ockr3im" path="res://textures/Einzug_ins_haus3.png" id="5_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://x7uf6ygcyani" path="res://textures/Einzug_ins_haus4.png" id="6_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://b48lna1xcyfri" path="res://textures/Einzug_ins_haus7.png" id="7_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://c0u4y6yfvinjr" path="res://textures/Einzug_ins_Haus8.png" id="8_jej6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
 radius = 15.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
-atlas = ExtResource("2_qhqgy")
-region = Rect2(464, 336, 16, 16)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 radius = 18.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "hitbox")]
-z_index = 1
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1ej7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d2wvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3v2ag")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d2wvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3v2ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jej6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3v2ag")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_smehm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ur7pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y4r1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d2wvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3v2ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jej6c")
+}],
+"loop": false,
+"name": &"retract",
+"speed": 12.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "hitbox")]
+z_index = -1
 collision_layer = 2
 platform_floor_layers = 4294901761
 script = ExtResource("1_v0iea")
-shell_sprite = NodePath("ShellSprite")
 jumpforce = 500.0
 pull_speed_max = 2000.0
 pull_acceleration = 1000.0
+shell_sprite = NodePath("ShellSprite")
+sprite = NodePath("AnimatedSprite2D")
 hitbox = NodePath("Hitbox")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_tuyoq")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 4)
-scale = Vector2(2.9391692, 1.7832444)
-texture = SubResource("AtlasTexture_dqkch")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
@@ -44,3 +98,11 @@ shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="ShellSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -10)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(-1, -2)
+scale = Vector2(0.055, 0.055)
+sprite_frames = SubResource("SpriteFrames_f1ej7")
+animation = &"idle"
+autoplay = "idle"
