@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1l6hkhcejtlw"]
+[gd_scene load_steps=5 format=3 uid="uid://c1l6hkhcejtlw"]
 
 [ext_resource type="Texture2D" uid="uid://ccy6pncw045y1" path="res://textures/box.png" id="1_0bkxv"]
+[ext_resource type="Script" uid="uid://bq0ww5qqrfe5q" path="res://box.gd" id="1_jm3vu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0bkxv"]
 friction = 0.29
@@ -10,10 +11,12 @@ size = Vector2(305.87634, 304.34784)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 3
+mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_0bkxv")
 linear_damp = 1.0
 angular_damp_mode = 1
 angular_damp = 91.347
+script = ExtResource("1_jm3vu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5086899, -17.164001)
