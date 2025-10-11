@@ -79,6 +79,7 @@ class MovementController:
 		
 		agent.rotation = lerp(agent.rotation, 0.0 , delta)
 		agent.velocity += agent.get_gravity() * delta
+		agent.velocity.x *= 0.01 ** delta
 		agent.move_and_slide()
 		if agent.get_slide_collision_count() > 0:
 			agent.is_falling = false

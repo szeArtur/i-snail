@@ -10,6 +10,13 @@ extends Agent
 @export var max_grab_range := 300
 @export var jumpforce := 10.0
 
+@export_category("Pulling")
+@export var pull_speed_max: float
+@export var pull_acceleration: float
+
+var pulling := false
+var pull_target: Vector2
+
 
 func _ready() -> void:
 	super._ready()
@@ -28,22 +35,31 @@ func jumppad(force):
 
 
 func _process(_delta: float) -> void:
-	var closest_grab_point := get_closest_grab_point() 
-	if closest_grab_point:
-		closest_grab_point.label.show()
+	get_closest_grab_point() 
 
 
 func _physics_process(delta: float) -> void:
 	var movement_direction = Vector2.RIGHT * Input.get_axis("move_left", "move_right")
 	
+	if pulling:
+		velocity += (pull_target - position).normalized() * pull_acceleration * delta
+		move_and_slide()
+		if (pull_target - position).dot(velocity) < 0:
+			pulling = false
+			is_falling = true
+		return
+	
 	movement_controller.move(delta, movement_direction, stick)
+	
 	if not stick:
 		for i in get_slide_collision_count():
-			var collDesRigidBody2D = get_slide_collision(i)
-			if collDesRigidBody2D.get_collider() is RigidBody2D:
-				collDesRigidBody2D.get_collider().apply_central_impulse(-collDesRigidBody2D.get_normal()*4)
+			var collidng_body = get_slide_collision(i)
+			if collidng_body.get_collider() is RigidBody2D:
+				collidng_body.get_collider().apply_central_impulse(-collidng_body.get_normal()*4)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		pull_to_nearest_point()
 	if event.is_action_pressed("drop_item"):
 		drop_shell()
 	if event.is_action_pressed("stick"):
@@ -53,12 +69,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		floor_max_angle = PI / 4
 		up_direction = Vector2.UP
 		stick = false
-	if event.is_action_pressed("interact"):
-		pull_to_point()
 
 
-func pull_to_point() -> void:
-	pass
+func pull_to_nearest_point() -> void:
+	if not get_closest_grab_point():
+		return
+	
+	pull_target = get_closest_grab_point().position
+	is_falling = false
+	pulling = true
 
 func get_closest_grab_point() -> GrabPoint:
 	var grab_points := get_tree().get_nodes_in_group("GrabPoints")
