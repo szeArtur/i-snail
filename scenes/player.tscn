@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6p80qds44o8p"]
+[gd_scene load_steps=6 format=3 uid="uid://c6p80qds44o8p"]
 
 [ext_resource type="Script" uid="uid://bgej3e4xcq0v2" path="res://scripts/agents/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://ewxxa40dxrj4" path="res://textures/1_bit_pack.png" id="2_qhqgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
-radius = 15.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
 radius = 15.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
@@ -16,14 +13,13 @@ region = Rect2(464, 336, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 radius = 18.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "wheel1", "wheel2", "hitbox")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "hitbox")]
 z_index = 1
 collision_layer = 2
 platform_floor_layers = 4294901761
 script = ExtResource("1_v0iea")
 shell_sprite = NodePath("ShellSprite")
-wheel1 = NodePath("wheel1")
-wheel2 = NodePath("wheel2")
+jumpforce = 500.0
 hitbox = NodePath("Hitbox")
 base_speed = 10000.0
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
@@ -32,18 +28,6 @@ metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_tuyoq")
 
-[node name="wheel1" type="ShapeCast2D" parent="."]
-visible = false
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_qlg0r")
-target_position = Vector2(23, 29)
-
-[node name="wheel2" type="ShapeCast2D" parent="."]
-visible = false
-position = Vector2(-2, 0)
-shape = SubResource("CircleShape2D_qlg0r")
-target_position = Vector2(-24, 28)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 4)
 scale = Vector2(2.9391692, 1.7832444)
@@ -51,7 +35,7 @@ texture = SubResource("AtlasTexture_dqkch")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 8
+collision_mask = 72
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
 rotation = 1.5707964

@@ -71,15 +71,20 @@ class MovementController:
 	
 	func _init(parent: Agent) -> void:
 		agent = parent
-	
+	func jump(force:float):
+		agent.velocity.y = -force 
+		#agent.is_falling=true
+		
 	func fall(delta: float) -> void:
+		
 		agent.rotation = lerp(agent.rotation, 0.0 , delta)
 		agent.velocity += agent.get_gravity() * delta
 		agent.move_and_slide()
 		if agent.get_slide_collision_count() > 0:
 			agent.is_falling = false
 	
-	func _move(delta: float, direction: Vector2, stick := false) -> void:
+	func move(delta: float, direction: Vector2, stick := false) -> void:
+	
 		if agent.is_falling:
 			fall(delta)
 			return
