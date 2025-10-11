@@ -4,8 +4,10 @@ extends Agent
 
 @export var shell: Item
 @export var shell_sprite: Sprite2D
-@export var wheel1: ShapeCast2D
-@export var wheel2: ShapeCast2D
+
+@export_category("Gappl")
+@export var min_grab_range := 60
+@export var max_grab_range := 300
 
 
 func _ready() -> void:
@@ -51,14 +53,20 @@ func pull_to_point() -> void:
 
 func get_closest_grab_point() -> GrabPoint:
 	var grab_points := get_tree().get_nodes_in_group("GrabPoints")
-	if grab_points.is_empty():
-		return null
+	grab_points.sort_custom(get_closer_point)
+	
+	var closest_grab_point: GrabPoint = null
 	
 	for grab_point in grab_points:
-		grab_point.label.hide()
+		var point_outside_min_range = grab_point.position.distance_to(position) < max_grab_range
+		var point_inside_max_range = grab_point.position.distance_to(position) > min_grab_range
+		if point_outside_min_range and point_inside_max_range and closest_grab_point == null:
+			closest_grab_point = grab_point
+			grab_point.label.show()
+		else:
+			grab_point.label.hide()
 	
-	grab_points.sort_custom(get_closer_point)
-	return grab_points[0]
+	return closest_grab_point
 
 
 func get_closer_point(a: Node2D, b: Node2D) -> bool:
