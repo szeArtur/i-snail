@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvt4pkpi1lic4"]
+
+[ext_resource type="Script" uid="uid://dmbtibb2bd40a" path="res://scripts/collectable_manager.gd" id="1_bjgkq"]
+[ext_resource type="Script" uid="uid://cgcvrx2rh0hk6" path="res://scripts/spawn_point_manager.gd" id="2_c45tl"]
+[ext_resource type="Script" uid="uid://dneq33pg1h1cu" path="res://scripts/enemy_manager.gd" id="3_yg5mn"]
+[ext_resource type="PackedScene" uid="uid://jxksy6gjvswn" path="res://scenes/Platform.tscn" id="4_c45tl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CollectableManager" type="Node" parent="."]
+script = ExtResource("1_bjgkq")
+metadata/_custom_type_script = "uid://dmbtibb2bd40a"
+
+[node name="SpawnPointManager" type="Node" parent="."]
+script = ExtResource("2_c45tl")
+metadata/_custom_type_script = "uid://cgcvrx2rh0hk6"
+
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource("3_yg5mn")
+metadata/_custom_type_script = "uid://dneq33pg1h1cu"
+
+[node name="Node2D" parent="." instance=ExtResource("4_c45tl")]
+rotation = 1.5707964

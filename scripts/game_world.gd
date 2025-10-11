@@ -37,7 +37,7 @@ func reset() -> void:
 
 func on_level_completed() -> void:
 	await reset()
-	level_root.open("Level01Snail")
+	level_root.open_next_level()
 
 
 ## takes one frame to reset, [param await] this method to function properly
