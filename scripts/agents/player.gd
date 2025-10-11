@@ -8,6 +8,7 @@ extends Agent
 @export_category("Gappl")
 @export var min_grab_range := 60
 @export var max_grab_range := 300
+@export var jumpforce := 10.0
 
 
 func _ready() -> void:
@@ -21,6 +22,12 @@ func _on_hitbox_entered(body: CollisionObject2D) -> void:
 		shell = body.item
 		shell_sprite.texture = shell.sprite
 		body.pickup()
+	if body is JumpPad:
+		movement_controller.jump(jumpforce)
+		body.activate()
+		print("scheiße")
+		
+
 
 func _process(_delta: float) -> void:
 	var closest_grab_point := get_closest_grab_point() 
@@ -31,8 +38,12 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	var movement_direction = Vector2.RIGHT * Input.get_axis("move_left", "move_right")
 	
-	movement_controller._move(delta, movement_direction, stick)
-
+	movement_controller.move(delta, movement_direction, stick)
+	if not stick:
+		for i in get_slide_collision_count():
+			var collDesRigidBody2D = get_slide_collision(i)
+			if collDesRigidBody2D.get_collider() is RigidBody2D:
+				collDesRigidBody2D.get_collider().apply_central_impulse(-collDesRigidBody2D.get_normal()*4)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("drop_item"):

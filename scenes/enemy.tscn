@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwd76yaufli7f"]
+[gd_scene load_steps=6 format=3 uid="uid://cwd76yaufli7f"]
 
 [ext_resource type="Script" uid="uid://cow1mno6lo36i" path="res://scripts/agents/enemy.gd" id="1_md0e3"]
-[ext_resource type="Script" uid="uid://ddn068wfg1yls" path="res://scripts/movement_controller.gd" id="2_4ra3w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
 
@@ -14,14 +13,12 @@ radius = 164.11
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xwavj"]
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("collision_shape", "hitbox", "viewbox", "movement_controller")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "viewbox")]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_md0e3")
-collision_shape = NodePath("CollisionShape2D")
 hitbox = NodePath("Hitbox")
 viewbox = NodePath("Viewbox")
-movement_controller = NodePath("MovementController")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -46,8 +43,3 @@ debug_color = Color(0.498039, 0.541176, 0.592157, 0)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(18, 36)
 texture = SubResource("PlaceholderTexture2D_xwavj")
-
-[node name="MovementController" type="Node" parent="."]
-script = ExtResource("2_4ra3w")
-max_speed = 40.0
-metadata/_custom_type_script = "uid://ddn068wfg1yls"
