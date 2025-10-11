@@ -24,6 +24,7 @@ script = ExtResource("1_v0iea")
 shell_sprite = NodePath("ShellSprite")
 wheel1 = NodePath("wheel1")
 wheel2 = NodePath("wheel2")
+jumpforce = 500.0
 hitbox = NodePath("Hitbox")
 base_speed = 10000.0
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
@@ -51,7 +52,7 @@ texture = SubResource("AtlasTexture_dqkch")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 8
+collision_mask = 72
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
 rotation = 1.5707964

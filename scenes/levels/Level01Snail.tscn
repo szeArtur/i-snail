@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by6ymyc8oo57a"]
+[gd_scene load_steps=10 format=3 uid="uid://by6ymyc8oo57a"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_xgd42"]
 [ext_resource type="Script" uid="uid://dmbtibb2bd40a" path="res://scripts/collectable_manager.gd" id="3_eoibp"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://dneq33pg1h1cu" path="res://scripts/enemy_manager.gd" id="5_8g0k0"]
 [ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_p2e1a"]
 [ext_resource type="Resource" uid="uid://cy4i21yitb6hm" path="res://resources/shells/debug_shell.tres" id="6_8g0k0"]
+[ext_resource type="PackedScene" uid="uid://c1l6hkhcejtlw" path="res://Box.tscn" id="7_8g0k0"]
+[ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="8_1ea61"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3el4s"]
 radius = 20.0
@@ -87,3 +89,9 @@ shape = SubResource("CapsuleShape2D_3el4s")
 [node name="Collectable" parent="." instance=ExtResource("5_p2e1a")]
 position = Vector2(-157, 8)
 item = ExtResource("6_8g0k0")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("7_8g0k0")]
+position = Vector2(-114, 8)
+
+[node name="Jump_pad" parent="." instance=ExtResource("8_1ea61")]
+position = Vector2(-235, 24)
