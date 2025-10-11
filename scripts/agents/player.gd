@@ -25,7 +25,11 @@ func _physics_process(delta: float) -> void:
 	var movement_direction = Vector2.RIGHT * Input.get_axis("move_left", "move_right")
 	
 	movement_controller._move(delta, movement_direction, stick)
-
+	if not stick:
+		for i in get_slide_collision_count():
+			var collDesRigidBody2D = get_slide_collision(i)
+			if collDesRigidBody2D.get_collider() is RigidBody2D:
+				collDesRigidBody2D.get_collider().apply_central_impulse(-collDesRigidBody2D.get_normal()*4)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("drop_item"):
