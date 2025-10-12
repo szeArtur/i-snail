@@ -42,7 +42,6 @@ levels = Dictionary[StringName, PackedScene]({
 &"Level06Snail": ExtResource("11_jkv2x")
 })
 level_order = Array[StringName]([&"Level01Snail", &"Level02Snail", &"Level03Snail", &"Level04Snail", &"Level05Snail", &"Level06Snail"])
-current_level_index = 4
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("2_0wfyh")
