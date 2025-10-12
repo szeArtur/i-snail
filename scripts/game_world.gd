@@ -10,12 +10,17 @@ extends Node2D
 
 func _ready() -> void:
 	EventBus.level_completed.connect(on_level_completed)
+	EventBus.restart_level.connect(restart_level)
 
 
 func save_data() -> Dictionary:
 	return {
 		"level_name" : level_root.active_level_name
 	}
+
+func restart_level() -> void:
+	await reset()
+	level_root.restart_level()
 
 
 func load_data(data : Dictionary) -> void:

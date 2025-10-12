@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6p80qds44o8p"]
+[gd_scene load_steps=17 format=3 uid="uid://c6p80qds44o8p"]
 
 [ext_resource type="Script" uid="uid://bgej3e4xcq0v2" path="res://scripts/agents/player.gd" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://cvmcm2mldgf2r" path="res://scripts/movement_controller.gd" id="2_d2wvv"]
@@ -15,6 +15,9 @@
 [sub_resource type="Resource" id="Resource_3v2ag"]
 script = ExtResource("2_d2wvv")
 metadata/_custom_type_script = "uid://cvmcm2mldgf2r"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2wvv"]
+radius = 21.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
 radius = 15.0
@@ -80,6 +83,7 @@ animations = [{
 z_index = -1
 collision_layer = 2
 collision_mask = 65
+floor_max_angle = 3.1415927
 platform_floor_layers = 4294901761
 script = ExtResource("1_v0iea")
 jumpforce = 500.0
@@ -91,20 +95,27 @@ hitbox = NodePath("Hitbox")
 movement_controller = SubResource("Resource_3v2ag")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
+[node name="CollectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
+shape = SubResource("CircleShape2D_d2wvv")
+
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_tuyoq")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 72
+collision_mask = 32
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = -1
 position = Vector2(-1, -2)
 scale = Vector2(-0.055, 0.055)
 sprite_frames = SubResource("SpriteFrames_f1ej7")
@@ -119,3 +130,5 @@ scale = Vector2(0.6363636, 0.6363636)
 position = Vector2(636.36365, -272.72726)
 rotation = 3.1415927
 scale = Vector2(18.181818, -18.181818)
+
+[connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]

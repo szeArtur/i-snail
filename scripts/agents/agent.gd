@@ -14,6 +14,7 @@ extends CharacterBody2D
 
 @export var movement_controller := MovementController.new()
 
+
 var stick := false
 var on_floor := false
 
@@ -43,6 +44,10 @@ func _ready() -> void:
 
 func reset() -> void:
 	velocity = Vector2.ZERO
+	shell = null
+	shell_sprite.texture = null
+	stick = false
+	on_floor = false
 
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:

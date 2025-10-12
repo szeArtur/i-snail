@@ -24,3 +24,6 @@ func _on_back_pressed() -> void:
 
 func _on_apply_pressed() -> void:
 	OptionsManager.options.apply()
+
+func _on_restart_level_pressed() -> void:
+	GameManager.change_state(GameManager.GameState.RELOADING)

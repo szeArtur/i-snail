@@ -11,7 +11,8 @@ enum GameState {
 	LOADING,
 	SAVING,
 	CREATING_NEW_GAME,
-	OPTIONS
+	OPTIONS,
+	RELOADING,
 }
 
 var state_stack: Array[GameState] = [GameState.INITIALIZING]
