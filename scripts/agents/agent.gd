@@ -14,12 +14,14 @@ extends CharacterBody2D
 
 @export var movement_controller := MovementController.new()
 
+
 var stick := false
 var on_floor := false
 
 
 func _ready() -> void:
 	movement_controller.agent = self
+	floor_max_angle = PI
 	
 	if hitbox:
 		hitbox.body_entered.connect(_on_hitbox_entered)
@@ -43,7 +45,8 @@ func reset() -> void:
 	velocity = Vector2.ZERO
 	shell = null
 	shell_sprite.texture = null
-	print("aaaaa reseeet")
+	stick = false
+	on_floor = false
 
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:

@@ -76,7 +76,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "hitbox", "viewbox")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "hitbox")]
 z_index = -1
 collision_layer = 2
 platform_floor_layers = 4294901761
@@ -87,7 +87,6 @@ pull_acceleration = 1000.0
 shell_sprite = NodePath("AnimatedSprite2D/ShellSprite")
 sprite = NodePath("AnimatedSprite2D")
 hitbox = NodePath("Hitbox")
-viewbox = NodePath("")
 movement_controller = SubResource("Resource_3v2ag")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 

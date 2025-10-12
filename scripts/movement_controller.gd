@@ -29,13 +29,14 @@ func move(delta: float, direction: float, stick: bool) -> void:
 		agent.sprite.scale.x = sign(direction) * abs(agent.sprite.scale.y)
 		agent.sprite.play("move")
 	
-	agent.floor_max_angle = PI/2 if stick else PI / 4
+	#agent.floor_max_angle = 2.0 if stick else PI / 4
 	
 	var on_floor: bool = false
 	
 	agent.apply_floor_snap()
 	if agent.is_on_floor():
 		on_floor = true
+	if agent.is_on_wall(): print("lesgoooo")
 	
 	if cos(agent.rotation) < - 0.2:
 		on_floor = false
@@ -53,11 +54,9 @@ func move(delta: float, direction: float, stick: bool) -> void:
 	var speed = base_speed * (sticky_speed_multiplier if stick else 1.0)
 	var target_velocity := (Vector2.RIGHT * direction * speed * delta).rotated(agent.rotation)
 	if on_floor:
-		if stick:
 			agent.velocity = lerp(agent.velocity, target_velocity, delta * 10)
-		else:
-			agent.velocity.x = lerp(agent.velocity.x, target_velocity.x, delta * 10)
 	else:
-		agent.velocity.x = lerp(agent.velocity.x, target_velocity.x, delta * 10)
 		agent.velocity += agent.get_gravity() * delta
+	
+	agent.velocity *= 0.9 ** delta
 	agent.move_and_slide()
