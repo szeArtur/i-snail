@@ -3,6 +3,7 @@ extends Agent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_2d: RayCast2D = $AnimatedSprite2D/RayCast2D
 
+
 @export var jumpforce := 10.0
 @export var start_links:= true
 var player_senn_prog =0
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if ray_cast_2d.is_colliding():
+		#line_2d.
 		if ray_cast_2d.get_collider() is Player:
 			player_senn_prog=1
 	if player_senn_prog != 1:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cwd76yaufli7f"]
+[gd_scene load_steps=26 format=3 uid="uid://cwd76yaufli7f"]
 
 [ext_resource type="Script" uid="uid://cow1mno6lo36i" path="res://scripts/agents/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://dot1ryr56mqxo" path="res://textures/enemybuttonlv1/Buttonspawn1.png" id="2_1x4g4"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ccihwsj0ij750" path="res://textures/enemylv1haus/1boser_einzug_ins_haus6.png" id="19_1f82d"]
 [ext_resource type="Texture2D" uid="uid://ckmypedblkqrd" path="res://textures/enemylv1haus/1boser_einzug_ins_haus7.png" id="20_lioqc"]
 [ext_resource type="Texture2D" uid="uid://c7ahlqclmlcj3" path="res://textures/enemylv1haus/1boser_einzug_ins_haus8.png" id="21_0lg75"]
+[ext_resource type="Texture2D" uid="uid://trar3sdypi71" path="res://textures/Lichtkegel.png" id="22_wrm80"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
 
@@ -157,3 +158,11 @@ animation = &"button"
 [node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
 target_position = Vector2(6666.667, 0)
 collision_mask = 67
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D/RayCast2D"]
+position = Vector2(6658.403, 158.45326)
+rotation = 1.5707964
+scale = Vector2(0.735, 1.044)
+shadow_enabled = true
+texture = ExtResource("22_wrm80")
+texture_scale = 1.82
