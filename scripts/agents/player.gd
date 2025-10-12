@@ -18,6 +18,9 @@ var pulling := false
 var pull_target: Vector2
 
 
+func reset() -> void:
+	super.reset()
+	pulling = false
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:
 	GameManager.push_state(GameManager.GameState.RELOADING)

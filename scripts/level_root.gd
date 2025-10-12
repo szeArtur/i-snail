@@ -8,8 +8,9 @@ var active_level_name: StringName
 @onready var player: Player = $"../Player"
 
 @export var levels: Dictionary[StringName, PackedScene]
+@export var level_order: Array[StringName]
 
-var current_level_index := 0
+@export var current_level_index := 0
 
 
 
@@ -28,12 +29,12 @@ func open(id : StringName):
 	player.reset()
 
 func restart_level() -> void:
-	open(levels.keys()[current_level_index])
+	open(level_order[current_level_index])
 
 func open_next_level() -> void:
 	current_level_index += 1
 	if current_level_index < levels.keys().size():
-		open(levels.keys()[current_level_index])
+		open(level_order[current_level_index])
 	else:
 		print("GAME COMPLETE")
 	

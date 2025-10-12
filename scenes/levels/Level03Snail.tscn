@@ -1,0 +1,135 @@
+[gd_scene load_steps=18 format=3 uid="uid://cs2wubx7aq0hq"]
+
+[ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_ueoes"]
+[ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="2_rj34y"]
+[ext_resource type="Texture2D" uid="uid://bh0k6xqk8wea8" path="res://textures/Hintergrund lvl 1.jpg" id="3_ye4aa"]
+[ext_resource type="PackedScene" uid="uid://46a5jujykcq4" path="res://scenes/assets/platform/Plattform_Gras.tscn" id="4_ucamh"]
+[ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_hvlt1"]
+[ext_resource type="Resource" path="res://resources/shells/shell1.tres" id="6_dx2pm"]
+[ext_resource type="PackedScene" uid="uid://c1l6hkhcejtlw" path="res://scenes/Box.tscn" id="7_hvlt1"]
+[ext_resource type="PackedScene" uid="uid://csaygmyd24rcn" path="res://scenes/assets/platform/platform01_grass.tscn" id="8_dx2pm"]
+[ext_resource type="PackedScene" uid="uid://mpphivskeb28" path="res://scenes/assets/platform/platform02_grass.tscn" id="9_aft0w"]
+[ext_resource type="PackedScene" uid="uid://fnlsn2syedx5" path="res://scenes/assets/platform/platform03_grass.tscn" id="10_jk1qk"]
+[ext_resource type="PackedScene" uid="uid://bb3ttno6kntd6" path="res://scenes/assets/salt_crystal_01.tscn" id="11_jk1qk"]
+[ext_resource type="PackedScene" uid="uid://blbewg3iufxov" path="res://scenes/assets/platform/platform_wood.tscn" id="12_8xq3f"]
+[ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="13_0uhq7"]
+[ext_resource type="PackedScene" uid="uid://cb0qe70t3smd7" path="res://scenes/assets/salt_crystal_02.tscn" id="14_46p1f"]
+[ext_resource type="PackedScene" uid="uid://cffwdi6f5uxss" path="res://scenes/assets/platform/platform_flower.tscn" id="15_wswrs"]
+[ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/grab_point.tscn" id="16_f0qni"]
+[ext_resource type="PackedScene" path="res://scenes/assets/win_area.tscn" id="17_f0qni"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player_spawn")]
+script = ExtResource("1_ueoes")
+player_spawn = NodePath("SpawnPoint")
+metadata/_custom_type_script = "uid://drqipnirsffjv"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(16, -257)
+script = ExtResource("2_rj34y")
+metadata/_custom_type_script = "uid://bkcu3sc0w4ul3"
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.66, 0.66, 0.66, 1)
+z_index = -10
+z_as_relative = false
+position = Vector2(320, -140.00002)
+rotation = -1.5707964
+scale = Vector2(0.07944904, 0.0937404)
+texture = ExtResource("3_ye4aa")
+
+[node name="Node2D" parent="." instance=ExtResource("4_ucamh")]
+position = Vector2(-9, -225)
+scale = Vector2(0.8, 0.8)
+
+[node name="Shell" parent="." instance=ExtResource("5_hvlt1")]
+z_as_relative = false
+position = Vector2(16, -264)
+item = ExtResource("6_dx2pm")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("7_hvlt1")]
+z_index = 1
+z_as_relative = false
+position = Vector2(60, -241)
+scale = Vector2(0.75, 0.75)
+
+[node name="Platform" parent="." instance=ExtResource("8_dx2pm")]
+position = Vector2(303, -23)
+scale = Vector2(0.175, 0.175)
+
+[node name="SaltCrystal1" parent="." instance=ExtResource("11_jk1qk")]
+z_index = 0
+z_as_relative = false
+position = Vector2(188.00002, -1.9999981)
+rotation = -1.419594
+scale = Vector2(0.5, 0.5)
+
+[node name="Platform2" parent="." instance=ExtResource("9_aft0w")]
+position = Vector2(114, 32)
+scale = Vector2(0.15, 0.15)
+
+[node name="Platform3" parent="." instance=ExtResource("10_jk1qk")]
+position = Vector2(14, 2.9999995)
+scale = Vector2(-0.05, 0.05)
+
+[node name="Node2D2" parent="." instance=ExtResource("4_ucamh")]
+position = Vector2(532, 54)
+scale = Vector2(1.1, 1.1)
+
+[node name="Node2D3" parent="." instance=ExtResource("12_8xq3f")]
+position = Vector2(434.99997, -151.00002)
+rotation = 1.5707964
+scale = Vector2(0.8, 0.8)
+
+[node name="Node2D4" parent="." instance=ExtResource("12_8xq3f")]
+z_index = -1
+position = Vector2(392.99997, -229)
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D6" parent="." instance=ExtResource("12_8xq3f")]
+z_index = -1
+position = Vector2(399.99997, -336)
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D5" parent="." instance=ExtResource("12_8xq3f")]
+position = Vector2(355, -281)
+rotation = 1.5707964
+scale = Vector2(0.6, 0.6)
+
+[node name="Jump_pad" parent="." instance=ExtResource("13_0uhq7")]
+position = Vector2(559, 27)
+scale = Vector2(0.75, 0.75)
+
+[node name="Node2D7" parent="." instance=ExtResource("12_8xq3f")]
+z_index = -1
+position = Vector2(476.99997, -77)
+scale = Vector2(0.5, 0.5)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("7_hvlt1")]
+position = Vector2(497.99997, -79)
+scale = Vector2(0.5, 0.5)
+
+[node name="SaltCrystal2" parent="." instance=ExtResource("14_46p1f")]
+z_index = -2
+z_as_relative = false
+position = Vector2(443, -94.00001)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D8" parent="." instance=ExtResource("15_wswrs")]
+z_index = -6
+z_as_relative = false
+position = Vector2(485, -144)
+scale = Vector2(1.2, 1.2)
+
+[node name="GrabPoint" parent="." instance=ExtResource("16_f0qni")]
+position = Vector2(443, -311)
+
+[node name="Platform4" parent="." instance=ExtResource("8_dx2pm")]
+position = Vector2(619, -215)
+rotation = -1.5707964
+
+[node name="Node2D9" parent="." instance=ExtResource("12_8xq3f")]
+position = Vector2(720, -338)
+
+[node name="Win Area" parent="." instance=ExtResource("17_f0qni")]
+position = Vector2(681, -293)

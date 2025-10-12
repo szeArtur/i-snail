@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxx1gwp2tq8xm"]
+
+[ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_tns6y"]
+[ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="2_0jtjo"]
+[ext_resource type="Texture2D" uid="uid://bh0k6xqk8wea8" path="res://textures/Hintergrund lvl 1.jpg" id="3_0jtjo"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player_spawn")]
+script = ExtResource("1_tns6y")
+player_spawn = NodePath("SpawnPoint")
+metadata/_custom_type_script = "uid://drqipnirsffjv"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+script = ExtResource("2_0jtjo")
+metadata/_custom_type_script = "uid://bkcu3sc0w4ul3"
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.66, 0.66, 0.66, 1)
+z_index = -10
+z_as_relative = false
+position = Vector2(320, -140.00002)
+rotation = -1.5707964
+scale = Vector2(0.07944904, 0.0937404)
+texture = ExtResource("3_0jtjo")
