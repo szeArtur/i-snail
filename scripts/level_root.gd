@@ -12,8 +12,6 @@ var active_level_name: StringName
 var current_level_index := 0
 
 
-func _ready() -> void:
-	EventBus.restart_level.connect(restart_level)
 
 func open(id : StringName):
 	if not levels.has(id):

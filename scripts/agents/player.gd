@@ -12,13 +12,17 @@ extends Agent
 @export var pull_acceleration: float
 
 @onready var item_drop_position = $AnimatedSprite2D/ItemDropPosition
+@onready var collection_area = $CollectionArea
 
 var pulling := false
 var pull_target: Vector2
 
 
 
-func _on_hitbox_entered(body: CollisionObject2D) -> void:
+func _on_hitbox_entered(_body: CollisionObject2D) -> void:
+	GameManager.push_state(GameManager.GameState.RELOADING)
+
+func _on_collection_area_body_entered(body: Node2D) -> void:
 	if body is Collectable:
 		shell = body.item
 		shell_sprite.texture = shell.sprite
