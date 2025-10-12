@@ -1,0 +1,92 @@
+[gd_resource type="Resource" script_class="Dialoque" load_steps=16 format=3 uid="uid://buo5g8wo0ypvd"]
+
+[ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="1_6p75y"]
+[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="2_nncwg"]
+
+[sub_resource type="Resource" id="Resource_iddvo"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "You sure did something there, agent. These buttons the boursnailsie has sure are concerning. Makes me wonder, if we are not already too late.
+
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_a5b66"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "Let me check what these plans say…"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_1lbub"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "…"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_dptos"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "…what?!"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_5pwi1"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "The plans for the saltbomb are incomplete?!"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_hqqkf"]
+script = ExtResource("1_6p75y")
+name = "Agent Openslimer"
+position = 2
+text = "(I wonder if they wanted to say that out loud)"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_y6axe"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "Agent. You truly disappointed me, not that I should have expected anything else from a slug, but as it stands, this is absluglutely unacceptable."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_01nfv"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "We, the revolusnailnaries must come to possess this absolute masterpiece of ensnailneering."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_uiink"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "You must go into the opposing snails salt factory immediately."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_dikvg"]
+script = ExtResource("1_6p75y")
+name = "Agent Openslimer"
+position = 2
+text = "Yes boss."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_liy8k"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "And Agent…"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_1gmgx"]
+script = ExtResource("1_6p75y")
+name = "Wineberg"
+text = "… I will accept no further sluggishness from you."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_3ckw0"]
+script = ExtResource("1_6p75y")
+name = "Agent Oppenslimer"
+position = 2
+text = "Yes boss."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[resource]
+script = ExtResource("2_nncwg")
+messages = Array[ExtResource("1_6p75y")]([SubResource("Resource_iddvo"), SubResource("Resource_a5b66"), SubResource("Resource_1lbub"), SubResource("Resource_dptos"), SubResource("Resource_5pwi1"), SubResource("Resource_hqqkf"), SubResource("Resource_y6axe"), SubResource("Resource_01nfv"), SubResource("Resource_uiink"), SubResource("Resource_dikvg"), SubResource("Resource_liy8k"), SubResource("Resource_1gmgx"), SubResource("Resource_3ckw0")])
+metadata/_custom_type_script = "uid://6cfcvrv5o8fd"
