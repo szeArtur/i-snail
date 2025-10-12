@@ -160,9 +160,9 @@ target_position = Vector2(6666.667, 0)
 collision_mask = 67
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D/RayCast2D"]
-position = Vector2(6658.403, 158.45326)
+position = Vector2(3333.3328, -0.0001457046)
 rotation = 1.5707964
-scale = Vector2(0.735, 1.044)
+scale = Vector2(0.735, 0.522)
 shadow_enabled = true
 texture = ExtResource("22_wrm80")
 texture_scale = 1.82

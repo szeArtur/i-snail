@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://by6ymyc8oo57a"]
+[gd_scene load_steps=16 format=3 uid="uid://by6ymyc8oo57a"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_xgd42"]
 [ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="3_pqhrq"]
@@ -15,9 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://fihtma51h7gl" path="res://scenes/assets/win_area.tscn" id="14_kv4k8"]
 [ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="14_lxjy1"]
 [ext_resource type="PackedScene" uid="uid://c1l6hkhcejtlw" path="res://Box.tscn" id="15_kv4k8"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kv4k8"]
-polygon = PackedVector2Array(-478, 213, -362, 213, -354, 157, -334, 122, -267, 111, -198, 126, -181, 198, -172, 183, -154, 174, -130, 170, -104, 179, -93, 197, -91, 204, -85, 203, -49, 35, -18, 27, 140, 19, 147, 245, -479, 241)
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("spawn_point_manager", "player_spawn")]
 script = ExtResource("1_xgd42")
@@ -72,10 +69,6 @@ position = Vector2(530, -76)
 [node name="GrabPoint" parent="." instance=ExtResource("12_hktik")]
 position = Vector2(473, -198)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-position = Vector2(507, -194)
-occluder = SubResource("OccluderPolygon2D_kv4k8")
-
 [node name="Enemy" parent="." instance=ExtResource("5_w2dm0")]
 position = Vector2(507, -194)
 
@@ -83,4 +76,4 @@ position = Vector2(507, -194)
 position = Vector2(680, -192)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("15_kv4k8")]
-position = Vector2(253, -97)
+position = Vector2(384, -252)
