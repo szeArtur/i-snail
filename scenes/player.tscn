@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://cvmcm2mldgf2r"
 radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
-radius = 18.0
+radius = 18.027756
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f1ej7"]
 animations = [{
@@ -76,7 +76,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "hitbox")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "hitbox", "viewbox")]
 z_index = -1
 collision_layer = 2
 platform_floor_layers = 4294901761
@@ -87,6 +87,7 @@ pull_acceleration = 1000.0
 shell_sprite = NodePath("AnimatedSprite2D/ShellSprite")
 sprite = NodePath("AnimatedSprite2D")
 hitbox = NodePath("Hitbox")
+viewbox = NodePath("")
 movement_controller = SubResource("Resource_3v2ag")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
@@ -113,3 +114,8 @@ autoplay = "idle"
 [node name="ShellSprite" type="Sprite2D" parent="AnimatedSprite2D"]
 position = Vector2(-181.81818, -163.63637)
 scale = Vector2(0.6363636, 0.6363636)
+
+[node name="ItemDropPosition" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(636.36365, -272.72726)
+rotation = 3.1415927
+scale = Vector2(18.181818, -18.181818)

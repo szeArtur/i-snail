@@ -15,6 +15,7 @@ extends CharacterBody2D
 @export var movement_controller := MovementController.new()
 
 var stick := false
+var on_floor := false
 
 
 func _ready() -> void:
@@ -38,9 +39,8 @@ func _ready() -> void:
 		viewbox.body_exited.connect(_on_viewbox_exited)
 		viewbox.area_exited.connect(_on_viewbox_exited)
 
-
 func reset() -> void:
-	velocity = Vector2(0,0)
+	velocity = Vector2.ZERO
 
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:

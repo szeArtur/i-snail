@@ -11,6 +11,8 @@ extends Agent
 @export var pull_speed_max: float
 @export var pull_acceleration: float
 
+@onready var item_drop_position = $AnimatedSprite2D/ItemDropPosition
+
 var pulling := false
 var pull_target: Vector2
 
@@ -93,8 +95,8 @@ func drop_shell() -> void:
 	if not shell:
 		return
 	
-	var at = position + global_transform.basis_xform(Vector2(30, -30))
-	var toward = velocity + global_transform.basis_xform(Vector2(200, -300))
+	var at = item_drop_position.global_position
+	var toward = velocity + (item_drop_position.global_position - global_position) * 3
 	EventBus.drop_item.emit(shell, at, toward)
 	shell = null
 	shell_sprite.texture = null

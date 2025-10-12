@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cwd76yaufli7f"]
+[gd_scene load_steps=14 format=3 uid="uid://cwd76yaufli7f"]
 
 [ext_resource type="Script" uid="uid://cow1mno6lo36i" path="res://scripts/agents/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="2_8qclf"]
@@ -16,9 +16,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4w8v"]
 radius = 14.0
 height = 48.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
-radius = 164.11
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1x4g4"]
 animations = [{
@@ -82,7 +79,7 @@ script = ExtResource("1_md0e3")
 start_links = false
 sprite = NodePath("AnimatedSprite2D")
 hitbox = NodePath("Hitbox")
-viewbox = NodePath("Viewbox")
+viewbox = NodePath("")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -95,14 +92,6 @@ collision_mask = 130
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CapsuleShape2D_c4w8v")
 debug_color = Color(1, 0, 0.960784, 0.419608)
-
-[node name="Viewbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewbox"]
-shape = SubResource("CircleShape2D_md0e3")
-debug_color = Color(0.498039, 0.541176, 0.592157, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1

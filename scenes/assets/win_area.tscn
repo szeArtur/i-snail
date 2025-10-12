@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://fihtma51h7gl"]
+
+[ext_resource type="Script" uid="uid://b651orxf420wd" path="res://scenes/assets/win_area.gd" id="1_wwske"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6jafi"]
+radius = 34.48188
+
+[node name="Win Area" type="Area2D"]
+collision_layer = 256
+collision_mask = 2
+script = ExtResource("1_wwske")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6jafi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
