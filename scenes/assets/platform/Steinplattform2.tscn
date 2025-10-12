@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://j24gkoobncxf"]
+
+[ext_resource type="Texture2D" uid="uid://vkvva0fcf450" path="res://textures/Steinplattform2.png" id="1_gosty"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qer37"]
+height = 86.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a81fl"]
+height = 82.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eh2yy"]
+height = 114.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_swf4v"]
+height = 112.160515
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_gosty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 46)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qer37")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1, -47)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_a81fl")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-29, -1)
+shape = SubResource("CapsuleShape2D_eh2yy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(35, -1)
+rotation = -0.05235988
+shape = SubResource("CapsuleShape2D_swf4v")
