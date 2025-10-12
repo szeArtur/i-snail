@@ -19,11 +19,11 @@ angular_damp = 91.347
 script = ExtResource("1_jm3vu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5086899, -17.164001)
-scale = Vector2(0.115, 0.115)
+position = Vector2(-0.4406929, -36.724)
+scale = Vector2(0.23, 0.23)
 shape = SubResource("RectangleShape2D_jm3vu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.0792007, -20.664001)
-scale = Vector2(0.0368, 0.0368)
+position = Vector2(5.067997, -43.559998)
+scale = Vector2(0.072, 0.072)
 texture = ExtResource("1_0bkxv")

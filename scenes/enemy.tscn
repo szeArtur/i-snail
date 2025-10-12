@@ -1,15 +1,26 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwd76yaufli7f"]
+[gd_scene load_steps=25 format=3 uid="uid://cwd76yaufli7f"]
 
 [ext_resource type="Script" uid="uid://cow1mno6lo36i" path="res://scripts/agents/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="2_8qclf"]
-[ext_resource type="Texture2D" uid="uid://bv8u3ydmdvbxm" path="res://textures/Schnecke2.png" id="3_w8i8w"]
-[ext_resource type="Texture2D" uid="uid://cl63d4jv4tv0o" path="res://textures/Schnecke3.png" id="4_otmr2"]
-[ext_resource type="Texture2D" uid="uid://dd6ahlab8pe08" path="res://textures/Einzug_ins_haus1.png" id="5_wtq4b"]
-[ext_resource type="Texture2D" uid="uid://dxmv54brf4523" path="res://textures/Einzug_ins_haus2.png" id="6_j0cyh"]
-[ext_resource type="Texture2D" uid="uid://c2nvg7ockr3im" path="res://textures/Einzug_ins_haus3.png" id="7_g0wcc"]
-[ext_resource type="Texture2D" uid="uid://x7uf6ygcyani" path="res://textures/Einzug_ins_haus4.png" id="8_s1ycm"]
-[ext_resource type="Texture2D" uid="uid://b48lna1xcyfri" path="res://textures/Einzug_ins_haus7.png" id="9_shcg2"]
-[ext_resource type="Texture2D" uid="uid://c0u4y6yfvinjr" path="res://textures/Einzug_ins_Haus8.png" id="10_ile5s"]
+[ext_resource type="Texture2D" uid="uid://dot1ryr56mqxo" path="res://textures/enemybuttonlv1/Buttonspawn1.png" id="2_1x4g4"]
+[ext_resource type="Texture2D" uid="uid://davhg4bh5tnfu" path="res://textures/enemybuttonlv1/Buttonspawn3.png" id="3_2pwtc"]
+[ext_resource type="Texture2D" uid="uid://b3t0q4yargukk" path="res://textures/enemybuttonlv1/Buttonspawn2.png" id="4_rogs8"]
+[ext_resource type="Texture2D" uid="uid://c7qy6x58rm62p" path="res://textures/enemybuttonlv1/Schneckenbutton1.png" id="5_wrm80"]
+[ext_resource type="Texture2D" uid="uid://1qlifmpo4up7" path="res://textures/enemybuttonlv1/Schneckenbutton2.png" id="6_6awcb"]
+[ext_resource type="Texture2D" uid="uid://dwc26cvg6fkdc" path="res://textures/enemybuttonlv1/Schneckenbutton3.png" id="7_wjec0"]
+[ext_resource type="Texture2D" uid="uid://rueedply2s0d" path="res://textures/enemybuttonlv1/Schneckenbutton4.png" id="8_i4rgx"]
+[ext_resource type="Texture2D" uid="uid://bdo3s20stuoii" path="res://textures/enemybuttonlv1/Schneckenbutton5.png" id="9_2mchx"]
+[ext_resource type="Texture2D" uid="uid://b0qq88shlygnb" path="res://textures/enemybuttonlv1/Schneckenbutton6.png" id="10_t3vcr"]
+[ext_resource type="Texture2D" uid="uid://3xr0fie1wbln" path="res://textures/enemylv1laufen/1bose_snegge1.png" id="11_rogs8"]
+[ext_resource type="Texture2D" uid="uid://bx5ota76e885u" path="res://textures/enemylv1laufen/1bose_snegge2.png" id="12_wrm80"]
+[ext_resource type="Texture2D" uid="uid://cvooaj2m3naxq" path="res://textures/enemylv1laufen/1bose_snegge3.png" id="13_6awcb"]
+[ext_resource type="Texture2D" uid="uid://imygrgtwpf2h" path="res://textures/enemylv1haus/1boser_einzug_ins_haus1.png" id="14_wjec0"]
+[ext_resource type="Texture2D" uid="uid://cdbbl2v11x4uk" path="res://textures/enemylv1haus/1boser_einzug_ins_haus2.png" id="15_i4rgx"]
+[ext_resource type="Texture2D" uid="uid://b3rvafio5mwyf" path="res://textures/enemylv1haus/1boser_einzug_ins_haus3.png" id="16_2mchx"]
+[ext_resource type="Texture2D" uid="uid://bafpmgr4wdqiw" path="res://textures/enemylv1haus/1boser_einzug_ins_haus4.png" id="17_t3vcr"]
+[ext_resource type="Texture2D" uid="uid://bsjb3jnoqsbql" path="res://textures/enemylv1haus/1boser_einzug_ins_haus5.png" id="18_qaulx"]
+[ext_resource type="Texture2D" uid="uid://ccihwsj0ij750" path="res://textures/enemylv1haus/1boser_einzug_ins_haus6.png" id="19_1f82d"]
+[ext_resource type="Texture2D" uid="uid://ckmypedblkqrd" path="res://textures/enemylv1haus/1boser_einzug_ins_haus7.png" id="20_lioqc"]
+[ext_resource type="Texture2D" uid="uid://c7ahlqclmlcj3" path="res://textures/enemylv1haus/1boser_einzug_ins_haus8.png" id="21_0lg75"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
 
@@ -21,10 +32,48 @@ height = 48.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8qclf")
+"texture": ExtResource("2_1x4g4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_w8i8w")
+"texture": ExtResource("3_2pwtc")
+}, {
+"duration": 4.0,
+"texture": ExtResource("4_rogs8")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_wrm80")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_6awcb")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_wjec0")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_i4rgx")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_2mchx")
+}, {
+"duration": 4.0,
+"texture": ExtResource("10_t3vcr")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_2mchx")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_i4rgx")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_wjec0")
+}],
+"loop": false,
+"name": &"button",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rogs8")
 }],
 "loop": true,
 "name": &"idle",
@@ -32,16 +81,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8qclf")
+"texture": ExtResource("11_rogs8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_w8i8w")
+"texture": ExtResource("12_wrm80")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_otmr2")
+"texture": ExtResource("13_6awcb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_w8i8w")
+"texture": ExtResource("12_wrm80")
 }],
 "loop": true,
 "name": &"move",
@@ -49,29 +98,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_wtq4b")
+"texture": ExtResource("14_wjec0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_j0cyh")
+"texture": ExtResource("15_i4rgx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_g0wcc")
+"texture": ExtResource("16_2mchx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_s1ycm")
+"texture": ExtResource("17_t3vcr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_shcg2")
+"texture": ExtResource("18_qaulx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_ile5s")
+"texture": ExtResource("19_1f82d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_lioqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_0lg75")
 }],
 "loop": false,
 "name": &"retract",
 "speed": 12.0
 }]
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "hitbox", "viewbox")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "hitbox")]
 collision_layer = 4
 collision_mask = 5
 floor_max_angle = 3.1415927
@@ -79,7 +134,6 @@ script = ExtResource("1_md0e3")
 start_links = false
 sprite = NodePath("AnimatedSprite2D")
 hitbox = NodePath("Hitbox")
-viewbox = NodePath("")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -95,8 +149,11 @@ debug_color = Color(1, 0, 0.960784, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(-1, -2)
-scale = Vector2(0.055, 0.055)
+position = Vector2(-5.9604645e-08, -5)
+scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_1x4g4")
-animation = &"retract"
-autoplay = "idle"
+animation = &"button"
+
+[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(6666.667, 0)
+collision_mask = 67

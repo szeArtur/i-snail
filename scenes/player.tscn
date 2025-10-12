@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://c6p80qds44o8p"]
 
 [ext_resource type="Script" uid="uid://bgej3e4xcq0v2" path="res://scripts/agents/player.gd" id="1_v0iea"]
-[ext_resource type="Script" uid="uid://cvmcm2mldgf2r" path="res://scripts/movement_controller.gd" id="2_d2wvv"]
+[ext_resource type="Script" path="res://scripts/movement_controller.gd" id="2_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="3_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://dd6ahlab8pe08" path="res://textures/Einzug_ins_haus1.png" id="3_smehm"]
 [ext_resource type="Texture2D" uid="uid://bv8u3ydmdvbxm" path="res://textures/Schnecke2.png" id="4_3v2ag"]
@@ -76,9 +76,10 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "hitbox", "viewbox")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "hitbox")]
 z_index = -1
 collision_layer = 2
+collision_mask = 65
 platform_floor_layers = 4294901761
 script = ExtResource("1_v0iea")
 jumpforce = 500.0
@@ -87,7 +88,6 @@ pull_acceleration = 1000.0
 shell_sprite = NodePath("AnimatedSprite2D/ShellSprite")
 sprite = NodePath("AnimatedSprite2D")
 hitbox = NodePath("Hitbox")
-viewbox = NodePath("")
 movement_controller = SubResource("Resource_3v2ag")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 

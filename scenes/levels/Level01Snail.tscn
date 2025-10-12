@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://by6ymyc8oo57a"]
+[gd_scene load_steps=16 format=3 uid="uid://by6ymyc8oo57a"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_xgd42"]
 [ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="3_pqhrq"]
@@ -8,12 +8,13 @@
 [ext_resource type="Resource" uid="uid://dlpafekiij322" path="res://resources/shells/shell1.tres" id="6_pqhrq"]
 [ext_resource type="Texture2D" uid="uid://bh0k6xqk8wea8" path="res://textures/Hintergrund lvl 1.jpg" id="11_hktik"]
 [ext_resource type="PackedScene" uid="uid://mpphivskeb28" path="res://scenes/assets/platform/platform02_grass.tscn" id="11_pqhrq"]
-[ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/grab_point.tscn" id="12_hktik"]
+[ext_resource type="PackedScene" path="res://scenes/grab_point.tscn" id="12_hktik"]
 [ext_resource type="PackedScene" uid="uid://csaygmyd24rcn" path="res://scenes/assets/platform/platform01_grass.tscn" id="12_lxjy1"]
 [ext_resource type="PackedScene" uid="uid://fnlsn2syedx5" path="res://scenes/assets/platform/platform03_grass.tscn" id="13_kv4k8"]
 [ext_resource type="PackedScene" uid="uid://n4y7igwhb6wj" path="res://scenes/turnaround_enemy.tscn" id="13_pqhrq"]
 [ext_resource type="PackedScene" uid="uid://fihtma51h7gl" path="res://scenes/assets/win_area.tscn" id="14_kv4k8"]
 [ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="14_lxjy1"]
+[ext_resource type="PackedScene" uid="uid://c1l6hkhcejtlw" path="res://Box.tscn" id="15_kv4k8"]
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("spawn_point_manager", "player_spawn")]
 script = ExtResource("1_xgd42")
@@ -39,7 +40,7 @@ scale = Vector2(0.07944904, 0.0937404)
 texture = ExtResource("11_hktik")
 
 [node name="Shell" parent="." instance=ExtResource("5_p2e1a")]
-position = Vector2(225, -86)
+position = Vector2(169, -126)
 item = ExtResource("6_pqhrq")
 
 [node name="Area2D" parent="." instance=ExtResource("13_pqhrq")]
@@ -73,3 +74,6 @@ position = Vector2(507, -194)
 
 [node name="Win Area" parent="." instance=ExtResource("14_kv4k8")]
 position = Vector2(680, -192)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("15_kv4k8")]
+position = Vector2(253, -97)
