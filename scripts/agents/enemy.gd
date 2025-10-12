@@ -48,3 +48,4 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	print(body.get_linear_velocity().length())
 	if body.get_linear_velocity().length() >=70:
 		queue_free()
+	
