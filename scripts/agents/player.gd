@@ -17,6 +17,8 @@ extends Agent
 var pulling := false
 var pull_target: Vector2
 
+var ability: Ability
+
 
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:
@@ -56,7 +58,8 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		pull_to_nearest_point()
+		if shell and shell.ability.type == 1:
+			pull_to_nearest_point()
 	if event.is_action_pressed("drop_item"):
 		drop_shell()
 	if event.is_action_pressed("stick"):
@@ -81,7 +84,8 @@ func get_closest_grab_point() -> GrabPoint:
 	for grab_point in grab_points:
 		var point_outside_min_range = grab_point.position.distance_to(position) < max_grab_range
 		var point_inside_max_range = grab_point.position.distance_to(position) > min_grab_range
-		if point_outside_min_range and point_inside_max_range and closest_grab_point == null:
+		if (point_outside_min_range and point_inside_max_range and closest_grab_point == null and 
+				shell and shell.ability.type == 1):
 			closest_grab_point = grab_point
 			grab_point.label.show()
 		else:
