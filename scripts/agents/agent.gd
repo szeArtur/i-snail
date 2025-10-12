@@ -12,16 +12,14 @@ extends CharacterBody2D
 @export var hurtbox: Area2D
 @export var viewbox: Area2D
 
-@export var base_speed := 8000.0
-@export var sticky_speed_multiplier := 0.7
+@export var movement_controller := MovementController.new()
 
-var initial_position: Vector2
-var movement_controller := MovementController.new(self)
-var is_falling := false
 var stick := false
 
 
 func _ready() -> void:
+	movement_controller.agent = self
+	
 	if hitbox:
 		hitbox.body_entered.connect(_on_hitbox_entered)
 		hitbox.area_entered.connect(_on_hitbox_entered)
@@ -40,12 +38,9 @@ func _ready() -> void:
 		viewbox.body_exited.connect(_on_viewbox_exited)
 		viewbox.area_exited.connect(_on_viewbox_exited)
 
-	initial_position = global_position
-
 
 func reset() -> void:
 	velocity = Vector2(0,0)
-	global_position = initial_position
 
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:
@@ -70,58 +65,3 @@ func _on_viewbox_entered(_body: CollisionObject2D) -> void:
 
 func _on_viewbox_exited(_body: CollisionObject2D) -> void:
 	pass
-
-
-class MovementController:
-	var agent: Agent
-	
-	func _init(parent: Agent) -> void:
-		agent = parent
-	func jump(force:float):
-		agent.velocity.y = -force 
-		
-	func fall(delta: float) -> void:
-		agent.sprite.set_animation("retract")
-		
-		agent.rotation = lerp(agent.rotation, 0.0 , delta)
-		agent.velocity += agent.get_gravity() * delta
-		
-		agent.velocity.x *= 0.01 ** delta
-		agent.move_and_slide()
-		if agent.get_slide_collision_count() > 0:
-			agent.is_falling = false
-	
-	func move(delta: float, direction: float, stick := false) -> void:
-		if agent.is_falling:
-			fall(delta)
-			return
-		
-		if direction == 0:
-			agent.sprite.set_animation("idle")
-		elif direction > 0:
-			agent.sprite.scale.x = agent.sprite.scale.y
-			agent.sprite.set_animation("move")
-		elif direction < 0:
-			agent.sprite.set_animation("move")
-			agent.sprite.scale.x = -agent.sprite.scale.y
-		
-		if stick:
-			agent.apply_floor_snap()
-			if not agent.is_on_floor() or cos(agent.rotation) < 0:
-				agent.is_falling = true
-				agent.up_direction = Vector2.UP
-				return
-		
-			agent.up_direction = agent.get_floor_normal()
-		
-		var target_rotation := agent.get_floor_normal().angle() + (PI / 2) if agent.is_on_floor() else 0.0
-		agent.rotation = lerp(agent.rotation, target_rotation, delta * 10)
-		
-		var speed = agent.base_speed
-		if stick:
-			speed *= agent.sticky_speed_multiplier
-			agent.velocity = (Vector2.RIGHT * direction * speed * delta).rotated(agent.rotation)
-		else:
-			agent.velocity.x = direction * speed * delta
-			agent.velocity += agent.get_gravity() * delta
-		agent.move_and_slide()

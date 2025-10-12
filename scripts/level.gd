@@ -3,13 +3,11 @@ extends Node2D
 
 
 @export var spawn_point_manager: SpawnPointManager
-@export var enemy_manager: EnemyManager
 @export var player_spawn: SpawnPoint
 
 
 func _ready() -> void:
 	assert(spawn_point_manager, name + " has no SpawnPointManager")
-	assert(enemy_manager, name + " has no EnemyManager")
 
 	EventBus.connect("drop_item", spawn_collectable)
 

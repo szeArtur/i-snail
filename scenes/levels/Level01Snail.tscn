@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://by6ymyc8oo57a"]
+[gd_scene load_steps=13 format=3 uid="uid://by6ymyc8oo57a"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_xgd42"]
 [ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="3_pqhrq"]
@@ -31,9 +31,12 @@ script = ExtResource("3_pqhrq")
 spawn_id = &"player"
 metadata/_custom_type_script = "uid://bkcu3sc0w4ul3"
 
-[node name="EnemyManager" type="Node" parent="."]
-script = ExtResource("5_8g0k0")
-metadata/_custom_type_script = "uid://dneq33pg1h1cu"
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(326.0999, -138.98076)
+rotation = -1.5707964
+scale = Vector2(0.07944904, 0.0937404)
+texture = ExtResource("11_hktik")
 
 [node name="Shell" parent="." instance=ExtResource("5_p2e1a")]
 position = Vector2(225, -86)
@@ -50,13 +53,6 @@ position = Vector2(372, 12)
 
 [node name="Area2D2" parent="." instance=ExtResource("13_pqhrq")]
 position = Vector2(405, -108)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -3
-position = Vector2(326.0999, -138.98076)
-rotation = -1.5707964
-scale = Vector2(0.07944904, 0.0937404)
-texture = ExtResource("11_hktik")
 
 [node name="Platform" parent="." instance=ExtResource("11_pqhrq")]
 position = Vector2(370, 29)

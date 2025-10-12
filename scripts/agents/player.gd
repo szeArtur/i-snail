@@ -15,11 +15,6 @@ var pulling := false
 var pull_target: Vector2
 
 
-func _ready() -> void:
-	super._ready()
-	movement_controller = MovementController.new(self)
-
-
 
 func _on_hitbox_entered(body: CollisionObject2D) -> void:
 	if body is Collectable:
@@ -41,9 +36,8 @@ func _physics_process(delta: float) -> void:
 	if pulling:
 		velocity += (pull_target - position).normalized() * pull_acceleration * delta
 		move_and_slide()
-		if (pull_target - position).dot(velocity) < 0:
+		if position.distance_to(pull_target) < 40:
 			pulling = false
-			is_falling = true
 		return
 	
 	movement_controller.move(delta, movement_direction, stick)
@@ -54,17 +48,14 @@ func _physics_process(delta: float) -> void:
 			if collidng_body.get_collider() is RigidBody2D:
 				collidng_body.get_collider().apply_central_impulse(-collidng_body.get_normal()*4)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		pull_to_nearest_point()
 	if event.is_action_pressed("drop_item"):
 		drop_shell()
 	if event.is_action_pressed("stick"):
-		floor_max_angle = TAU
 		stick = true
 	if event.is_action_released("stick"):
-		floor_max_angle = PI / 4
-		up_direction = Vector2.UP
 		stick = false
 
 
@@ -73,7 +64,6 @@ func pull_to_nearest_point() -> void:
 		return
 	
 	pull_target = get_closest_grab_point().position
-	is_falling = false
 	pulling = true
 
 func get_closest_grab_point() -> GrabPoint:
