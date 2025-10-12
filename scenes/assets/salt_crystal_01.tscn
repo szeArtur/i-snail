@@ -6,7 +6,7 @@
 radius = 8.0
 height = 38.0
 
-[node name="SaltCrystal" type="RigidBody2D"]
+[node name="SaltCrystal1" type="Area2D"]
 z_index = -1
 collision_layer = 32
 

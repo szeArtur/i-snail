@@ -48,7 +48,7 @@ func on_level_completed() -> void:
 ## takes one frame to reset, [param await] this method to function properly
 func create_new() -> void:
 	await reset()
-	level_root.open("Level01Snail")
+	level_root.restart_level()
 
 
 func close() -> void:
