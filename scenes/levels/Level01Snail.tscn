@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_xgd42"]
 [ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="3_pqhrq"]
 [ext_resource type="Script" uid="uid://cgcvrx2rh0hk6" path="res://scripts/spawn_point_manager.gd" id="4_p2e1a"]
-[ext_resource type="Script" uid="uid://dneq33pg1h1cu" path="res://scripts/enemy_manager.gd" id="5_8g0k0"]
 [ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_p2e1a"]
 [ext_resource type="PackedScene" uid="uid://cwd76yaufli7f" path="res://scenes/enemy.tscn" id="5_w2dm0"]
 [ext_resource type="Resource" uid="uid://dlpafekiij322" path="res://resources/shells/shell1.tres" id="6_pqhrq"]
@@ -14,10 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://n4y7igwhb6wj" path="res://scenes/turnaround_enemy.tscn" id="13_pqhrq"]
 [ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="14_lxjy1"]
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("spawn_point_manager", "enemy_manager", "player_spawn")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("spawn_point_manager", "player_spawn")]
 script = ExtResource("1_xgd42")
 spawn_point_manager = NodePath("SpawnPointManager")
-enemy_manager = NodePath("EnemyManager")
 player_spawn = NodePath("SpawnPointManager/SpawnPoint")
 metadata/_custom_type_script = "uid://drqipnirsffjv"
 
