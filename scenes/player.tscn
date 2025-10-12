@@ -79,7 +79,7 @@ script = ExtResource("1_v0iea")
 jumpforce = 500.0
 pull_speed_max = 2000.0
 pull_acceleration = 1000.0
-shell_sprite = NodePath("ShellSprite")
+shell_sprite = NodePath("AnimatedSprite2D/ShellSprite")
 sprite = NodePath("AnimatedSprite2D")
 hitbox = NodePath("Hitbox")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
@@ -96,13 +96,14 @@ collision_mask = 72
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_qhqgy")
 
-[node name="ShellSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -10)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
 position = Vector2(-1, -2)
-scale = Vector2(0.055, 0.055)
+scale = Vector2(-0.055, 0.055)
 sprite_frames = SubResource("SpriteFrames_f1ej7")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="ShellSprite" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-181.81818, -163.63637)
+scale = Vector2(0.6363636, 0.6363636)

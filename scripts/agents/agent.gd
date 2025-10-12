@@ -99,11 +99,11 @@ class MovementController:
 		if direction == 0:
 			agent.sprite.set_animation("idle")
 		elif direction > 0:
-			agent.sprite.flip_h = false
+			agent.sprite.scale.x = agent.sprite.scale.y
 			agent.sprite.set_animation("move")
 		elif direction < 0:
 			agent.sprite.set_animation("move")
-			agent.sprite.flip_h = true
+			agent.sprite.scale.x = -agent.sprite.scale.y
 		
 		if stick:
 			agent.apply_floor_snap()

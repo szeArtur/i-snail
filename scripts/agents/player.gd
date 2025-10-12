@@ -103,8 +103,8 @@ func drop_shell() -> void:
 	if not shell:
 		return
 	
-	var at = position + global_transform.basis_xform(Vector2(20, -20))
-	var toward = velocity + global_transform.basis_xform(Vector2(100, -200))
+	var at = position + global_transform.basis_xform(Vector2(30, -30))
+	var toward = velocity + global_transform.basis_xform(Vector2(200, -300))
 	EventBus.drop_item.emit(shell, at, toward)
 	shell = null
 	shell_sprite.texture = null
