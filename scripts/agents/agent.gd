@@ -41,6 +41,9 @@ func _ready() -> void:
 
 func reset() -> void:
 	velocity = Vector2.ZERO
+	shell = null
+	shell_sprite.texture = null
+	print("aaaaa reseeet")
 
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:

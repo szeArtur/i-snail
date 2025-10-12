@@ -24,3 +24,7 @@ func _on_back_pressed() -> void:
 
 func _on_apply_pressed() -> void:
 	OptionsManager.options.apply()
+
+func _on_restart_level_pressed() -> void:
+	EventBus.restart_level.emit()
+	GameManager.pop_state()
