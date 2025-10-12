@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://46a5jujykcq4"]
+
+[ext_resource type="Texture2D" uid="uid://lirhmgqee1it" path="res://textures/Plattform Gras.png" id="1_ihbc5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_skdjy"]
+radius = 25.0
+height = 232.0
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ihbc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_skdjy")

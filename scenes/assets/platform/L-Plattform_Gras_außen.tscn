@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bowharxgco8r"]
+
+[ext_resource type="Texture2D" uid="uid://chfmnw7g4gfcn" path="res://textures/L-Plattform Gras außen.png" id="1_qmoe7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3hhh"]
+radius = 18.0
+height = 86.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd4hl"]
+radius = 15.117232
+height = 102.0
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_qmoe7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -33)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_e3hhh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-29.000002, 3)
+rotation = 0.08726646
+shape = SubResource("CapsuleShape2D_kd4hl")
