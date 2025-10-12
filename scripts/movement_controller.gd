@@ -24,6 +24,7 @@ func fall(delta: float) -> void:
 
 func move(delta: float, direction: float, stick: bool) -> void:
 	if direction == 0:
+		pass
 		agent.sprite.play("idle")
 	else:
 		agent.sprite.scale.x = sign(direction) * abs(agent.sprite.scale.y)

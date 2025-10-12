@@ -20,6 +20,8 @@ var on_floor := false
 
 func _ready() -> void:
 	movement_controller.agent = self
+	if shell:
+		shell_sprite.texture = shell.sprite
 	
 	if hitbox:
 		hitbox.body_entered.connect(_on_hitbox_entered)
