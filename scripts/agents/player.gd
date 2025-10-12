@@ -2,9 +2,6 @@ class_name Player
 extends Agent
 
 
-@export var shell: Item
-@export var shell_sprite: Sprite2D
-
 @export_category("Gappl")
 @export var min_grab_range := 60
 @export var max_grab_range := 300
@@ -39,7 +36,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var movement_direction = Vector2.RIGHT * Input.get_axis("move_left", "move_right")
+	var movement_direction := Input.get_axis("move_left", "move_right")
 	
 	if pulling:
 		velocity += (pull_target - position).normalized() * pull_acceleration * delta
@@ -106,8 +103,8 @@ func drop_shell() -> void:
 	if not shell:
 		return
 	
-	var at = position + global_transform.basis_xform(Vector2(20, -20))
-	var toward = velocity + global_transform.basis_xform(Vector2(100, -200))
+	var at = position + global_transform.basis_xform(Vector2(30, -30))
+	var toward = velocity + global_transform.basis_xform(Vector2(200, -300))
 	EventBus.drop_item.emit(shell, at, toward)
 	shell = null
 	shell_sprite.texture = null

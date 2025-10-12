@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dlpafekiij322"]
+
+[ext_resource type="Script" uid="uid://cjccjs7oqnf0x" path="res://scripts/resource_scripts/item.gd" id="1_tnql3"]
+[ext_resource type="Texture2D" uid="uid://ce00xlof0yvyx" path="res://textures/Altes_schneckenhaus-1.png" id="2_tnql3"]
+
+[resource]
+script = ExtResource("1_tnql3")
+name = "debug_shell"
+sprite = ExtResource("2_tnql3")
+metadata/_custom_type_script = "uid://cjccjs7oqnf0x"

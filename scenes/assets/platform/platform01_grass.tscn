@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://csaygmyd24rcn"]
+
+[ext_resource type="Texture2D" uid="uid://bhqjrwqf62bwi" path="res://textures/Platform 3 Seiten.png" id="1_jesb0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qr0ei"]
+radius = 117.0
+height = 1201.8693
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ngyg6"]
+radius = 117.0
+height = 625.2329
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3fdp"]
+radius = 117.0
+height = 569.71075
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jesb0"]
+radius = 139.2667
+height = 590.5621
+
+[node name="Platform" type="StaticBody2D"]
+scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5707964
+texture = ExtResource("1_jesb0")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
+position = Vector2(-32.999878, 483)
+rotation = 1.5680556
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("CapsuleShape2D_qr0ei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-180.00002, -290)
+rotation = 1.4515848
+shape = SubResource("CapsuleShape2D_ngyg6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(170, -290)
+rotation = 1.7262866
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_r3fdp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-429.99997, -69.99999)
+rotation = 0.38286394
+shape = SubResource("CapsuleShape2D_jesb0")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(520.00006, 320)
+rotation = -0.13445346
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("CapsuleShape2D_ngyg6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-539.99994, 290.00006)
+rotation = 0.08750343
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("CapsuleShape2D_ngyg6")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2(420, -60)
+rotation = -0.35641035
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("CapsuleShape2D_ngyg6")

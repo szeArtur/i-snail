@@ -2,6 +2,12 @@ class_name Agent
 extends CharacterBody2D
 
 
+
+@export var shell: Item
+
+@export var shell_sprite: Sprite2D
+@export var sprite: AnimatedSprite2D
+
 @export var hitbox: Area2D
 @export var hurtbox: Area2D
 @export var viewbox: Area2D
@@ -73,22 +79,31 @@ class MovementController:
 		agent = parent
 	func jump(force:float):
 		agent.velocity.y = -force 
-		#agent.is_falling=true
 		
 	func fall(delta: float) -> void:
+		agent.sprite.set_animation("retract")
 		
 		agent.rotation = lerp(agent.rotation, 0.0 , delta)
 		agent.velocity += agent.get_gravity() * delta
+		
 		agent.velocity.x *= 0.01 ** delta
 		agent.move_and_slide()
 		if agent.get_slide_collision_count() > 0:
 			agent.is_falling = false
 	
-	func move(delta: float, direction: Vector2, stick := false) -> void:
-	
+	func move(delta: float, direction: float, stick := false) -> void:
 		if agent.is_falling:
 			fall(delta)
 			return
+		
+		if direction == 0:
+			agent.sprite.set_animation("idle")
+		elif direction > 0:
+			agent.sprite.scale.x = agent.sprite.scale.y
+			agent.sprite.set_animation("move")
+		elif direction < 0:
+			agent.sprite.set_animation("move")
+			agent.sprite.scale.x = -agent.sprite.scale.y
 		
 		if stick:
 			agent.apply_floor_snap()
@@ -105,8 +120,8 @@ class MovementController:
 		var speed = agent.base_speed
 		if stick:
 			speed *= agent.sticky_speed_multiplier
-			agent.velocity = agent.global_transform.basis_xform(direction * speed * delta)
+			agent.velocity = (Vector2.RIGHT * direction * speed * delta).rotated(agent.rotation)
 		else:
-			agent.velocity.x = direction.x * speed * delta
+			agent.velocity.x = direction * speed * delta
 			agent.velocity += agent.get_gravity() * delta
 		agent.move_and_slide()

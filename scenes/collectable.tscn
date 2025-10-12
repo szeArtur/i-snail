@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv61jprq08u6b"]
+[gd_scene load_steps=8 format=3 uid="uid://cv61jprq08u6b"]
 
 [ext_resource type="Script" uid="uid://p5bmwuf3wm15" path="res://scripts/collectable.gd" id="1_bkg8t"]
 [ext_resource type="Script" uid="uid://cjccjs7oqnf0x" path="res://scripts/resource_scripts/item.gd" id="2_1pg6c"]
+[ext_resource type="Texture2D" uid="uid://ce00xlof0yvyx" path="res://textures/Altes_schneckenhaus-1.png" id="3_dnya4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_llfh3"]
 friction = 0.14
@@ -16,6 +17,7 @@ sprite = SubResource("PlaceholderTexture2D_61c27")
 metadata/_custom_type_script = "uid://cjccjs7oqnf0x"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bkg8t"]
+radius = 17.029387
 
 [node name="Collectable" type="RigidBody2D"]
 collision_layer = 8
@@ -29,6 +31,10 @@ item = SubResource("Resource_ga2k0")
 shape = SubResource("CircleShape2D_bkg8t")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(1.6653345e-16, -4)
+rotation = -0.0070611304
+scale = Vector2(0.03778717, 0.03778717)
+texture = ExtResource("3_dnya4")
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 bus = &"Effects"
