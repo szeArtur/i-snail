@@ -3,7 +3,7 @@ extends Agent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_2d: RayCast2D = $AnimatedSprite2D/RayCast2D
 
-
+@export var stop := false
 @export var jumpforce := 10.0
 @export var start_links:= true
 var player_senn_prog =0
@@ -20,10 +20,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if ray_cast_2d.is_colliding():
 		#line_2d.
-		if ray_cast_2d.get_collider() is Player:
+		if ray_cast_2d.get_collider() is Player and player_senn_prog==0:
 			player_senn_prog=1
 	if player_senn_prog != 1:
-		movement_controller.move(delta, movement_direction, true)
+		if stop == false:
+			movement_controller.move(delta, movement_direction, true)
 	else: 
 		animated_sprite_2d.play("button")
 	
@@ -36,3 +37,14 @@ func _on_hitbox_entered(body: CollisionObject2D) -> void:
 func _on_visionbox_body_entered(_body: Node2D) -> void:
 	if player_senn_prog == 0:
 		player_senn_prog=1
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if player_senn_prog ==1:
+		player_senn_prog=2
+
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	print(body.get_linear_velocity().length())
+	if body.get_linear_velocity().length() >=70:
+		queue_free()

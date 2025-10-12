@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwd76yaufli7f"]
+[gd_scene load_steps=27 format=3 uid="uid://cwd76yaufli7f"]
 
 [ext_resource type="Script" uid="uid://cow1mno6lo36i" path="res://scripts/agents/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://dot1ryr56mqxo" path="res://textures/enemybuttonlv1/Buttonspawn1.png" id="2_1x4g4"]
@@ -25,9 +25,12 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm80"]
+size = Vector2(20, 13)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4w8v"]
-radius = 14.0
-height = 48.0
+radius = 5.0
+height = 18.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1x4g4"]
 animations = [{
@@ -140,6 +143,15 @@ metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5uy6h")
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_wrm80")
+debug_color = Color(1, 0, 0.960784, 0.419608)
+
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 130
@@ -166,3 +178,6 @@ scale = Vector2(0.735, 0.522)
 shadow_enabled = true
 texture = ExtResource("22_wrm80")
 texture_scale = 1.82
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -70,10 +70,10 @@ position = Vector2(530, -76)
 position = Vector2(473, -198)
 
 [node name="Enemy" parent="." instance=ExtResource("5_w2dm0")]
-position = Vector2(507, -194)
+position = Vector2(481, -192)
 
 [node name="Win Area" parent="." instance=ExtResource("14_kv4k8")]
 position = Vector2(680, -192)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("15_kv4k8")]
-position = Vector2(384, -252)
+position = Vector2(378, -188)
