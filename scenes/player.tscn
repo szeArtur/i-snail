@@ -78,6 +78,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "hitbox")]
 collision_layer = 2
+floor_max_angle = 3.1415927
 platform_floor_layers = 4294901761
 script = ExtResource("1_v0iea")
 jumpforce = 500.0
