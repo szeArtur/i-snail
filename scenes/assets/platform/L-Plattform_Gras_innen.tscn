@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://2j7spxa74l4x"]
+
+[ext_resource type="Texture2D" uid="uid://bsxlabs41fj4v" path="res://textures/L-Plattform Gras innen.png" id="1_3dinh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_igk5n"]
+radius = 17.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5kyxd"]
+radius = 19.0
+height = 104.0
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_3dinh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 35)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_igk5n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-30, 0)
+shape = SubResource("CapsuleShape2D_5kyxd")

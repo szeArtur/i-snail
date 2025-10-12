@@ -5,17 +5,18 @@
 [ext_resource type="Script" uid="uid://cgcvrx2rh0hk6" path="res://scripts/spawn_point_manager.gd" id="4_p2e1a"]
 [ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_p2e1a"]
 [ext_resource type="PackedScene" uid="uid://cwd76yaufli7f" path="res://scenes/enemy.tscn" id="5_w2dm0"]
-[ext_resource type="Resource" uid="uid://dlpafekiij322" path="res://resources/shells/shell1.tres" id="6_pqhrq"]
+[ext_resource type="Resource" path="res://resources/shells/shell1.tres" id="6_pqhrq"]
 [ext_resource type="Texture2D" uid="uid://bh0k6xqk8wea8" path="res://textures/Hintergrund lvl 1.jpg" id="11_hktik"]
 [ext_resource type="PackedScene" uid="uid://mpphivskeb28" path="res://scenes/assets/platform/platform02_grass.tscn" id="11_pqhrq"]
 [ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/grab_point.tscn" id="12_hktik"]
 [ext_resource type="PackedScene" uid="uid://csaygmyd24rcn" path="res://scenes/assets/platform/platform01_grass.tscn" id="12_lxjy1"]
 [ext_resource type="PackedScene" uid="uid://fnlsn2syedx5" path="res://scenes/assets/platform/platform03_grass.tscn" id="13_kv4k8"]
-[ext_resource type="PackedScene" uid="uid://n4y7igwhb6wj" path="res://scenes/turnaround_enemy.tscn" id="13_pqhrq"]
-[ext_resource type="PackedScene" uid="uid://fihtma51h7gl" path="res://scenes/assets/win_area.tscn" id="14_kv4k8"]
+[ext_resource type="PackedScene" path="res://scenes/turnaround_enemy.tscn" id="13_pqhrq"]
+[ext_resource type="PackedScene" path="res://scenes/assets/win_area.tscn" id="14_kv4k8"]
 [ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="14_lxjy1"]
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("spawn_point_manager", "player_spawn")]
+z_index = 1
 script = ExtResource("1_xgd42")
 spawn_point_manager = NodePath("SpawnPointManager")
 player_spawn = NodePath("SpawnPointManager/SpawnPoint")
@@ -32,7 +33,8 @@ spawn_id = &"player"
 metadata/_custom_type_script = "uid://bkcu3sc0w4ul3"
 
 [node name="Background" type="Sprite2D" parent="."]
-z_index = -3
+z_index = -10
+z_as_relative = false
 position = Vector2(326.0999, -138.98076)
 rotation = -1.5707964
 scale = Vector2(0.07944904, 0.0937404)
@@ -73,3 +75,5 @@ position = Vector2(507, -194)
 
 [node name="Win Area" parent="." instance=ExtResource("14_kv4k8")]
 position = Vector2(680, -192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
