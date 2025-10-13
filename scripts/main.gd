@@ -7,7 +7,6 @@ extends Node
 
 func _ready():
 	GameManager.state_changed.connect(_on_game_state_changed)
-	GameManager.change_state(GameManager.GameState.MAIN_MENU)
 
 
 func _on_game_state_changed(state_new):

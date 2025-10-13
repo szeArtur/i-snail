@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://b1o4c3m7o6ope" path="res://scenes/textszene1.tscn" id="13_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://dm5dbfpr25ud8" path="res://scenes/textszene2.tscn" id="14_0ld40"]
 [ext_resource type="PackedScene" uid="uid://edteg81og3o" path="res://scenes/textszene3.tscn" id="15_dp3eg"]
+[ext_resource type="AudioStream" uid="uid://2qkk6lyi8ck4" path="res://audio/music/Overworld-LAYER-1.ogg" id="12_muem4"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
@@ -36,7 +37,12 @@ position = Vector2(58, -69)
 
 [node name="LevelRoot" type="Node2D" parent="GameWorld"]
 script = ExtResource("7_ya4ey")
+
 levels = Array[PackedScene]([ExtResource("6_choun"), ExtResource("6_choun"), ExtResource("7_eb6dy"), ExtResource("8_trceg"), ExtResource("9_a8y0u"), ExtResource("10_jkv2x"), ExtResource("11_jkv2x")])
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="GameWorld"]
+stream = ExtResource("12_muem4")
+bus = &"Music"
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("2_0wfyh")
@@ -48,3 +54,5 @@ menus = Dictionary[StringName, PackedScene]({
 &"options": ExtResource("9_ya4ey"),
 &"pause": ExtResource("10_eb6dy")
 })
+
+[node name="VideoStreamPlayer" parent="UserInterface" instance=ExtResource("11_ya4ey")]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5naht0xe6c2b"]
+[gd_scene load_steps=9 format=3 uid="uid://c5naht0xe6c2b"]
 
 [ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_07q5t"]
 [ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_fh16r"]
 [ext_resource type="PackedScene" uid="uid://r73rjmssld0t" path="res://scenes/ui/option_slider.tscn" id="3_r11a1"]
 [ext_resource type="Script" uid="uid://bfutldda7uu6g" path="res://scripts/ui/keymap_manager.gd" id="5_3yoxx"]
 [ext_resource type="PackedScene" uid="uid://tui82ymjxp61" path="res://scenes/ui/option_keymap.tscn" id="5_rrgn5"]
+[ext_resource type="AudioStream" uid="uid://ep88mqdoncv7" path="res://audio/music/Menu-Theme.ogg" id="6_3yoxx"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_r11a1"]
 device = -1
@@ -111,6 +112,12 @@ text = "Apply"
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3yoxx")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Apply" to="." method="_on_apply_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

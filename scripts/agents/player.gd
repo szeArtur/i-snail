@@ -11,11 +11,15 @@ extends Agent
 @export var pull_speed_max: float
 @export var pull_acceleration: float
 
-@onready var item_drop_position = $AnimatedSprite2D/ItemDropPosition
+@onready var item_drop_position_forward = $AnimatedSprite2D/ItemDropPositionForward
+@onready var item_drop_position_backward = $AnimatedSprite2D/ItemDropPositionBackward
 @onready var collection_area = $CollectionArea
+
 
 var pulling := false
 var pull_target: Vector2
+
+var ability: Ability
 
 
 func reset() -> void:
@@ -30,6 +34,11 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 		shell = body.item
 		shell_sprite.texture = shell.sprite
 		body.pickup()
+
+func _on_collection_area_area_entered(area: Area2D) -> void:
+	if area is ShellDropArea:
+		drop_shell(false)
+
 
 func jumppad(force):		
 	movement_controller.jump(force/10)
@@ -59,7 +68,8 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		pull_to_nearest_point()
+		if shell and shell.ability.type == 1:
+			pull_to_nearest_point()
 	if event.is_action_pressed("drop_item"):
 		drop_shell()
 	if event.is_action_pressed("stick"):
@@ -84,7 +94,8 @@ func get_closest_grab_point() -> GrabPoint:
 	for grab_point in grab_points:
 		var point_outside_min_range = grab_point.position.distance_to(position) < max_grab_range
 		var point_inside_max_range = grab_point.position.distance_to(position) > min_grab_range
-		if point_outside_min_range and point_inside_max_range and closest_grab_point == null:
+		if (point_outside_min_range and point_inside_max_range and closest_grab_point == null and 
+				shell and shell.ability.type == 1):
 			closest_grab_point = grab_point
 			grab_point.label.show()
 		else:
@@ -98,12 +109,19 @@ func get_closer_point(a: Node2D, b: Node2D) -> bool:
 		return true
 	return false
 
-func drop_shell() -> void:
+func drop_shell(forward := true) -> void:
 	if not shell:
 		return
 	
-	var at = item_drop_position.global_position
-	var toward = velocity + (item_drop_position.global_position - global_position) * 3
+	var at : Vector2
+	if forward:
+		at = item_drop_position_forward.global_position
+	else:
+		at = item_drop_position_backward.global_position
+	
+	print(item_drop_position_forward.global_position)
+	print(item_drop_position_backward.global_position)
+	var toward = velocity + (at - global_position) * 3
 	EventBus.drop_item.emit(shell, at, toward)
 	shell = null
 	shell_sprite.texture = null

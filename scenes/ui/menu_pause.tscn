@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw01jx0pxjbn4"]
+[gd_scene load_steps=4 format=3 uid="uid://dw01jx0pxjbn4"]
 
 [ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_0o444"]
 [ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_ajcle"]
+[ext_resource type="AudioStream" uid="uid://ep88mqdoncv7" path="res://audio/music/Menu-Theme.ogg" id="3_15pwj"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -73,6 +74,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_15pwj")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
 
 [connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="HBoxContainer/RestartLevel" to="." method="_on_restart_level_pressed"]

@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="i-snail"
+config/name="oppenslimer"
 run/main_scene="uid://b3kyp7wchpb83"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/image="uid://cd3ooeigvuhvi"
 config/icon="uid://b41fu3igt0idi"

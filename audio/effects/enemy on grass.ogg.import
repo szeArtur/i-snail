@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://caxguw3ifkldc"
+path="res://.godot/imported/enemy on grass.ogg-01b6027ef69fe26904d08e6e19b52bf7.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/effects/enemy on grass.ogg"
+dest_files=["res://.godot/imported/enemy on grass.ogg-01b6027ef69fe26904d08e6e19b52bf7.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

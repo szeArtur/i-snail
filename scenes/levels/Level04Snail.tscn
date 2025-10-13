@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_yn2b2"]
 [ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="2_wl3h7"]
 [ext_resource type="Texture2D" uid="uid://b2ljksivcds5x" path="res://textures/Bild_2.png" id="3_lrgr3"]
+
 [ext_resource type="PackedScene" uid="uid://blbewg3iufxov" path="res://scenes/assets/platform/platform_wood.tscn" id="5_ik7wp"]
-[ext_resource type="PackedScene" path="res://scenes/grab_point.tscn" id="6_oskrl"]
+
+[ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/grab_point.tscn" id="6_oskrl"]
+
 [ext_resource type="PackedScene" uid="uid://fihtma51h7gl" path="res://scenes/assets/win_area.tscn" id="7_ik7wp"]
 [ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="9_yjqn2"]
 [ext_resource type="Resource" uid="uid://dlpafekiij322" path="res://resources/shells/shell1.tres" id="10_c5y33"]

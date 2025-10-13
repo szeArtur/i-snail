@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var camera: Camera = $Camera
 @onready var player: Player = $Player
+@onready var music_player = $MusicPlayer
 @onready var level_root: LevelRoot = $LevelRoot
 @onready var user_interface: UserInterface = $"../UserInterface"
 var dialoge=true
@@ -68,12 +69,12 @@ func menu_comp(Name):
 
 ## takes one frame to reset, [param await] this method to function properly
 func create_new() -> void:
+
 	#await reset()
 	GameManager.change_state(GameManager.GameState.DIALOUQE)
 	user_interface.open("dialog1")
 	#level_root.restart_level()
-
-	
+	music_player.play()
 
 
 func close() -> void:
