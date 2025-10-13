@@ -48,7 +48,6 @@ level_order = Array[StringName]([&"Level01Snail", &"Level02Snail", &"Level03Snai
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="GameWorld"]
 stream = ExtResource("12_muem4")
 bus = &"Music"
-parameters/looping = false
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("2_0wfyh")
