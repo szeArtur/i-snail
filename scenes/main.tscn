@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3kyp7wchpb83"]
+[gd_scene load_steps=17 format=3 uid="uid://b3kyp7wchpb83"]
 
 [ext_resource type="Script" uid="uid://bdawwvism8vcw" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cv8x2tg6vxtq4" path="res://scripts/user_interface.gd" id="2_0wfyh"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b3qlnt3du0rsh" path="res://scenes/levels/Level04Snail.tscn" id="9_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://c5naht0xe6c2b" path="res://scenes/ui/menu_options.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dw01jx0pxjbn4" path="res://scenes/ui/menu_pause.tscn" id="10_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://hd8r7d5odcw5" path="res://intro.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://ctffetvvtro87" path="res://scenes/levels/Level05Snail.tscn" id="10_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://cxx1gwp2tq8xm" path="res://scenes/levels/Level06Snail.tscn" id="11_jkv2x"]
 
@@ -50,3 +51,5 @@ menus = Dictionary[StringName, PackedScene]({
 &"options": ExtResource("9_ya4ey"),
 &"pause": ExtResource("10_eb6dy")
 })
+
+[node name="VideoStreamPlayer" parent="UserInterface" instance=ExtResource("11_ya4ey")]

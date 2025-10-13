@@ -5,6 +5,7 @@ signal state_changed(state_new)
 
 enum GameState {
 	INITIALIZING,
+	INTRO,
 	MAIN_MENU,
 	PLAYING,
 	PAUSED,
