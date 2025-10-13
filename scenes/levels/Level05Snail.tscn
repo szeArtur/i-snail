@@ -1,0 +1,145 @@
+[gd_scene load_steps=19 format=3 uid="uid://ctffetvvtro87"]
+
+[ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_np8fk"]
+[ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="2_6ap3u"]
+[ext_resource type="Texture2D" uid="uid://b2ljksivcds5x" path="res://textures/Bild_2.png" id="3_6ap3u"]
+[ext_resource type="PackedScene" path="res://scenes/assets/platform/platform_wood.tscn" id="4_edca5"]
+[ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_k7q4q"]
+[ext_resource type="Resource" uid="uid://dlpafekiij322" path="res://resources/shells/shell1.tres" id="6_03wf1"]
+[ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="7_03wf1"]
+[ext_resource type="PackedScene" path="res://scenes/assets/platform/Dreckplattform1.tscn" id="8_so064"]
+[ext_resource type="PackedScene" path="res://scenes/assets/platform/Dreckplattform2.tscn" id="9_qpxnn"]
+[ext_resource type="PackedScene" uid="uid://cwd76yaufli7f" path="res://scenes/enemy.tscn" id="10_rbogb"]
+[ext_resource type="PackedScene" path="res://scenes/assets/platform/Steinplattform2.tscn" id="11_rsadb"]
+[ext_resource type="PackedScene" uid="uid://bb3ttno6kntd6" path="res://scenes/assets/salt_crystal_01.tscn" id="12_bst4d"]
+[ext_resource type="PackedScene" uid="uid://cb0qe70t3smd7" path="res://scenes/assets/salt_crystal_02.tscn" id="13_4kd5x"]
+[ext_resource type="PackedScene" uid="uid://db10b241hh8k0" path="res://scenes/assets/salt_crystal_03.tscn" id="14_15ey6"]
+[ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/grab_point.tscn" id="15_bst4d"]
+[ext_resource type="PackedScene" path="res://scenes/Box.tscn" id="16_4kd5x"]
+[ext_resource type="PackedScene" uid="uid://n4y7igwhb6wj" path="res://scenes/turnaround_enemy.tscn" id="17_15ey6"]
+[ext_resource type="PackedScene" uid="uid://fihtma51h7gl" path="res://scenes/assets/win_area.tscn" id="18_qnl0j"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player_spawn")]
+script = ExtResource("1_np8fk")
+player_spawn = NodePath("SpawnPoint")
+metadata/_custom_type_script = "uid://drqipnirsffjv"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(22, -10)
+script = ExtResource("2_6ap3u")
+metadata/_custom_type_script = "uid://bkcu3sc0w4ul3"
+
+[node name="Background2" type="Sprite2D" parent="."]
+modulate = Color(0.66, 0.66, 0.66, 1)
+z_index = -10
+z_as_relative = false
+position = Vector2(318, -157)
+scale = Vector2(0.35, 0.28)
+texture = ExtResource("3_6ap3u")
+
+[node name="Node2D" parent="." instance=ExtResource("4_edca5")]
+position = Vector2(136, 39)
+scale = Vector2(3, 3)
+
+[node name="Shell" parent="." instance=ExtResource("5_k7q4q")]
+position = Vector2(23, -11)
+item = ExtResource("6_03wf1")
+
+[node name="Node2D3" parent="." instance=ExtResource("9_qpxnn")]
+position = Vector2(232.00002, -92.00001)
+rotation = 1.5707964
+scale = Vector2(0.75, 0.75)
+
+[node name="Jump_pad3" parent="." instance=ExtResource("7_03wf1")]
+position = Vector2(234.00002, -157)
+scale = Vector2(0.3, 0.3)
+
+[node name="Enemy" parent="." instance=ExtResource("10_rbogb")]
+position = Vector2(232, -180)
+
+[node name="Node2D4" parent="." instance=ExtResource("11_rsadb")]
+position = Vector2(563, 25)
+scale = Vector2(-3, 3)
+
+[node name="Node2D5" parent="." instance=ExtResource("11_rsadb")]
+position = Vector2(728, -215)
+scale = Vector2(-3, 3)
+
+[node name="SaltCrystal1" parent="." instance=ExtResource("12_bst4d")]
+position = Vector2(423, -12)
+rotation = -1.5707964
+
+[node name="SaltCrystal2" parent="." instance=ExtResource("12_bst4d")]
+position = Vector2(426, -77)
+rotation = -1.5707964
+
+[node name="SaltCrystal3" parent="." instance=ExtResource("12_bst4d")]
+position = Vector2(588, -163)
+rotation = -1.5707964
+
+[node name="SaltCrystal4" parent="." instance=ExtResource("12_bst4d")]
+position = Vector2(590, -244)
+rotation = -1.5707964
+
+[node name="SaltCrystal5" parent="." instance=ExtResource("13_4kd5x")]
+position = Vector2(587, -205)
+rotation = -1.5707964
+
+[node name="SaltCrystal6" parent="." instance=ExtResource("13_4kd5x")]
+position = Vector2(424, -53)
+rotation = -1.5707964
+
+[node name="SaltCrystal7" parent="." instance=ExtResource("14_15ey6")]
+position = Vector2(430, -108)
+rotation = -1.5707964
+
+[node name="SaltCrystal8" parent="." instance=ExtResource("14_15ey6")]
+position = Vector2(585, -278)
+rotation = -1.5707964
+
+[node name="SaltCrystal9" parent="." instance=ExtResource("14_15ey6")]
+position = Vector2(588, -311)
+rotation = -1.5707964
+
+[node name="GrabPoint" parent="." instance=ExtResource("15_bst4d")]
+position = Vector2(383, -221)
+
+[node name="Jump_pad4" parent="." instance=ExtResource("7_03wf1")]
+position = Vector2(502, -145)
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D6" parent="." instance=ExtResource("8_so064")]
+position = Vector2(414, -254)
+scale = Vector2(0.5, 0.5)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("16_4kd5x")]
+position = Vector2(400, -246)
+
+[node name="Node2D7" parent="." instance=ExtResource("8_so064")]
+position = Vector2(309, -211)
+scale = Vector2(0.5, 0.5)
+
+[node name="Enemy2" parent="." instance=ExtResource("10_rbogb")]
+position = Vector2(326, -238)
+scale = Vector2(0.5, 0.5)
+
+[node name="turnaround" parent="." instance=ExtResource("17_15ey6")]
+position = Vector2(368, -241)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("16_4kd5x")]
+position = Vector2(285, -202)
+
+[node name="Node2D8" parent="." instance=ExtResource("9_qpxnn")]
+position = Vector2(76, -214)
+
+[node name="Node2D9" parent="." instance=ExtResource("9_qpxnn")]
+position = Vector2(-5, -279)
+
+[node name="Win Area" parent="." instance=ExtResource("18_qnl0j")]
+position = Vector2(-35, -242)
+
+[node name="turnaround2" parent="." instance=ExtResource("17_15ey6")]
+position = Vector2(206, -173)
+
+[node name="turnaround3" parent="." instance=ExtResource("17_15ey6")]
+position = Vector2(258, -46)

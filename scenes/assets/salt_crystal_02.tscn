@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb0qe70t3smd7"]
+
+[ext_resource type="Texture2D" uid="uid://7skw7p1jp0kd" path="res://textures/2Salzdash_salz.png" id="1_ju72e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7kgks"]
+radius = 8.0
+height = 38.0
+
+[node name="SaltCrystal2" type="Area2D"]
+collision_layer = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.4, -5.9)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7kgks")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.6, -5.9)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ju72e")
