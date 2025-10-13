@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Dialoque" load_steps=9 format=3 uid="uid://bqoho7h32po6h"]
+
+[ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="1_lvd0o"]
+[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="2_58b3r"]
+
+[sub_resource type="Resource" id="Resource_rr0xf"]
+script = ExtResource("1_lvd0o")
+name = "Agent Openslimer"
+text = " Lal. Melania held their promise. They did give me a house, one designed just for me. I am now a proper snail, not just a mere slug."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_c3v2g"]
+script = ExtResource("1_lvd0o")
+name = "Agent Openslimer"
+text = "Weinberg and the rest of the revolusnailnaries have been slithered down and ensnailed. They will slug in prison for the rest of their lives."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_iddvo"]
+script = ExtResource("1_lvd0o")
+name = "Agent Openslimer"
+text = "The salt bomb has been built and used. The amount of deaths were uncountable, but that is but a small price to pay for the influence and land the snaildom gained.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_hqqkf"]
+script = ExtResource("1_lvd0o")
+name = "Agent Openslimer"
+text = "What has not been predicted were the long term effect the massive amounts of processed salts had on the environment. Global food shortage as well as snail poisoning have been slugging the snail population."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_a5b66"]
+script = ExtResource("1_lvd0o")
+name = "Agent Openslimer"
+text = "The number of slugs has also drastically increased, since the beginning of the fallout. Snailtistics also show a significantly lower life expectancy in these creatures."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_1lbub"]
+script = ExtResource("1_lvd0o")
+name = "Wineberg"
+text = "But what does the death of a few slugs matter? Persnailnally, my life is quite comfortable. As a snail, the matters of mere slugs are of no importance to me."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[resource]
+script = ExtResource("2_58b3r")
+messages = Array[ExtResource("1_lvd0o")]([SubResource("Resource_rr0xf"), SubResource("Resource_c3v2g"), SubResource("Resource_iddvo"), SubResource("Resource_hqqkf"), SubResource("Resource_a5b66"), SubResource("Resource_1lbub")])
+metadata/_custom_type_script = "uid://6cfcvrv5o8fd"

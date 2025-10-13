@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="Dialoque" load_steps=11 format=3 uid="uid://dxqgpkyoql263"]
+
+[ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="1_lgwsa"]
+[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="2_xnpsn"]
+
+[sub_resource type="Resource" id="Resource_ramgu"]
+script = ExtResource("1_lgwsa")
+name = "Agent Oppenslimer"
+text = "With the threat of salt-based-weapons of mass-destructions in the feelers of the revolusnailnaries, it did not take long for them to oversnail the Boursnailsie.
+
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_piqgp"]
+script = ExtResource("1_lgwsa")
+name = "Agent Oppenslimer"
+text = "Lal. Melania and the other snails in their party have been publicly executed, as well as anysnail with any strong connection to them. Snails with excessive influence are kept under close feelers."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_18vi3"]
+script = ExtResource("1_lgwsa")
+name = "Agent Oppenslimer"
+text = "With Weinberg in power and my excessive slugnedge of the blueprints he ordered my ensnailment in, what Weinberg resnailed to as a “special house just for me”, which turned out to be a cage in Weinbergs living quarters.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_0t5oa"]
+script = ExtResource("1_lgwsa")
+name = "Agent Oppenslimer"
+text = "From what I gather on the weekly snailcasts the saltbomb and more minor salt-based-weapons have been used. The amount of deaths were uncountable, but that is but a small price to pay for the influence Weinberg gained, they believe.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_n7872"]
+script = ExtResource("1_lgwsa")
+name = "Agent Oppenslimer"
+text = "What has not been predicted were the long term effect the massive amounts of processed salts had on the environment. Global food shortage as well as snail poisoning have been slugging the snail population.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_b7nd6"]
+script = ExtResource("1_lgwsa")
+name = "Agent Oppenslimer"
+text = "There has also been a conspisnaily theory that has gone viral on platforms like SlugTok, Insnailgram, SnailTube, 4-Slug and Sluggit. 
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_7ypj1"]
+script = ExtResource("1_lgwsa")
+name = "Agent Oppenslimer"
+text = "The theory sluggests the existence of a button that triggers the actisnailtion of saltlased rain all over the snaildom, in case somesnail tries to slug Weinberg out of governance.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_kt7eo"]
+script = ExtResource("1_lgwsa")
+name = "Agent Oppenslimer"
+text = "The red button Weinberg has been polishing is not easing my concerns."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[resource]
+script = ExtResource("2_xnpsn")
+messages = Array[ExtResource("1_lgwsa")]([SubResource("Resource_ramgu"), SubResource("Resource_piqgp"), SubResource("Resource_18vi3"), SubResource("Resource_0t5oa"), SubResource("Resource_n7872"), SubResource("Resource_b7nd6"), SubResource("Resource_7ypj1"), SubResource("Resource_kt7eo")])
+metadata/_custom_type_script = "uid://6cfcvrv5o8fd"
