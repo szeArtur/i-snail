@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var camera: Camera = $Camera
 @onready var player: Player = $Player
+@onready var music_player = $MusicPlayer
 @onready var level_root: LevelRoot = $LevelRoot
 
 
@@ -49,6 +50,7 @@ func on_level_completed() -> void:
 func create_new() -> void:
 	await reset()
 	level_root.restart_level()
+	music_player.play()
 
 
 func close() -> void:

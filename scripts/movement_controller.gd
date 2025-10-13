@@ -51,3 +51,8 @@ func move(delta: float, direction: float, stick: bool) -> void:
 		agent.move_and_collide(target_velocity * delta)
 	
 	agent.move_and_slide()
+	
+	if direction != 0 and on_floor:
+		agent.move_sound.stream_paused = false
+	else:
+		agent.move_sound.stream_paused = true

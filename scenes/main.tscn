@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3kyp7wchpb83"]
+[gd_scene load_steps=18 format=3 uid="uid://b3kyp7wchpb83"]
 
 [ext_resource type="Script" uid="uid://bdawwvism8vcw" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cv8x2tg6vxtq4" path="res://scripts/user_interface.gd" id="2_0wfyh"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dw01jx0pxjbn4" path="res://scenes/ui/menu_pause.tscn" id="10_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://ctffetvvtro87" path="res://scenes/levels/Level05Snail.tscn" id="10_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://cxx1gwp2tq8xm" path="res://scenes/levels/Level06Snail.tscn" id="11_jkv2x"]
+[ext_resource type="PackedScene" path="res://intro.tscn" id="11_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://2qkk6lyi8ck4" path="res://audio/music/Overworld-LAYER-1.ogg" id="12_muem4"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
@@ -43,6 +45,10 @@ levels = Dictionary[StringName, PackedScene]({
 })
 level_order = Array[StringName]([&"Level01Snail", &"Level02Snail", &"Level03Snail", &"Level04Snail", &"Level05Snail", &"Level06Snail"])
 
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="GameWorld"]
+stream = ExtResource("12_muem4")
+bus = &"Music"
+
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("2_0wfyh")
 menus = Dictionary[StringName, PackedScene]({
@@ -50,3 +56,5 @@ menus = Dictionary[StringName, PackedScene]({
 &"options": ExtResource("9_ya4ey"),
 &"pause": ExtResource("10_eb6dy")
 })
+
+[node name="VideoStreamPlayer" parent="UserInterface" instance=ExtResource("11_ya4ey")]

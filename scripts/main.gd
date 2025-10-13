@@ -7,11 +7,13 @@ extends Node
 
 func _ready():
 	GameManager.state_changed.connect(_on_game_state_changed)
-	GameManager.change_state(GameManager.GameState.MAIN_MENU)
 
 
 func _on_game_state_changed(state_new):
 	match state_new:
+		GameManager.GameState.INTRO:
+			pass
+		
 		GameManager.GameState.CREATING_NEW_GAME:
 			await game_world.create_new()
 			GameManager.change_state(GameManager.GameState.PLAYING)
