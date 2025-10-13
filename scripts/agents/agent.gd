@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var viewbox: Area2D
 
 @export var movement_controller := MovementController.new()
+@export var move_sound: AudioStreamPlayer2D
 
 
 var stick := false
@@ -20,6 +21,8 @@ var on_floor := false
 
 
 func _ready() -> void:
+	move_sound.playing = true
+	move_sound.stream_paused = true
 	movement_controller.agent = self
 	if shell:
 		shell_sprite.texture = shell.sprite

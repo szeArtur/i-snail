@@ -15,6 +15,7 @@ extends Agent
 @onready var item_drop_position_backward = $AnimatedSprite2D/ItemDropPositionBackward
 @onready var collection_area = $CollectionArea
 
+
 var pulling := false
 var pull_target: Vector2
 
