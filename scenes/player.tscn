@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://cvmcm2mldgf2r"
 radius = 21.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
-radius = 15.0
+radius = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 radius = 18.027756
@@ -97,13 +97,14 @@ metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
 [node name="CollectionArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 72
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
 shape = SubResource("CircleShape2D_d2wvv")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_tuyoq")
 
@@ -126,9 +127,15 @@ autoplay = "idle"
 position = Vector2(-181.81818, -163.63637)
 scale = Vector2(0.6363636, 0.6363636)
 
-[node name="ItemDropPosition" type="Marker2D" parent="AnimatedSprite2D"]
-position = Vector2(636.36365, -272.72726)
+[node name="ItemDropPositionForward" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(709.09094, -381.81818)
 rotation = 3.1415927
 scale = Vector2(18.181818, -18.181818)
 
+[node name="ItemDropPositionBackward" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(-600, -400)
+rotation = 3.1415927
+scale = Vector2(18.181818, -18.181818)
+
+[connection signal="area_entered" from="CollectionArea" to="." method="_on_collection_area_area_entered"]
 [connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
