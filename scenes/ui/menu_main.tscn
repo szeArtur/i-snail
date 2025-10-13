@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5uyltcmbbrci"]
+[gd_scene load_steps=6 format=3 uid="uid://c5uyltcmbbrci"]
 
 [ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_5ucki"]
 [ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_dk4ej"]
-[ext_resource type="AudioStream" uid="uid://bvqwm36wh8kr3" path="res://audio/music/Titel_Theme_1.ogg" id="3_4mdgu"]
+[ext_resource type="AudioStream" uid="uid://db6txltebl0jo" path="res://audio/music/Titel_Theme_1_kürzer.ogg" id="3_4m3xn"]
 [ext_resource type="Script" uid="uid://q3uuga5sw0hg" path="res://scripts/timer01.gd" id="4_5soqu"]
+[ext_resource type="AudioStream" uid="uid://bpumgd405odoc" path="res://audio/music/Titel_Theme_2.ogg" id="5_uioy2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -63,13 +64,19 @@ one_shot = true
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Timer"]
-stream = ExtResource("3_4mdgu")
+stream = ExtResource("3_4m3xn")
 autoplay = true
 bus = &"Music"
 script = ExtResource("4_5soqu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Timer/AudioStreamPlayer2D"]
+stream = ExtResource("5_uioy2")
+bus = &"Music"
+parameters/looping = false
 
 [connection signal="pressed" from="HBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="HBoxContainer/LoadGame" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="Timer" to="Timer/AudioStreamPlayer2D" method="_on_timer_timeout"]
+[connection signal="finished" from="Timer/AudioStreamPlayer2D" to="Timer/AudioStreamPlayer2D" method="_on_finished"]
