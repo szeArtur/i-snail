@@ -648,6 +648,14 @@ position = Vector2(872, 2800.887)
 scale = Vector2(0.14627661, 0.14627661)
 texture = ExtResource("30_d7c3n")
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="CreditText"]
+offset_left = 390.0
+offset_top = 3143.0
+offset_right = 677.0
+offset_bottom = 3220.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Font: Tim"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ooihk")
