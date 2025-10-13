@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialoque" load_steps=19 format=3 uid="uid://c32oueucgxg05"]
+[gd_resource type="Resource" script_class="Dialoque" load_steps=19 format=3 uid="uid://d1nifffl3s54d"]
 
 [ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="1_rr0xf"]
 [ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="2_c3v2g"]
@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_iddvo"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "Suck my gypsobelum…
 
 "
@@ -27,26 +27,26 @@ metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_hqqkf"]
 script = ExtResource("1_rr0xf")
-name = "Agent Openslimer"
+name = "Agent Oppenslimer"
 position = 2
 text = "… boss?"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_a5b66"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "You´re already back? How… unexpected."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_1lbub"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "I apologize; I was still a little ensnailed by my work."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_f3re4"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "You got the blueprints I assume?"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
@@ -59,50 +59,50 @@ metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_dptos"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = " Good let me take a look…"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_5pwi1"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "… Asnailsing! With this the weapon plans will finally be in my feelers!"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_dikvg"]
 script = ExtResource("1_rr0xf")
-name = "Agent Openslimer"
+name = "Agent Oppenslimer"
 position = 2
 text = "… (?)"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_y6axe"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "What I meant to snail is, out of the feelers of the boursnailsie of course!"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_01nfv"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "You did a decent job, slug."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_uiink"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "This might have been a small slither for a slug, but it was a huge slither for me-"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_liy8k"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "I mean the snaildom."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_1gmgx"]
 script = ExtResource("1_rr0xf")
-name = "Wineberg"
+name = "Weinberg"
 text = "Hold these papers for me, I will just take a snailcond."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 

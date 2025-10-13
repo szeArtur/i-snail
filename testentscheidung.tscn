@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjnhi6qeddlsq"]
+
+[ext_resource type="Script" uid="uid://booaywfgaiprs" path="res://entscheidung.gd" id="1_kptg5"]
+[ext_resource type="VideoStream" uid="uid://75lfd41osqer" path="res://builds/nomnom.ogv" id="2_63kur"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kptg5")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = -4.0
+offset_top = -128.0
+offset_right = 36.0
+offset_bottom = -88.0
+scale = Vector2(32.12021, 21.31954)
+stream = ExtResource("2_63kur")
+autoplay = true
+expand = true
+loop = true
+
+[node name="NewGame" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 0
+offset_left = 157.0
+offset_top = 538.0
+offset_right = 307.0
+offset_bottom = 588.0
+scale = Vector2(2.6821284, 2.4572484)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Weinberg"
+
+[node name="NewGame2" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 0
+offset_left = 785.0
+offset_top = 535.0
+offset_right = 935.0
+offset_bottom = 585.0
+scale = Vector2(2.5626712, 2.5626712)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Lal. Melania "
+
+[connection signal="pressed" from="NewGame" to="." method="mi"]
+[connection signal="pressed" from="NewGame2" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="NewGame2" to="." method="l"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3kyp7wchpb83"]
+[gd_scene load_steps=19 format=3 uid="uid://b3kyp7wchpb83"]
 
 [ext_resource type="Script" uid="uid://bdawwvism8vcw" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cv8x2tg6vxtq4" path="res://scripts/user_interface.gd" id="2_0wfyh"]
@@ -9,12 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://dvt4pkpi1lic4" path="res://scenes/levels/Level02Snail.tscn" id="7_eb6dy"]
 [ext_resource type="Script" uid="uid://bwkwl8n2mcbu7" path="res://scripts/level_root.gd" id="7_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://c5uyltcmbbrci" path="res://scenes/ui/menu_main.tscn" id="8_choun"]
-[ext_resource type="PackedScene" uid="uid://cs2wubx7aq0hq" path="res://scenes/levels/Level03Snail.tscn" id="8_trceg"]
+[ext_resource type="PackedScene" uid="uid://5776l4bqh3ls" path="res://scenes/levels/Level03Snail.tscn" id="8_trceg"]
 [ext_resource type="PackedScene" uid="uid://b3qlnt3du0rsh" path="res://scenes/levels/Level04Snail.tscn" id="9_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://c5naht0xe6c2b" path="res://scenes/ui/menu_options.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dw01jx0pxjbn4" path="res://scenes/ui/menu_pause.tscn" id="10_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://ctffetvvtro87" path="res://scenes/levels/Level05Snail.tscn" id="10_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://cvy46jpb87n63" path="res://scenes/levels/Level05Snail.tscn" id="10_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://cxx1gwp2tq8xm" path="res://scenes/levels/Level06Snail.tscn" id="11_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://b1o4c3m7o6ope" path="res://scenes/textszene1.tscn" id="13_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://dm5dbfpr25ud8" path="res://scenes/textszene2.tscn" id="14_0ld40"]
+[ext_resource type="PackedScene" uid="uid://edteg81og3o" path="res://scenes/textszene3.tscn" id="15_dp3eg"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
@@ -33,20 +36,14 @@ position = Vector2(58, -69)
 
 [node name="LevelRoot" type="Node2D" parent="GameWorld"]
 script = ExtResource("7_ya4ey")
-levels = Dictionary[StringName, PackedScene]({
-&"Level01Snail": ExtResource("6_choun"),
-&"Level02Snail": ExtResource("7_eb6dy"),
-&"Level03Snail": ExtResource("8_trceg"),
-&"Level04Snail": ExtResource("9_a8y0u"),
-&"Level05Snail": ExtResource("10_jkv2x"),
-&"Level06Snail": ExtResource("11_jkv2x")
-})
-level_order = Array[StringName]([&"Level01Snail", &"Level02Snail", &"Level03Snail", &"Level04Snail", &"Level05Snail", &"Level06Snail"])
-current_level_index = 4
+levels = Array[PackedScene]([ExtResource("6_choun"), ExtResource("6_choun"), ExtResource("7_eb6dy"), ExtResource("8_trceg"), ExtResource("9_a8y0u"), ExtResource("10_jkv2x"), ExtResource("11_jkv2x")])
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("2_0wfyh")
 menus = Dictionary[StringName, PackedScene]({
+&"dialog1": ExtResource("13_dp3eg"),
+&"dialog2": ExtResource("14_0ld40"),
+&"dialog3": ExtResource("15_dp3eg"),
 &"main": ExtResource("8_choun"),
 &"options": ExtResource("9_ya4ey"),
 &"pause": ExtResource("10_eb6dy")

@@ -1,0 +1,159 @@
+[gd_scene load_steps=18 format=3 uid="uid://33rcpolxv4n4"]
+
+[ext_resource type="Script" uid="uid://35ivibrh8va2" path="res://scripts/Name.gd" id="1_nuum0"]
+[ext_resource type="Texture2D" uid="uid://cdnvt7laldqi5" path="res://textures/Namensbox.png" id="2_t5van"]
+[ext_resource type="Script" uid="uid://bbfog81bv5ro3" path="res://scripts/Text.gd" id="3_anlbl"]
+[ext_resource type="Resource" uid="uid://nnx7no66v60p" path="res://wetransfer_keins_0-png_2025-10-13_0133/dialogesmaxi/Nomnomnom.tres" id="4_et11q"]
+[ext_resource type="Texture2D" uid="uid://2478mict0gy0" path="res://textures/Textbox.png" id="5_rssp7"]
+[ext_resource type="Texture2D" uid="uid://budqn3vtuvt6a" path="res://wetransfer_keins_0-png_2025-10-13_0133/Revolusnailnaries_0.png" id="6_et11q"]
+[ext_resource type="Texture2D" uid="uid://d0hbtwh0m2h15" path="res://textures/fancyMies.png" id="7_53aah"]
+[ext_resource type="Texture2D" uid="uid://dq83565fcvajo" path="res://wetransfer_keins_0-png_2025-10-13_0133/Revolusnailnaries_1.png" id="7_shkp1"]
+[ext_resource type="Texture2D" uid="uid://cj4t1gkcpgi01" path="res://wetransfer_keins_0-png_2025-10-13_0133/Revolusnailnaries_2.png" id="8_hpt25"]
+[ext_resource type="Texture2D" uid="uid://dlofq0akr0vyo" path="res://textures/OppenLaber.png" id="8_shkp1"]
+[ext_resource type="Texture2D" uid="uid://bpklf0iicenvr" path="res://textures/Militar.png" id="9_hpt25"]
+[ext_resource type="Texture2D" uid="uid://ckdc88b3jq03q" path="res://wetransfer_keins_0-png_2025-10-13_0133/Revolusnailnaries_3.png" id="9_vjih2"]
+[ext_resource type="Texture2D" uid="uid://b0avs8iwdwl3p" path="res://wetransfer_keins_0-png_2025-10-13_0133/Revolusnailnaries_4.png" id="10_hpvnc"]
+[ext_resource type="Texture2D" uid="uid://paovjx22sixs" path="res://wetransfer_keins_0-png_2025-10-13_0133/Revolusnailnaries_5.png" id="11_4ri6n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a5b66"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hucap"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_toxyx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_et11q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_shkp1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hpt25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vjih2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hpvnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4ri6n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.2
+}]
+
+[node name="Textszene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 6.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_right = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(500, 211)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Name3" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_a5b66")
+horizontal_alignment = 1
+autowrap_mode = 3
+autowrap_trim_flags = 128
+visible_characters_behavior = 1
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "halllo"
+label_settings = SubResource("LabelSettings_a5b66")
+horizontal_alignment = 1
+autowrap_mode = 3
+autowrap_trim_flags = 128
+visible_characters_behavior = 1
+script = ExtResource("1_nuum0")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/VBoxContainer/Name"]
+z_index = -1
+position = Vector2(116, 19)
+scale = Vector2(0.326, 0.156)
+texture = ExtResource("2_t5van")
+
+[node name="Name2" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_a5b66")
+horizontal_alignment = 1
+autowrap_mode = 3
+autowrap_trim_flags = 128
+visible_characters_behavior = 1
+
+[node name="TextBox" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Hi ich möchte  gerne deune euner lecken und ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+label_settings = SubResource("LabelSettings_hucap")
+autowrap_mode = 3
+autowrap_trim_flags = 128
+visible_characters_behavior = 1
+script = ExtResource("3_anlbl")
+alles_text = ExtResource("4_et11q")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/VBoxContainer/TextBox"]
+z_index = -1
+position = Vector2(241.625, 62.625)
+scale = Vector2(0.24, 0.156)
+texture = ExtResource("5_rssp7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -7
+position = Vector2(633.5, 364.00003)
+scale = Vector2(0.33880213, 0.35185185)
+sprite_frames = SubResource("SpriteFrames_toxyx")
+autoplay = "default"
+
+[node name="Right" type="Sprite2D" parent="."]
+visible = false
+z_index = -3
+position = Vector2(1026.0001, 456)
+scale = Vector2(0.23349343, 0.24299386)
+texture = ExtResource("7_53aah")
+
+[node name="Mid" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(609, 560)
+scale = Vector2(0.146, 0.146)
+texture = ExtResource("8_shkp1")
+
+[node name="Left" type="Sprite2D" parent="."]
+visible = false
+z_index = -3
+position = Vector2(214, 472.00006)
+scale = Vector2(0.1785217, 0.20414074)
+texture = ExtResource("9_hpt25")

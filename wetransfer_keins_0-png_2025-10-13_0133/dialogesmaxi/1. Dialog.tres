@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="Dialoque" load_steps=18 format=3 uid="uid://buo5g8wo0ypvd"]
+
+[ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="1_6p75y"]
+[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="2_nncwg"]
+
+[sub_resource type="Resource" id="Resource_iddvo"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "Agent Oppenslimer, let me preface this by saying that your mission is the most important thing you will ever do in your life, do we understand each other?
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_a5b66"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "There is no room for little mishaps, no error, no messing up. We need the blueprints for this almighty weapon out of the boursnailsies feelers under any circumstance.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_1lbub"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "You, as a houseless, a slug, should know the importance of their downfall better than anyone. You might not be the most promising recruit we ever had, but we do still have you.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_dptos"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "…what?!"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_5pwi1"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "So don’t let all the excessive training we poured into you go to waste, Agent.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_hqqkf"]
+script = ExtResource("1_6p75y")
+name = "Agent Oppenslimer"
+position = 2
+text = "(Does one week of an unpaid student internship count as excessive training?)
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_y6axe"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "Agent, are we clear?!
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_01nfv"]
+script = ExtResource("1_6p75y")
+name = "Agent Oppenslimer"
+position = 2
+text = "Yes boss.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_uiink"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "The blueprints, your target, are stored in this unassuming little envelope.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_dikvg"]
+script = ExtResource("1_6p75y")
+name = "Agent Oppenslimer"
+position = 2
+text = "Yes boss."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_liy8k"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "The blueprints, your target, are stored in this unassuming little envelope.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_1gmgx"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "We located one not far from here and you will be sent there to retrieve it.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_3ckw0"]
+script = ExtResource("1_6p75y")
+name = "Agent Oppenslimer"
+position = 2
+text = "Yes What kind of almighty weapon are we even talking about?
+."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_iur3k"]
+script = ExtResource("1_6p75y")
+name = "Weinberg"
+text = "Don’t concern yourself with matters above your paygrade Agent. You know all you need to know. Don’t disappoint me.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_hrgot"]
+script = ExtResource("1_6p75y")
+name = "Agent Oppenslimer"
+position = 2
+text = "I won’t, boss.
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[resource]
+script = ExtResource("2_nncwg")
+messages = Array[ExtResource("1_6p75y")]([SubResource("Resource_iddvo"), SubResource("Resource_a5b66"), SubResource("Resource_1lbub"), SubResource("Resource_dptos"), SubResource("Resource_5pwi1"), SubResource("Resource_hqqkf"), SubResource("Resource_y6axe"), SubResource("Resource_01nfv"), SubResource("Resource_uiink"), SubResource("Resource_dikvg"), SubResource("Resource_liy8k"), SubResource("Resource_1gmgx"), SubResource("Resource_3ckw0"), SubResource("Resource_iur3k"), SubResource("Resource_hrgot")])
+metadata/_custom_type_script = "uid://6cfcvrv5o8fd"

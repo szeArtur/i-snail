@@ -1,112 +1,102 @@
-[gd_resource type="Resource" script_class="Dialoque" load_steps=19 format=3 uid="uid://b8vuxlwl71gf5"]
+[gd_resource type="Resource" script_class="Dialoque" load_steps=17 format=3 uid="uid://cslnh2oti2f3c"]
 
 [ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="1_76itm"]
 [ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="2_5ggwd"]
 
 [sub_resource type="Resource" id="Resource_rr0xf"]
 script = ExtResource("1_76itm")
-name = "News"
-position = 1
-text = "Newest reports say that the slug-market trends for salt have dropped by over 25% since the last weekly resnailing."
+name = "Lal. Melania"
+position = 2
+text = "Not so fast you slugster!"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_c3v2g"]
 script = ExtResource("1_76itm")
-name = "News"
-position = 1
-text = "Additionally, a great underground slug-trafficking-circle has been upheaved by local snailstice investigators."
+name = "Weinberg"
+text = "Who are you calling a slug?!"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_iddvo"]
 script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "Suck my gypsobelum…
-
+name = "Lal. Melania"
+position = 2
+text = "A sluggy thief is what you are! You stole our blueprints and slugged our plan, how dare you?!
 "
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_hqqkf"]
 script = ExtResource("1_76itm")
-name = "Agent Openslimer"
-position = 2
-text = "… boss?"
+name = "Weinberg"
+text = "The boursnailsie has been in power for long enough. The time of the revolusnailnaries has slithered upon you."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_a5b66"]
 script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "You´re already back? How… unexpected."
+name = "Lal. Melania"
+position = 2
+text = "You are not the snail holding the plans. Little…"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_1lbub"]
 script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "I apologize; I was still a little ensnailed by my work."
+name = "Lal. Melania"
+position = 2
+text = "…slug."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_f3re4"]
 script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "You got the blueprints I assume?"
+name = "Lal. Melania"
+position = 2
+text = "I can give you everything you want. Riches, power…"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_3ckw0"]
 script = ExtResource("1_76itm")
-name = "Agent Oppenslimer"
+name = "Lal. Melania"
 position = 2
-text = "Yes boss."
+text = "… even a house of your own."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_dptos"]
 script = ExtResource("1_76itm")
-name = "Wineberg"
-text = " Good let me take a look…"
+name = "Lal. Melania"
+position = 2
+text = "You´d be a proper snail, with everything and everysnail you want at the tips of your feelers."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_5pwi1"]
 script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "… Asnailsing! With this the weapon plans will finally be in my feelers!"
+name = "Lal. Melania"
+position = 2
+text = "You just need to give me the blueprints."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_dikvg"]
 script = ExtResource("1_76itm")
-name = "Agent Openslimer"
-position = 2
-text = "… (?)"
+name = "Weinberg"
+text = "Do not listen to their false promises. They will slug you into a cage, one of the finest calcium carbonate, but a cage nonetheless."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_y6axe"]
 script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "What I meant to snail is, out of the feelers of the boursnailsie of course!"
+name = "Weinberg"
+text = "I have always respected you, treated you well, despite the fact that you are a slug. I have given your life greater purpose when I brought you. You owe me your sluggish life."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_01nfv"]
 script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "You did a decent job, slug."
+name = "Weinberg"
+text = "Give me the plans, now!"
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [sub_resource type="Resource" id="Resource_uiink"]
 script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "This might have been a small slither for a slug, but it was a huge slither for me-"
-metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
-
-[sub_resource type="Resource" id="Resource_liy8k"]
-script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "I mean the snaildom."
-metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
-
-[sub_resource type="Resource" id="Resource_1gmgx"]
-script = ExtResource("1_76itm")
-name = "Wineberg"
-text = "Hold these papers for me, I will just take a snailcond."
+name = "Agent Oppenslime"
+text = "I need to choose..."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [resource]
 script = ExtResource("2_5ggwd")
-messages = Array[ExtResource("1_76itm")]([SubResource("Resource_rr0xf"), SubResource("Resource_c3v2g"), SubResource("Resource_iddvo"), SubResource("Resource_hqqkf"), SubResource("Resource_a5b66"), SubResource("Resource_1lbub"), SubResource("Resource_f3re4"), SubResource("Resource_3ckw0"), SubResource("Resource_dptos"), SubResource("Resource_5pwi1"), SubResource("Resource_dikvg"), SubResource("Resource_y6axe"), SubResource("Resource_01nfv"), SubResource("Resource_uiink"), SubResource("Resource_liy8k"), SubResource("Resource_1gmgx")])
+messages = Array[ExtResource("1_76itm")]([SubResource("Resource_rr0xf"), SubResource("Resource_c3v2g"), SubResource("Resource_iddvo"), SubResource("Resource_hqqkf"), SubResource("Resource_a5b66"), SubResource("Resource_1lbub"), SubResource("Resource_f3re4"), SubResource("Resource_3ckw0"), SubResource("Resource_dptos"), SubResource("Resource_5pwi1"), SubResource("Resource_dikvg"), SubResource("Resource_y6axe"), SubResource("Resource_01nfv"), SubResource("Resource_uiink")])
 metadata/_custom_type_script = "uid://6cfcvrv5o8fd"

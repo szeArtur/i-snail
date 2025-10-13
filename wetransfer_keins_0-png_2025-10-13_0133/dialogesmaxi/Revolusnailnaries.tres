@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="Dialoque" load_steps=12 format=3 uid="uid://hbq0auabh8mp"]
+
+[ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="1_ramgu"]
+[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="2_piqgp"]
+
+[sub_resource type="Resource" id="Resource_ramgu"]
+script = ExtResource("1_ramgu")
+name = "???"
+text = "After the great agent Oppenslimer snailed down the blueprints for the saltbomb the most unexpected thing happened. 
+"
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_piqgp"]
+script = ExtResource("1_ramgu")
+name = "???"
+text = "No one, neither snail nor slug could have expected the plans to be laced with salt."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_18vi3"]
+script = ExtResource("1_ramgu")
+name = "???"
+text = "The poison slugged itself slowly through the body of Agent Oppenslimer and they slithered into the afterlife not moments after. "
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_0t5oa"]
+script = ExtResource("1_ramgu")
+name = "???"
+text = "But, through worker-snails, slithered rumors of plans for a salt-based-weapon of mass destruction through the snail population. In a press consnailrence, these rumors were in fact confirmed by both Weinberg and Lal. Melania."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_n7872"]
+script = ExtResource("1_ramgu")
+name = "???"
+text = "This led to mass demonssnailtions all across the snaildom. What started as a protest against salt-based-weapons soon slugged into protests against the dissluginations against slugs."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_b7nd6"]
+script = ExtResource("1_ramgu")
+name = "???"
+text = "In a civil-war the snailpopulation fought against the boursnailsie as well as the revolusnailnaries and won. Weinberg and Lal. Melania were ensnailed in prison for a life-snailtance. "
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_7ypj1"]
+script = ExtResource("1_ramgu")
+name = "???"
+text = "It didnt take long for the first offisnail elections to take place. And a houseless snail was voted into presisnailsy. "
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_kt7eo"]
+script = ExtResource("1_ramgu")
+name = "???"
+text = "Snailtistics show a massive decrease in houseless snails in the following years."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[sub_resource type="Resource" id="Resource_delen"]
+script = ExtResource("1_ramgu")
+name = "???"
+text = "To this day the slugdom still honors and rememsnails the great Agent Oppenslimer, that due to their brave snailcrifice saved the global snail-population from a sluggish future."
+metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
+
+[resource]
+script = ExtResource("2_piqgp")
+messages = Array[ExtResource("1_ramgu")]([SubResource("Resource_ramgu"), SubResource("Resource_piqgp"), SubResource("Resource_18vi3"), SubResource("Resource_0t5oa"), SubResource("Resource_n7872"), SubResource("Resource_b7nd6"), SubResource("Resource_7ypj1"), SubResource("Resource_kt7eo"), SubResource("Resource_delen")])
+metadata/_custom_type_script = "uid://6cfcvrv5o8fd"

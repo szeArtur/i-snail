@@ -12,9 +12,16 @@ func _ready():
 
 func _on_game_state_changed(state_new):
 	match state_new:
+		GameManager.GameState.DIALOUQE:
+			game_world.process_mode = PROCESS_MODE_DISABLED
+			game_world.hide()
+			user_interface.close()
+			#user_interface.open("dialog1")
+			
 		GameManager.GameState.CREATING_NEW_GAME:
-			await game_world.create_new()
 			GameManager.change_state(GameManager.GameState.PLAYING)
+			game_world.create_new()
+			
 
 		GameManager.GameState.PLAYING:
 			game_world.process_mode = PROCESS_MODE_INHERIT

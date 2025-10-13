@@ -5,10 +5,13 @@ extends Label
 @onready var left: Sprite2D = $"../../../Left"
 @onready var mid: Sprite2D = $"../../../Mid"
 @onready var right: Sprite2D = $"../../../Right"
+@onready var textszene: Control = $"../../.."
 var time_already=0
 var text_number = 0
 var time_till_next_box =0
 @export var max_time_till_next_box: int =1
+@export var neuneSzene: bool = false
+@export var neuneSzenewas: PackedScene
 func _ready() -> void:
 	autowrap_mode = TextServer.AUTOWRAP_WORD
 	custom_minimum_size.x = 500
@@ -49,8 +52,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			visible_ratio = 0
 			text_number+=1
 			text= alles_text.messages[text_number].text
-			print(text_number)
-			print(alles_text.messages[text_number].position)
+
 			
 			match alles_text.messages[text_number].position:
 				0:
@@ -77,6 +79,13 @@ func _unhandled_input(_event: InputEvent) -> void:
 					size_flags_horizontal = Control.SIZE_SHRINK_END
 			queue_redraw()
 			time_till_next_box=0
+	if text_number == len(alles_text.messages)-1:
+		if neuneSzene:
+			textszene.get_tree().root.add_child(neuneSzenewas.instantiate())
+			textszene.queue_free()  
+		else:
+			EventBus.menu_completed.emit("fuck")
+		
 func _process(delta: float) -> void:
 	time_already+=delta
 	time_till_next_box+=delta

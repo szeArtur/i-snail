@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctffetvvtro87"]
+[gd_scene load_steps=11 format=3 uid="uid://cvy46jpb87n63"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_np8fk"]
 [ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="2_6ap3u"]
 [ext_resource type="Texture2D" uid="uid://b2ljksivcds5x" path="res://textures/Bild_2.png" id="3_6ap3u"]
 [ext_resource type="PackedScene" uid="uid://blbewg3iufxov" path="res://scenes/assets/platform/platform_wood.tscn" id="4_edca5"]
 [ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_k7q4q"]
-[ext_resource type="Resource" path="res://resources/shells/shell1.tres" id="6_03wf1"]
+[ext_resource type="Resource" uid="uid://dlpafekiij322" path="res://resources/shells/shell1.tres" id="6_03wf1"]
 [ext_resource type="PackedScene" uid="uid://4sdv1gso4k50" path="res://jump_pad.tscn" id="7_03wf1"]
 [ext_resource type="PackedScene" uid="uid://0yajf0f63d6m" path="res://scenes/assets/platform/Dreckplattform1.tscn" id="8_so064"]
 [ext_resource type="PackedScene" uid="uid://dhf2fykd711cp" path="res://scenes/assets/platform/Dreckplattform2.tscn" id="9_qpxnn"]
@@ -24,7 +24,6 @@ metadata/_custom_type_script = "uid://bkcu3sc0w4ul3"
 [node name="Background2" type="Sprite2D" parent="."]
 modulate = Color(0.66, 0.66, 0.66, 1)
 z_index = -10
-z_as_relative = false
 position = Vector2(318, -157)
 scale = Vector2(0.35, 0.28)
 texture = ExtResource("3_6ap3u")
