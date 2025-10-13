@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5uyltcmbbrci"]
+[gd_scene load_steps=10 format=3 uid="uid://c5uyltcmbbrci"]
 
 [ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_5ucki"]
 [ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_dk4ej"]
 [ext_resource type="FontFile" uid="uid://bmm3tkdfwcml3" path="res://resources/Myfont-Regular.otf" id="3_5soqu"]
 [ext_resource type="Texture2D" uid="uid://fxwt0ee1w0v0" path="res://textures/Front Face.png" id="4_4m3xn"]
 [ext_resource type="Texture2D" uid="uid://d2c0vcgjtsc33" path="res://textures/Salzkristalle_level2.png" id="5_4m3xn"]
+[ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_5ucki"]
+[ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_dk4ej"]
+[ext_resource type="AudioStream" uid="uid://db6txltebl0jo" path="res://audio/music/Titel_Theme_1_kürzer.ogg" id="3_4m3xn"]
+[ext_resource type="Script" uid="uid://q3uuga5sw0hg" path="res://scripts/timer01.gd" id="4_5soqu"]
+[ext_resource type="AudioStream" uid="uid://bpumgd405odoc" path="res://audio/music/Titel_Theme_2.ogg" id="5_uioy2"]
 
 [sub_resource type="Gradient" id="Gradient_uioy2"]
 offsets = PackedFloat32Array(0, 0.46282974, 1)
@@ -13,11 +18,6 @@ colors = PackedColorArray(0, 0.90489334, 0.9793475, 1, 0.7461144, 0.7574889, 0.4
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1t6y3"]
 gradient = SubResource("Gradient_uioy2")
 fill_from = Vector2(0, 1)
-[ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_5ucki"]
-[ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_dk4ej"]
-[ext_resource type="AudioStream" uid="uid://db6txltebl0jo" path="res://audio/music/Titel_Theme_1_kürzer.ogg" id="3_4m3xn"]
-[ext_resource type="Script" uid="uid://q3uuga5sw0hg" path="res://scripts/timer01.gd" id="4_5soqu"]
-[ext_resource type="AudioStream" uid="uid://bpumgd405odoc" path="res://audio/music/Titel_Theme_2.ogg" id="5_uioy2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
