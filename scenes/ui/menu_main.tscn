@@ -58,25 +58,18 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Quit"
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
-one_shot = true
-autostart = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Timer"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4m3xn")
 autoplay = true
 bus = &"Music"
 script = ExtResource("4_5soqu")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Timer/AudioStreamPlayer2D"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="AudioStreamPlayer2D"]
 stream = ExtResource("5_uioy2")
 bus = &"Music"
-parameters/looping = false
 
 [connection signal="pressed" from="HBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="HBoxContainer/LoadGame" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="timeout" from="Timer" to="Timer/AudioStreamPlayer2D" method="_on_timer_timeout"]
-[connection signal="finished" from="Timer/AudioStreamPlayer2D" to="Timer/AudioStreamPlayer2D" method="_on_finished"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]
