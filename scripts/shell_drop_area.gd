@@ -1,0 +1,2 @@
+class_name ShellDropArea
+extends Area2D

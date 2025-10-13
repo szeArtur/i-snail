@@ -11,7 +11,8 @@ extends Agent
 @export var pull_speed_max: float
 @export var pull_acceleration: float
 
-@onready var item_drop_position = $AnimatedSprite2D/ItemDropPosition
+@onready var item_drop_position_forward = $AnimatedSprite2D/ItemDropPositionForward
+@onready var item_drop_position_backward = $AnimatedSprite2D/ItemDropPositionBackward
 @onready var collection_area = $CollectionArea
 
 var pulling := false
@@ -29,6 +30,11 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 		shell = body.item
 		shell_sprite.texture = shell.sprite
 		body.pickup()
+
+func _on_collection_area_area_entered(area: Area2D) -> void:
+	if area is ShellDropArea:
+		drop_shell(false)
+
 
 func jumppad(force):		
 	movement_controller.jump(force/10)
@@ -99,12 +105,19 @@ func get_closer_point(a: Node2D, b: Node2D) -> bool:
 		return true
 	return false
 
-func drop_shell() -> void:
+func drop_shell(forward := true) -> void:
 	if not shell:
 		return
 	
-	var at = item_drop_position.global_position
-	var toward = velocity + (item_drop_position.global_position - global_position) * 3
+	var at : Vector2
+	if forward:
+		at = item_drop_position_forward.global_position
+	else:
+		at = item_drop_position_backward.global_position
+	
+	print(item_drop_position_forward.global_position)
+	print(item_drop_position_backward.global_position)
+	var toward = velocity + (at - global_position) * 3
 	EventBus.drop_item.emit(shell, at, toward)
 	shell = null
 	shell_sprite.texture = null
