@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5uyltcmbbrci"]
+[gd_scene load_steps=5 format=3 uid="uid://c5uyltcmbbrci"]
 
 [ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_5ucki"]
 [ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_dk4ej"]
+[ext_resource type="AudioStream" uid="uid://bvqwm36wh8kr3" path="res://audio/music/Titel_Theme_1.ogg" id="3_4mdgu"]
+[ext_resource type="Script" uid="uid://q3uuga5sw0hg" path="res://scripts/timer01.gd" id="4_5soqu"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -55,7 +57,19 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Quit"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Timer"]
+stream = ExtResource("3_4mdgu")
+autoplay = true
+bus = &"Music"
+script = ExtResource("4_5soqu")
+
 [connection signal="pressed" from="HBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="HBoxContainer/LoadGame" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="Timer" to="Timer/AudioStreamPlayer2D" method="_on_timer_timeout"]
