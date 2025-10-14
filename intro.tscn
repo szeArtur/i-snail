@@ -95,5 +95,3 @@ libraries = {
 &"": SubResource("AnimationLibrary_0a7ni")
 }
 autoplay = "intro"
-
-[connection signal="finished" from="." to="." method="_on_finished"]

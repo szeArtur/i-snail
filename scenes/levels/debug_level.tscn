@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://hfkn80rwtb23"]
+
+[ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_hkwi7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r04o2"]
+size = Vector2(1311.1176, 20)
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player_spawn")]
+script = ExtResource("1_hkwi7")
+player_spawn = NodePath("PlayerSpawn")
+metadata/_custom_type_script = "uid://drqipnirsffjv"
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(676.7649, 93.84726)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(676.7649, 93.84726)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-35.32367, 602.1527)
+shape = SubResource("RectangleShape2D_r04o2")
