@@ -3,7 +3,7 @@ extends Node2D
 
 
 
-@onready var camera: Camera = $Camera
+#@onready var camera: Camera = $Camera
 @onready var player: Player = $Player
 @onready var music_player = $MusicPlayer
 @onready var level_root: LevelRoot = $LevelRoot
@@ -33,7 +33,7 @@ func load_data(data : Dictionary) -> void:
 func reset() -> void:
 	level_root.close()
 	player.reset()
-	camera.reset()
+	#camera.reset()
 
 	var previous_process_mode = process_mode
 	process_mode = PROCESS_MODE_INHERIT
