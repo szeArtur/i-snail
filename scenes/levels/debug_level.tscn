@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://hfkn80rwtb23"]
+[gd_scene load_steps=5 format=3 uid="uid://hfkn80rwtb23"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_hkwi7"]
+[ext_resource type="Script" uid="uid://dm7fgpjkablo5" path="res://scripts/camera_controller.gd" id="2_r04o2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r04o2"]
-size = Vector2(1311.1176, 20)
+size = Vector2(664, 40.00003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o5vt"]
+size = Vector2(62, 103.000015)
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player_spawn")]
 script = ExtResource("1_hkwi7")
@@ -11,11 +15,20 @@ player_spawn = NodePath("PlayerSpawn")
 metadata/_custom_type_script = "uid://drqipnirsffjv"
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(676.7649, 93.84726)
+position = Vector2(-225, 76)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(676.7649, 93.84726)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-35.32367, 602.1527)
+position = Vector2(4, 157)
 shape = SubResource("RectangleShape2D_r04o2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-41, 91)
+shape = SubResource("RectangleShape2D_7o5vt")
+
+[node name="Camera" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(2, 2)
+script = ExtResource("2_r04o2")
+stiffness = 0.4
