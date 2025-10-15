@@ -99,3 +99,16 @@ scale = Vector2(0.6363636, 0.6363636)
 [node name="FallingCooldown" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+
+[node name="Viewbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 200
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Viewbox"]
