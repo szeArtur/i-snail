@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://wbogsduyh0ug"]
+
+[ext_resource type="Script" uid="uid://e8nulp3wmj6a" path="res://scripts/agents/agent.gd" id="1_b2pv0"]
+[ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="2_y08pw"]
+[ext_resource type="Texture2D" uid="uid://bv8u3ydmdvbxm" path="res://textures/Schnecke2.png" id="3_q3gef"]
+[ext_resource type="Texture2D" uid="uid://cl63d4jv4tv0o" path="res://textures/Schnecke3.png" id="4_f14ir"]
+[ext_resource type="Texture2D" uid="uid://dd6ahlab8pe08" path="res://textures/Einzug_ins_haus1.png" id="5_tduqk"]
+[ext_resource type="Texture2D" uid="uid://dxmv54brf4523" path="res://textures/Einzug_ins_haus2.png" id="6_2rugh"]
+[ext_resource type="Texture2D" uid="uid://c2nvg7ockr3im" path="res://textures/Einzug_ins_haus3.png" id="7_xkbws"]
+[ext_resource type="Texture2D" uid="uid://x7uf6ygcyani" path="res://textures/Einzug_ins_haus4.png" id="8_x1a88"]
+[ext_resource type="Texture2D" uid="uid://b48lna1xcyfri" path="res://textures/Einzug_ins_haus7.png" id="9_xccks"]
+[ext_resource type="Texture2D" uid="uid://c0u4y6yfvinjr" path="res://textures/Einzug_ins_Haus8.png" id="10_30rnm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b2pv0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y08pw"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_umeaf"]
+radius = 15.033297
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u666s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y08pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q3gef")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y08pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q3gef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f14ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q3gef")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tduqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2rugh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xkbws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_x1a88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xccks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_30rnm")
+}],
+"loop": false,
+"name": &"retract",
+"speed": 12.0
+}]
+
+[node name="Agent" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite")]
+script = ExtResource("1_b2pv0")
+shell_sprite = NodePath("Sprite/ShellSprite")
+sprite = NodePath("Sprite")
+metadata/_custom_type_script = "uid://e8nulp3wmj6a"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b2pv0")
+debug_color = Color(0.7, 0.7, 0.7, 0.41960785)
+
+[node name="FloorDetector" type="ShapeCast2D" parent="."]
+shape = SubResource("CircleShape2D_y08pw")
+target_position = Vector2(0, 0)
+
+[node name="FloorDetectionArea" type="StaticBody2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape" type="CollisionShape2D" parent="FloorDetectionArea"]
+shape = SubResource("CircleShape2D_umeaf")
+debug_color = Color(0.34100005, 0.62, 0, 0)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.055, 0.055)
+sprite_frames = SubResource("SpriteFrames_u666s")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="ShellSprite" type="Sprite2D" parent="Sprite"]
+position = Vector2(-181.81818, -163.63637)
+scale = Vector2(0.6363636, 0.6363636)

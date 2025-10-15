@@ -16,6 +16,7 @@
 script = ExtResource("1_o5qli")
 
 [node name="GameWorld" type="Node2D" parent="." groups=["Persist"]]
+process_mode = 4
 script = ExtResource("2_sugp2")
 
 [node name="Player" parent="GameWorld" instance=ExtResource("4_tbgi4")]

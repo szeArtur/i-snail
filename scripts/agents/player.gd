@@ -40,8 +40,8 @@ func _on_collection_area_area_entered(area: Area2D) -> void:
 		drop_shell(false)
 
 
-func jumppad(force):		
-	movement_controller.jump(force/10)
+#func jumppad(force):		
+	#movement_controller.jump(force/10)
 
 
 func _process(_delta: float) -> void:
@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 			pulling = false
 		return
 	
-	movement_controller.move(delta, movement_direction, stick)
+	move(delta, movement_direction)
 	
 	if not stick:
 		for i in get_slide_collision_count():
