@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wbogsduyh0ug"]
+[gd_scene load_steps=14 format=3 uid="uid://wbogsduyh0ug"]
 
 [ext_resource type="Script" uid="uid://e8nulp3wmj6a" path="res://scripts/agents/agent.gd" id="1_b2pv0"]
 [ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="2_y08pw"]
@@ -15,9 +15,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y08pw"]
 radius = 15.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_umeaf"]
-radius = 15.033297
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u666s"]
 animations = [{
@@ -73,10 +70,11 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Agent" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite")]
+[node name="Agent" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "falling_cooldown")]
 script = ExtResource("1_b2pv0")
 shell_sprite = NodePath("Sprite/ShellSprite")
 sprite = NodePath("Sprite")
+falling_cooldown = NodePath("FallingCooldown")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
@@ -86,13 +84,6 @@ debug_color = Color(0.7, 0.7, 0.7, 0.41960785)
 [node name="FloorDetector" type="ShapeCast2D" parent="."]
 shape = SubResource("CircleShape2D_y08pw")
 target_position = Vector2(0, 0)
-
-[node name="FloorDetectionArea" type="StaticBody2D" parent="."]
-collision_layer = 0
-
-[node name="CollisionShape" type="CollisionShape2D" parent="FloorDetectionArea"]
-shape = SubResource("CircleShape2D_umeaf")
-debug_color = Color(0.34100005, 0.62, 0, 0)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -2)
@@ -104,3 +95,7 @@ autoplay = "idle"
 [node name="ShellSprite" type="Sprite2D" parent="Sprite"]
 position = Vector2(-181.81818, -163.63637)
 scale = Vector2(0.6363636, 0.6363636)
+
+[node name="FallingCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
