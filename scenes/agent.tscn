@@ -112,3 +112,6 @@ collision_mask = 200
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Viewbox"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"Effects"

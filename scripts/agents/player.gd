@@ -5,43 +5,36 @@ extends Agent
 @export_category("Gappl")
 @export var min_grab_range := 60
 @export var max_grab_range := 300
-@export var jumpforce := 10.0
 
 @export_category("Pulling")
 @export var pull_speed_max: float
 @export var pull_acceleration: float
 
-@onready var item_drop_position_forward = $AnimatedSprite2D/ItemDropPositionForward
-@onready var item_drop_position_backward = $AnimatedSprite2D/ItemDropPositionBackward
-@onready var collection_area = $CollectionArea
-
+@onready var item_drop_position_forward = $Sprite/ItemDropPositionForward
+@onready var item_drop_position_backward = $Sprite/ItemDropPositionBackward
 
 var pulling := false
 var pull_target: Vector2
-
 var ability: Ability
 
 
 func reset() -> void:
 	super.reset()
 	pulling = false
+	ability = null
+
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:
 	GameManager.push_state(GameManager.GameState.RELOADING)
 
-func _on_collection_area_body_entered(body: Node2D) -> void:
+
+func _on_viewbox_entered(body: CollisionObject2D) -> void:
 	if body is Collectable:
 		shell = body.item
 		shell_sprite.texture = shell.sprite
 		body.pickup()
-
-func _on_collection_area_area_entered(area: Area2D) -> void:
-	if area is ShellDropArea:
+	if body is ShellDropArea:
 		drop_shell(false)
-
-
-#func jumppad(force):		
-	#movement_controller.jump(force/10)
 
 
 func _process(_delta: float) -> void:
@@ -65,6 +58,7 @@ func _physics_process(delta: float) -> void:
 			var collidng_body = get_slide_collision(i)
 			if collidng_body.get_collider() is RigidBody2D:
 				collidng_body.get_collider().apply_central_impulse(-collidng_body.get_normal()*4)
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
@@ -119,8 +113,6 @@ func drop_shell(forward := true) -> void:
 	else:
 		at = item_drop_position_backward.global_position
 	
-	print(item_drop_position_forward.global_position)
-	print(item_drop_position_backward.global_position)
 	var toward = velocity + (at - global_position) * 3
 	EventBus.drop_item.emit(shell, at, toward)
 	shell = null

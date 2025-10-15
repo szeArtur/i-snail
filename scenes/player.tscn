@@ -12,19 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://c0u4y6yfvinjr" path="res://textures/Einzug_ins_Haus8.png" id="8_jej6c"]
 [ext_resource type="AudioStream" uid="uid://isy6k243bekc" path="res://audio/effects/walk on grass.ogg" id="12_3v2ag"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3v2ag"]
-radius = 23.3
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4r1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2wvv"]
-radius = 21.0
+radius = 15.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
-radius = 11.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
-radius = 18.027756
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_f1ej7"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_3v2ag"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -78,77 +71,78 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "shell_sprite", "sprite", "move_sound", "floor_detector", "falling_cooldown")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jej6c"]
+radius = 19.104973
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1ej7"]
+radius = 19.104973
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "viewbox", "shell_sprite", "sprite", "move_sound", "floor_detector", "falling_cooldown")]
 z_index = -1
 collision_layer = 2
 collision_mask = 65
 floor_max_angle = 3.1415927
 platform_floor_layers = 4294901761
 script = ExtResource("1_v0iea")
-jumpforce = 500.0
 pull_speed_max = 2000.0
 pull_acceleration = 1000.0
 hitbox = NodePath("Hitbox")
-shell_sprite = NodePath("AnimatedSprite2D/ShellSprite")
-sprite = NodePath("AnimatedSprite2D")
-move_sound = NodePath("AudioStreamPlayer2D")
+viewbox = NodePath("Viewbox")
+shell_sprite = NodePath("Sprite/ShellSprite")
+sprite = NodePath("Sprite")
+move_sound = NodePath("MoveSound")
 floor_detector = NodePath("FloorDetector")
 falling_cooldown = NodePath("FallingCooldown")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y4r1p")
+debug_color = Color(0.7, 0.7, 0.7, 0.41960785)
+
 [node name="FloorDetector" type="ShapeCast2D" parent="."]
-shape = SubResource("CircleShape2D_3v2ag")
+shape = SubResource("CircleShape2D_d2wvv")
 target_position = Vector2(0, 0)
 
-[node name="CollectionArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 72
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
-shape = SubResource("CircleShape2D_d2wvv")
-
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-rotation = 1.5707964
-shape = SubResource("CircleShape2D_tuyoq")
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 32
-
-[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
-rotation = 1.5707964
-shape = SubResource("CircleShape2D_qhqgy")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -2)
 scale = Vector2(0.055, 0.055)
-sprite_frames = SubResource("SpriteFrames_f1ej7")
+sprite_frames = SubResource("SpriteFrames_3v2ag")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="ShellSprite" type="Sprite2D" parent="AnimatedSprite2D"]
+[node name="ShellSprite" type="Sprite2D" parent="Sprite"]
 position = Vector2(-181.81818, -163.63637)
 scale = Vector2(0.6363636, 0.6363636)
 
-[node name="ItemDropPositionForward" type="Marker2D" parent="AnimatedSprite2D"]
-position = Vector2(709.09094, -381.81818)
-rotation = 3.1415927
+[node name="ItemDropPositionForward" type="Marker2D" parent="Sprite"]
+position = Vector2(709.0909, -381.81818)
+rotation = -3.1415925
 scale = Vector2(18.181818, -18.181818)
 
-[node name="ItemDropPositionBackward" type="Marker2D" parent="AnimatedSprite2D"]
+[node name="ItemDropPositionBackward" type="Marker2D" parent="Sprite"]
 position = Vector2(-600, -400)
-rotation = 3.1415927
+rotation = -3.1415925
 scale = Vector2(18.181818, -18.181818)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_3v2ag")
-bus = &"Effects"
 
 [node name="FallingCooldown" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.2
 one_shot = true
 
-[connection signal="area_entered" from="CollectionArea" to="." method="_on_collection_area_area_entered"]
-[connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_jej6c")
+
+[node name="Viewbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 200
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Viewbox"]
+shape = SubResource("CircleShape2D_f1ej7")
+
+[node name="MoveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_3v2ag")
+bus = &"Effects"
