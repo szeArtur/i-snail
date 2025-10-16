@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_xgd42"]
 [ext_resource type="Script" uid="uid://bkcu3sc0w4ul3" path="res://scripts/spawn_point.gd" id="3_pqhrq"]
-[ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/collectable.tscn" id="5_p2e1a"]
+[ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/assets/collectable.tscn" id="5_p2e1a"]
 [ext_resource type="Resource" uid="uid://dlpafekiij322" path="res://resources/shells/shell1.tres" id="6_pqhrq"]
 [ext_resource type="Texture2D" uid="uid://bh0k6xqk8wea8" path="res://textures/Hintergrund lvl 1.jpg" id="11_hktik"]
 [ext_resource type="PackedScene" uid="uid://mpphivskeb28" path="res://scenes/assets/platform/platform02_grass.tscn" id="11_pqhrq"]
-[ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/grab_point.tscn" id="12_hktik"]
+[ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/assets/grab_point.tscn" id="12_hktik"]
 [ext_resource type="PackedScene" uid="uid://csaygmyd24rcn" path="res://scenes/assets/platform/platform01_grass.tscn" id="12_lxjy1"]
 [ext_resource type="PackedScene" uid="uid://fnlsn2syedx5" path="res://scenes/assets/platform/platform03_grass.tscn" id="13_kv4k8"]
 [ext_resource type="PackedScene" uid="uid://cb0qe70t3smd7" path="res://scenes/assets/salt_crystal_02.tscn" id="13_lxjy1"]

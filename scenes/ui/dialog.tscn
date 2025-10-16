@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhq4p4qdh3rkd"]
 
-[ext_resource type="Script" uid="uid://35ivibrh8va2" path="res://scripts/Name.gd" id="1_hucap"]
-[ext_resource type="Script" uid="uid://bbfog81bv5ro3" path="res://scripts/Text.gd" id="1_wx2ho"]
-[ext_resource type="Texture2D" uid="uid://cdnvt7laldqi5" path="res://textures/Namensbox.png" id="2_h7qi8"]
-[ext_resource type="Resource" uid="uid://buo5g8wo0ypvd" path="res://dialogesmaxi/1. Dialog.tres" id="3_hucap"]
-[ext_resource type="Texture2D" uid="uid://2478mict0gy0" path="res://textures/Textbox.png" id="4_a5b66"]
-[ext_resource type="Texture2D" uid="uid://cck74hgj7jhl5" path="res://textures/slucghub (1).png" id="6_ap3bi"]
-[ext_resource type="Texture2D" uid="uid://dlofq0akr0vyo" path="res://textures/OppenLaber.png" id="7_rdapw"]
-[ext_resource type="Texture2D" uid="uid://bpklf0iicenvr" path="res://textures/Militar.png" id="8_p2ygq"]
+[ext_resource type="Script" uid="uid://35ivibrh8va2" path="res://scripts/Name.gd" id="1_aq0jt"]
+[ext_resource type="Texture2D" uid="uid://cdnvt7laldqi5" path="res://textures/Namensbox.png" id="2_756lo"]
+[ext_resource type="Script" uid="uid://bbfog81bv5ro3" path="res://scripts/Text.gd" id="3_0try4"]
+[ext_resource type="Resource" uid="uid://buo5g8wo0ypvd" path="res://resources/dialogues/dialogue01.tres" id="4_dos7u"]
+[ext_resource type="Texture2D" uid="uid://2478mict0gy0" path="res://textures/Textbox.png" id="5_kcpo2"]
+[ext_resource type="Texture2D" uid="uid://cck74hgj7jhl5" path="res://textures/slucghub (1).png" id="6_mxih6"]
+[ext_resource type="Texture2D" uid="uid://dlofq0akr0vyo" path="res://textures/OppenLaber.png" id="7_ykpju"]
+[ext_resource type="Texture2D" uid="uid://bpklf0iicenvr" path="res://textures/Militar.png" id="8_p8gb2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a5b66"]
 font_color = Color(0, 0, 0, 1)
@@ -63,13 +63,13 @@ horizontal_alignment = 1
 autowrap_mode = 3
 autowrap_trim_flags = 128
 visible_characters_behavior = 1
-script = ExtResource("1_hucap")
+script = ExtResource("1_aq0jt")
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/VBoxContainer/Name"]
 z_index = -1
 position = Vector2(116, 19)
 scale = Vector2(0.326, 0.156)
-texture = ExtResource("2_h7qi8")
+texture = ExtResource("2_756lo")
 
 [node name="Name2" type="Label" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
@@ -89,26 +89,26 @@ label_settings = SubResource("LabelSettings_hucap")
 autowrap_mode = 3
 autowrap_trim_flags = 128
 visible_characters_behavior = 1
-script = ExtResource("1_wx2ho")
-alles_text = ExtResource("3_hucap")
+script = ExtResource("3_0try4")
+alles_text = ExtResource("4_dos7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/VBoxContainer/TextBox"]
 z_index = -1
 position = Vector2(241.625, 62.625)
 scale = Vector2(0.24, 0.156)
-texture = ExtResource("4_a5b66")
+texture = ExtResource("5_kcpo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -4
 position = Vector2(632.6, 398.545)
 scale = Vector2(0.188046, 0.16290574)
-texture = ExtResource("6_ap3bi")
+texture = ExtResource("6_mxih6")
 
 [node name="Right" type="Sprite2D" parent="."]
 z_index = -3
 position = Vector2(912.99994, 463.99997)
 scale = Vector2(0.23349343, 0.24299386)
-texture = ExtResource("7_rdapw")
+texture = ExtResource("7_ykpju")
 
 [node name="Mid" type="Sprite2D" parent="."]
 z_index = -1
@@ -119,4 +119,4 @@ scale = Vector2(0.00130321, 0.00130321)
 z_index = -3
 position = Vector2(319, 546)
 scale = Vector2(0.1785217, 0.20414074)
-texture = ExtResource("8_p2ygq")
+texture = ExtResource("8_p8gb2")

@@ -104,7 +104,7 @@ shape = SubResource("CircleShape2D_d2wvv")
 target_position = Vector2(0, 0)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -2)
+position = Vector2(-1, -7)
 scale = Vector2(0.055, 0.055)
 sprite_frames = SubResource("SpriteFrames_3v2ag")
 animation = &"idle"

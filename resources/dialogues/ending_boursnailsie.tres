@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Dialoque" load_steps=9 format=3 uid="uid://bqoho7h32po6h"]
 
 [ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="1_lvd0o"]
-[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="2_58b3r"]
+[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialogue.gd" id="2_23sxb"]
 
 [sub_resource type="Resource" id="Resource_rr0xf"]
 script = ExtResource("1_lvd0o")
@@ -41,6 +41,6 @@ text = "But what does the death of a few slugs matter? Persnailnally, my life is
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [resource]
-script = ExtResource("2_58b3r")
+script = ExtResource("2_23sxb")
 messages = Array[ExtResource("1_lvd0o")]([SubResource("Resource_rr0xf"), SubResource("Resource_c3v2g"), SubResource("Resource_iddvo"), SubResource("Resource_hqqkf"), SubResource("Resource_a5b66"), SubResource("Resource_1lbub")])
 metadata/_custom_type_script = "uid://6cfcvrv5o8fd"

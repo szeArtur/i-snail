@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Dialoque" load_steps=16 format=3 uid="uid://buo5g8wo0ypvd"]
 
 [ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_box.gd" id="1_6p75y"]
-[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialoque.gd" id="2_nncwg"]
+[ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialogue.gd" id="2_levpe"]
 
 [sub_resource type="Resource" id="Resource_iddvo"]
 script = ExtResource("1_6p75y")
@@ -87,6 +87,6 @@ text = "Yes boss."
 metadata/_custom_type_script = "uid://ckikpbqfxhxhv"
 
 [resource]
-script = ExtResource("2_nncwg")
+script = ExtResource("2_levpe")
 messages = Array[ExtResource("1_6p75y")]([SubResource("Resource_iddvo"), SubResource("Resource_a5b66"), SubResource("Resource_1lbub"), SubResource("Resource_dptos"), SubResource("Resource_5pwi1"), SubResource("Resource_hqqkf"), SubResource("Resource_y6axe"), SubResource("Resource_01nfv"), SubResource("Resource_uiink"), SubResource("Resource_dikvg"), SubResource("Resource_liy8k"), SubResource("Resource_1gmgx"), SubResource("Resource_3ckw0")])
 metadata/_custom_type_script = "uid://6cfcvrv5o8fd"

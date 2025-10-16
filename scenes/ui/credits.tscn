@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://ckmypedblkqrd" path="res://textures/enemylv1haus/1boser_einzug_ins_haus7.png" id="23_4qb7g"]
 [ext_resource type="Texture2D" uid="uid://c7ahlqclmlcj3" path="res://textures/enemylv1haus/1boser_einzug_ins_haus8.png" id="24_ff8dx"]
 [ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="25_a4cpu"]
-[ext_resource type="Texture2D" uid="uid://ccy6pncw045y1" path="res://box.png" id="26_d7c3n"]
+[ext_resource type="Texture2D" uid="uid://ccy6pncw045y1" path="res://textures/box.png" id="26_d7c3n"]
 [ext_resource type="Texture2D" uid="uid://bv8u3ydmdvbxm" path="res://textures/Schnecke2.png" id="26_g2ski"]
 [ext_resource type="Texture2D" uid="uid://cl63d4jv4tv0o" path="res://textures/Schnecke3.png" id="27_fjj70"]
 [ext_resource type="Texture2D" uid="uid://ctjxu0cu06hjo" path="res://textures/3Salzdash_salz.png" id="27_u1a4f"]

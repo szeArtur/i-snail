@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c5uyltcmbbrci" path="res://scenes/ui/menu_main.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://c5naht0xe6c2b" path="res://scenes/ui/menu_options.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dw01jx0pxjbn4" path="res://scenes/ui/menu_pause.tscn" id="10_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://b52qw1knqwalt" path="res://scenes/credits.tscn" id="11_eb6dy"]
-[ext_resource type="PackedScene" path="res://intro.tscn" id="11_ya4ey"]
-[ext_resource type="PackedScene" path="res://scenes/levels/debug_level.tscn" id="12_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://b52qw1knqwalt" path="res://scenes/ui/credits.tscn" id="11_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://cidd160mkyugb" path="res://scenes/ui/intro.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cjs1wsriir3qi" path="res://scenes/levels/debug_level.tscn" id="12_dp3eg"]
 [ext_resource type="AudioStream" uid="uid://2qkk6lyi8ck4" path="res://audio/music/Overworld-LAYER-1.ogg" id="12_muem4"]
 
 [node name="Main" type="Node"]

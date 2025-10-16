@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1l6hkhcejtlw"]
+
+[ext_resource type="Texture2D" uid="uid://ccy6pncw045y1" path="res://textures/box.png" id="1_0bkxv"]
+[ext_resource type="PackedScene" uid="uid://n4y7igwhb6wj" path="res://scenes/assets/turnaround_enemy.tscn" id="3_speaj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0bkxv"]
+friction = 0.29
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew2ip"]
+size = Vector2(54, 50)
+
+[node name="Box" type="RigidBody2D"]
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_0bkxv")
+linear_damp = 1.0
+angular_damp_mode = 1
+angular_damp = 91.347
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_ew2ip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+scale = Vector2(0.054, 0.054)
+texture = ExtResource("1_0bkxv")
+
+[node name="turnaround" parent="." instance=ExtResource("3_speaj")]
+position = Vector2(-2, -1)
+scale = Vector2(2.200002, 2.0745816)
