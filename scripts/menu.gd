@@ -27,3 +27,6 @@ func _on_apply_pressed() -> void:
 
 func _on_restart_level_pressed() -> void:
 	GameManager.change_state(GameManager.GameState.RELOADING)
+
+func _on_credits_pressed() -> void:
+	GameManager.change_state(GameManager.GameState.CREDITS)
