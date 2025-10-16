@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6p80qds44o8p"]
+[gd_scene load_steps=17 format=3 uid="uid://c6p80qds44o8p"]
 
 [ext_resource type="Script" uid="uid://bgej3e4xcq0v2" path="res://scripts/agents/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="3_d2wvv"]
@@ -77,9 +77,6 @@ radius = 19.104973
 [sub_resource type="CircleShape2D" id="CircleShape2D_f1ej7"]
 radius = 19.104973
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3v2ag"]
-radius = 243.13165
-
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "viewbox", "shell_sprite", "sprite", "move_sound", "floor_detector", "detatch_cooldown")]
 z_index = -1
 collision_layer = 2
@@ -87,11 +84,8 @@ collision_mask = 65
 floor_max_angle = 3.1415927
 platform_floor_layers = 4294901761
 script = ExtResource("1_v0iea")
-min_grab_range = null
-max_grab_range = null
 pull_speed_max = 2000.0
 pull_acceleration = 1000.0
-base_speed = null
 hitbox = NodePath("Hitbox")
 viewbox = NodePath("Viewbox")
 shell_sprite = NodePath("Sprite/ShellSprite")
@@ -150,15 +144,6 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Viewbox"]
 shape = SubResource("CircleShape2D_f1ej7")
 debug_color = Color(0.26249996, 0.63, 0, 0)
-
-[node name="GrabRange" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 64
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabRange"]
-shape = SubResource("CircleShape2D_3v2ag")
-debug_color = Color(0, 0.5950001, 0.7, 0)
 
 [node name="MoveSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_3v2ag")
