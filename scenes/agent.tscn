@@ -70,11 +70,14 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Agent" type="CharacterBody2D" node_paths=PackedStringArray("shell_sprite", "sprite", "falling_cooldown")]
+[node name="Agent" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "viewbox", "shell_sprite", "sprite", "floor_detector", "detatch_cooldown")]
 script = ExtResource("1_b2pv0")
+hitbox = NodePath("Hitbox")
+viewbox = NodePath("Viewbox")
 shell_sprite = NodePath("Sprite/ShellSprite")
 sprite = NodePath("Sprite")
-falling_cooldown = NodePath("FallingCooldown")
+floor_detector = NodePath("FloorDetector")
+detatch_cooldown = NodePath("DetatchCooldown")
 metadata/_custom_type_script = "uid://e8nulp3wmj6a"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
@@ -96,7 +99,7 @@ autoplay = "idle"
 position = Vector2(-181.81818, -163.63637)
 scale = Vector2(0.6363636, 0.6363636)
 
-[node name="FallingCooldown" type="Timer" parent="."]
+[node name="DetatchCooldown" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
 

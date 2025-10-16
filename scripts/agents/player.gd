@@ -3,6 +3,7 @@ extends Agent
 
 
 @export_category("Gappl")
+@export var grab_range: Area2D
 @export var min_grab_range := 60
 @export var max_grab_range := 300
 
@@ -15,13 +16,13 @@ extends Agent
 
 var pulling := false
 var pull_target: Vector2
-var ability: Ability
+var ability = Ability.new()
 
 
 func reset() -> void:
 	super.reset()
 	pulling = false
-	ability = null
+	ability.type = Ability.AbilityType.NONE
 
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:
@@ -30,15 +31,13 @@ func _on_hitbox_entered(_body: CollisionObject2D) -> void:
 
 func _on_viewbox_entered(body: CollisionObject2D) -> void:
 	if body is Collectable:
+		body.pickup()
+		
 		shell = body.item
 		shell_sprite.texture = shell.sprite
-		body.pickup()
+		ability.type = shell.ability.type
 	if body is ShellDropArea:
 		drop_shell(false)
-
-
-func _process(_delta: float) -> void:
-	get_closest_grab_point() 
 
 
 func _physics_process(delta: float) -> void:
@@ -52,22 +51,29 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	move(delta, movement_direction)
+	get_closest_grab_point()
 	
-	if not stick:
-		for i in get_slide_collision_count():
-			var collidng_body = get_slide_collision(i)
-			if collidng_body.get_collider() is RigidBody2D:
-				collidng_body.get_collider().apply_central_impulse(-collidng_body.get_normal()*4)
+	if stick:
+		return
+	
+	for i in get_slide_collision_count():
+		var collidng_body = get_slide_collision(i)
+		if collidng_body.get_collider() is RigidBody2D:
+			collidng_body.get_collider().apply_central_impulse(-collidng_body.get_normal()*4)
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		if shell and shell.ability.type == 1:
-			pull_to_nearest_point()
+		match ability.type:
+			Ability.AbilityType.GRAPPLE:
+				pull_to_nearest_point()
+	
 	if event.is_action_pressed("drop_item"):
 		drop_shell()
+	
 	if event.is_action_pressed("stick"):
 		stick = true
+	
 	if event.is_action_released("stick"):
 		stick = false
 
@@ -80,18 +86,21 @@ func pull_to_nearest_point() -> void:
 	pulling = true
 
 func get_closest_grab_point() -> GrabPoint:
+	if ability.type != Ability.AbilityType.GRAPPLE:
+		return
+	
 	var grab_points := get_tree().get_nodes_in_group("GrabPoints")
 	grab_points.sort_custom(get_closer_point)
 	
 	var closest_grab_point: GrabPoint = null
 	
 	for grab_point in grab_points:
-		var point_outside_min_range = grab_point.position.distance_to(position) < max_grab_range
-		var point_inside_max_range = grab_point.position.distance_to(position) > min_grab_range
-		if (point_outside_min_range and point_inside_max_range and closest_grab_point == null and 
-				shell and shell.ability.type == 1):
+		var point_distance = grab_point.position.distance_to(position)
+		var point_in_range = point_distance < max_grab_range and point_distance > min_grab_range
+		if point_in_range and closest_grab_point == null:
 			closest_grab_point = grab_point
 			grab_point.label.show()
+			grab_point.update_label()
 		else:
 			grab_point.label.hide()
 	
