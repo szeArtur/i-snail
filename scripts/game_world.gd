@@ -2,7 +2,6 @@ class_name GameWorld
 extends Node2D
 
 
-
 #@onready var camera: Camera = $Camera
 @onready var player: Player = $Player
 @onready var music_player = $MusicPlayer
@@ -51,6 +50,13 @@ func create_new() -> void:
 	await reset()
 	level_root.restart_level()
 	music_player.play()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_left"):
+		music_player.get_stream_playback().switch_to_clip_by_name("layer1")
+	
+	if event.is_action_pressed("ui_right"):
+		music_player.get_stream_playback().switch_to_clip_by_name("layer2")
 
 
 func close() -> void:
