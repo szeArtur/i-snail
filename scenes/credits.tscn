@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b722gm3fytm6u"]
+[gd_scene load_steps=47 format=3 uid="uid://b52qw1knqwalt"]
 
 [ext_resource type="Texture2D" uid="uid://bh0k6xqk8wea8" path="res://textures/Hintergrund lvl 1.jpg" id="1_2ckv8"]
 [ext_resource type="Script" uid="uid://dw8jbb6bxdjh1" path="res://scripts/credits.gd" id="1_2fbfq"]
@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://ckmypedblkqrd" path="res://textures/enemylv1haus/1boser_einzug_ins_haus7.png" id="23_4qb7g"]
 [ext_resource type="Texture2D" uid="uid://c7ahlqclmlcj3" path="res://textures/enemylv1haus/1boser_einzug_ins_haus8.png" id="24_ff8dx"]
 [ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="25_a4cpu"]
-[ext_resource type="Texture2D" uid="uid://ccy6pncw045y1" path="res://textures/box.png" id="26_d7c3n"]
+[ext_resource type="Texture2D" uid="uid://ccy6pncw045y1" path="res://box.png" id="26_d7c3n"]
 [ext_resource type="Texture2D" uid="uid://bv8u3ydmdvbxm" path="res://textures/Schnecke2.png" id="26_g2ski"]
 [ext_resource type="Texture2D" uid="uid://cl63d4jv4tv0o" path="res://textures/Schnecke3.png" id="27_fjj70"]
 [ext_resource type="Texture2D" uid="uid://ctjxu0cu06hjo" path="res://textures/3Salzdash_salz.png" id="27_u1a4f"]
@@ -439,6 +439,20 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(64.96667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"return_to_menu"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ooihk"]

@@ -49,3 +49,8 @@ func _on_game_state_changed(state_new):
 		GameManager.GameState.SAVING:
 			SaveManager.save_game()
 			GameManager.change_state(GameManager.GameState.PLAYING)
+		
+		GameManager.GameState.CREDITS:
+			game_world.close()
+			user_interface.close()
+			user_interface.open("credits")

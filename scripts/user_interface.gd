@@ -4,7 +4,7 @@ extends CanvasLayer
 
 @export var menus : Dictionary[StringName, PackedScene]
 
-var open_menus : Dictionary[StringName, Menu]
+var open_menus : Dictionary[StringName, Node]
 
 
 func open(id : String):
