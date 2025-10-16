@@ -1,4 +1,4 @@
 class_name Dialogue 
 extends Resource
 
-@export var messages: Array[DialogueBox]
+@export var messages: Array[DialogueMessage]

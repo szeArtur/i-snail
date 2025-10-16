@@ -1,4 +1,4 @@
-class_name DialogueBox
+class_name DialogueMessage
 extends Resource
 
 @export var name: String
