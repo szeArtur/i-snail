@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5uyltcmbbrci"]
+[gd_scene load_steps=10 format=3 uid="uid://c5uyltcmbbrci"]
 
 [ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_5ucki"]
 [ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_dk4ej"]
 [ext_resource type="AudioStream" uid="uid://db6txltebl0jo" path="res://audio/music/Titel_Theme_1_kürzer.ogg" id="3_4m3xn"]
 [ext_resource type="AudioStream" uid="uid://bpumgd405odoc" path="res://audio/music/Titel_Theme_2.ogg" id="5_uioy2"]
+[ext_resource type="FontFile" uid="uid://bmm3tkdfwcml3" path="res://resources/Myfont-Regular.otf" id="3_5soqu"]
+[ext_resource type="Texture2D" uid="uid://fxwt0ee1w0v0" path="res://textures/Front Face.png" id="4_4m3xn"]
+[ext_resource type="Texture2D" uid="uid://d2c0vcgjtsc33" path="res://textures/Salzkristalle_level2.png" id="5_4m3xn"]
+
+[sub_resource type="Gradient" id="Gradient_uioy2"]
+offsets = PackedFloat32Array(0, 0.46282974, 1)
+colors = PackedColorArray(0, 0.90489334, 0.9793475, 1, 0.7461144, 0.7574889, 0.49330187, 1, 1, 0.6837308, 0.6067697, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1t6y3"]
+gradient = SubResource("Gradient_uioy2")
+fill_from = Vector2(0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,14 +28,44 @@ size_flags_vertical = 4
 theme = ExtResource("1_5ucki")
 script = ExtResource("1_dk4ej")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 1282.0
+offset_bottom = 720.0
+texture = SubResource("GradientTexture2D_1t6y3")
+
+[node name="FrontFace" type="Sprite2D" parent="TextureRect"]
+position = Vector2(280, 559)
+rotation = 0.26703537
+scale = Vector2(0.4850792, 0.4928078)
+texture = ExtResource("4_4m3xn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 20.0
+offset_right = 1334.0
+offset_bottom = 283.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.50980395)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("3_5soqu")
+theme_override_font_sizes/normal_font_size = 200
+text = "OPPENSLIMER"
+
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -75.0
-offset_right = 75.0
+offset_left = -40.0
+offset_top = 18.0
+offset_right = 110.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -63,6 +104,24 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Quit"
+
+[node name="SalzkristalleLevel2" type="Sprite2D" parent="."]
+position = Vector2(1210.9998, 461)
+rotation = -0.054105207
+scale = Vector2(0.5217677, 0.5217677)
+texture = ExtResource("5_4m3xn")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 679.0
+offset_right = 1058.8022
+offset_bottom = 779.0
+theme_override_colors/default_color = Color(18.892002, 18.892002, 18.892002, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_5soqu")
+theme_override_font_sizes/normal_font_size = 40
+text = "by DSM Crew"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4m3xn")
