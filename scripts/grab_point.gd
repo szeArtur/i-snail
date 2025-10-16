@@ -5,3 +5,6 @@ extends Marker2D
 
 func _init() -> void:
 	add_to_group("GrabPoints")
+
+func update_label() -> void:
+	label.text = "grab (" + InputMap.get_action_description("interact") + ")"

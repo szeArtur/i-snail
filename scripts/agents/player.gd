@@ -3,7 +3,6 @@ extends Agent
 
 
 @export_category("Gappl")
-@export var grab_range: Area2D
 @export var min_grab_range := 60
 @export var max_grab_range := 300
 
@@ -15,7 +14,7 @@ extends Agent
 @onready var item_drop_position_backward = $Sprite/ItemDropPositionBackward
 
 var pulling := false
-var pull_target: Vector2
+var pull_target: Node2D
 var ability = Ability.new()
 
 
@@ -32,7 +31,6 @@ func _on_hitbox_entered(_body: CollisionObject2D) -> void:
 func _on_viewbox_entered(body: CollisionObject2D) -> void:
 	if body is Collectable:
 		body.pickup()
-		
 		shell = body.item
 		shell_sprite.texture = shell.sprite
 		ability.type = shell.ability.type
@@ -43,12 +41,12 @@ func _on_viewbox_entered(body: CollisionObject2D) -> void:
 func _physics_process(delta: float) -> void:
 	var movement_direction := Input.get_axis("move_left", "move_right")
 	
-	if pulling:
-		velocity += (pull_target - position).normalized() * pull_acceleration * delta
-		move_and_slide()
-		if position.distance_to(pull_target) < 40:
-			pulling = false
-		return
+	#if pulling:
+		#velocity += (pull_target.position - position).normalized() * pull_acceleration * delta
+		#move_and_slide()
+		#if position.distance_to(pull_target.position) < 40:
+			#pulling = false
+		#return
 	
 	move(delta, movement_direction)
 	get_closest_grab_point()
@@ -82,7 +80,7 @@ func pull_to_nearest_point() -> void:
 	if not get_closest_grab_point():
 		return
 	
-	pull_target = get_closest_grab_point().position
+	pull_target = get_closest_grab_point()
 	pulling = true
 
 func get_closest_grab_point() -> GrabPoint:
