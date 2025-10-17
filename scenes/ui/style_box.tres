@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d0onya2gk26d2"]
+
+[ext_resource type="Texture2D" uid="uid://cdnvt7laldqi5" path="res://textures/Namensbox.png" id="1_uia78"]
+
+[resource]
+content_margin_left = 27.0
+content_margin_top = 27.0
+content_margin_right = 27.0
+content_margin_bottom = 27.0
+texture = ExtResource("1_uia78")
+region_rect = Rect2(328, 296, 1120, 496)
