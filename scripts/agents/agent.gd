@@ -63,7 +63,8 @@ func move(delta: float, direction: float) -> void:
 		velocity = up_direction.rotated(PI/2) * direction * base_speed * delta
 		move_and_collide(up_direction * -100)
 		apply_floor_snap()
-		up_direction = get_floor_normal()
+		if is_on_floor():
+			up_direction = get_floor_normal()
 	else:
 		velocity += get_gravity() * delta
 		velocity.x = direction * base_speed * delta

@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://caejfbnhroqv8" path="res://scripts/grab_point.gd" id="1_7ywsp"]
 
-[node name="GrabPoint" type="Marker2D" node_paths=PackedStringArray("label") groups=["GrabPoints"]]
+[node name="GrabPoint" type="Marker2D" groups=["GrabPoints"]]
 script = ExtResource("1_7ywsp")
-label = NodePath("Label")
 metadata/_custom_type_script = "uid://caejfbnhroqv8"
 
 [node name="Label" type="Label" parent="."]

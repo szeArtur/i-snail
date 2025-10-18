@@ -2,12 +2,13 @@ class_name GrabPoint
 extends Marker2D
 
 
-@export var label: Label
+@onready var label: Label = $Label
 
 
 func _ready() -> void:
-	update_label()
+	update(false)
 
 
-func update_label() -> void:
+func update(active := false) -> void:
 	label.text = "grab (" + InputMap.get_action_description("interact") + ")"
+	visible = active
