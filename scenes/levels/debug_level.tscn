@@ -13,7 +13,7 @@ size = Vector2(1293, 40.00003)
 size = Vector2(62, 247.50002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l8w0"]
-size = Vector2(146.29712, 247.50002)
+size = Vector2(222.32019, 247.50002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk8gf"]
 size = Vector2(334, 373)
@@ -24,7 +24,7 @@ player_spawn = NodePath("PlayerSpawn")
 metadata/_custom_type_script = "uid://drqipnirsffjv"
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(212, 516)
+position = Vector2(388, 439)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -38,7 +38,7 @@ rotation = 0.43123296
 shape = SubResource("RectangleShape2D_7o5vt")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(398.00003, 634)
+position = Vector2(405.79648, 596.79663)
 rotation = 1.7773697
 shape = SubResource("RectangleShape2D_5l8w0")
 
@@ -50,8 +50,8 @@ shape = SubResource("RectangleShape2D_dk8gf")
 position = Vector2(925, 256)
 
 [node name="Collectable" parent="StaticBody2D" instance=ExtResource("3_dk8gf")]
-position = Vector2(232, 387)
+position = Vector2(372, 388)
 item = ExtResource("4_nfmkk")
 
 [node name="Box" parent="." instance=ExtResource("2_r04o2")]
-position = Vector2(385, 391)
+position = Vector2(617, 595)

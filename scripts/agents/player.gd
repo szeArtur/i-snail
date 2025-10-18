@@ -39,18 +39,18 @@ func _on_viewbox_entered(body: CollisionObject2D) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var movement_direction := Input.get_axis("move_left", "move_right")
+	var input_direction := Input.get_axis("move_left", "move_right")
 	
 	match ability.type:
 		Ability.AbilityType.NONE:
-			move(delta, movement_direction)
+			move(delta, input_direction)
 		
 		Ability.AbilityType.GRAPPLE:
 			get_closest_grab_point()
 			if grab_point_target:
 				pull_and_collide(delta)
 			else:
-				move(delta, movement_direction)
+				move(delta, input_direction)
 				
 				
 	

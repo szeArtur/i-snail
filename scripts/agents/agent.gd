@@ -18,7 +18,7 @@ extends CharacterBody2D
 
 var stick := true
 var on_floor := false
-var forward_velocity := 0.0
+var target_velocity_fw := 0.0
 
 
 func _ready() -> void:
@@ -48,38 +48,53 @@ func reset() -> void:
 
 
 func move(delta: float, input_direction: float) -> void:
-	if input_direction != 0 and sign(forward_velocity) != sign(input_direction):
-		forward_velocity *= 2 * delta
-	forward_velocity = lerp(forward_velocity, base_speed * input_direction, 10 * delta)
-	
-	if forward_velocity == 0:
-		sprite.play("idle")
-	else:
-		sprite.scale.x = sign(forward_velocity) * abs(sprite.scale.y)
-		sprite.play("move")
-	
+	# wall detection
 	floor_max_angle = PI if stick else PI/4
 	
+	# overhang detection
 	if sin(up_direction.angle()) > 0.4:
 		detatch_cooldown.start()
 	
+	# split up velocity in up and forward component
+	var fw_direction := up_direction.rotated(PI/2)
+	var velocity_up_component := up_direction * velocity.dot(up_direction)
+	var velocity_fw_component := fw_direction * velocity.dot(fw_direction)
+	var fw_velocity = velocity_fw_component.dot(fw_direction) / fw_direction.length_squared()
+	
+	# wall sticking behaviour/gravity
 	if stick and floor_detector.is_colliding() and detatch_cooldown.is_stopped():
 		up_direction = floor_detector.get_collision_normal(0)
 		move_and_collide(up_direction * -100)
 		apply_floor_snap()
 		if is_on_floor():
 			up_direction = get_floor_normal()
-		velocity = up_direction.rotated(PI/2) * forward_velocity * delta
+		velocity_up_component = Vector2.ZERO
 	else:
-		velocity += get_gravity() * delta
 		up_direction = Vector2.UP
-		velocity.x = forward_velocity * delta
-		
+		velocity_up_component += get_gravity() * delta
 	
+	# player input/modify velocity
+	var inertia_influence := 0.0 if floor_detector.is_colliding() else 0.95
+	if input_direction != 0 and sign(target_velocity_fw) != sign(input_direction):
+		target_velocity_fw *= 2 * delta
+	target_velocity_fw = lerp(target_velocity_fw, 100 * input_direction, 10 * delta)
+	target_velocity_fw = lerp(target_velocity_fw, fw_velocity, inertia_influence)
+	
+	# apply velocity
+	velocity_fw_component = fw_direction * target_velocity_fw
+	velocity = velocity_up_component + velocity_fw_component
+	velocity *= 0.2 ** delta # apply drag
 	move_and_slide()
 	
-	var target_rotation := get_floor_normal().rotated(PI/2).angle() if is_on_floor() else 0.0
+	# update visuals
+	var target_rotation := fw_direction.angle() if is_on_floor() else 0.0
 	rotation = lerp(rotation, target_rotation, 10 * delta)
+	
+	if fw_velocity == 0:
+		sprite.play("idle")
+	else:
+		sprite.scale.x = sign(fw_velocity) * abs(sprite.scale.y)
+		sprite.play("move")
 
 
 
