@@ -18,6 +18,7 @@ extends CharacterBody2D
 
 var stick := true
 var on_floor := false
+var forward_velocity := 0.0
 
 
 func _ready() -> void:
@@ -46,11 +47,15 @@ func reset() -> void:
 		shell_sprite.texture = shell.sprite
 
 
-func move(delta: float, direction: float) -> void:
-	if direction == 0:
+func move(delta: float, input_direction: float) -> void:
+	if input_direction != 0 and sign(forward_velocity) != sign(input_direction):
+		forward_velocity *= 2 * delta
+	forward_velocity = lerp(forward_velocity, base_speed * input_direction, 10 * delta)
+	
+	if forward_velocity == 0:
 		sprite.play("idle")
 	else:
-		sprite.scale.x = sign(direction) * abs(sprite.scale.y)
+		sprite.scale.x = sign(forward_velocity) * abs(sprite.scale.y)
 		sprite.play("move")
 	
 	floor_max_angle = PI if stick else PI/4
@@ -60,15 +65,16 @@ func move(delta: float, direction: float) -> void:
 	
 	if stick and floor_detector.is_colliding() and detatch_cooldown.is_stopped():
 		up_direction = floor_detector.get_collision_normal(0)
-		velocity = up_direction.rotated(PI/2) * direction * base_speed * delta
 		move_and_collide(up_direction * -100)
 		apply_floor_snap()
 		if is_on_floor():
 			up_direction = get_floor_normal()
+		velocity = up_direction.rotated(PI/2) * forward_velocity * delta
 	else:
 		velocity += get_gravity() * delta
-		velocity.x = direction * base_speed * delta
 		up_direction = Vector2.UP
+		velocity.x = forward_velocity * delta
+		
 	
 	move_and_slide()
 	
