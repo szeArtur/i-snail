@@ -10,3 +10,5 @@ metadata/_custom_type_script = "uid://caejfbnhroqv8"
 offset_right = 40.0
 offset_bottom = 23.0
 text = "E"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

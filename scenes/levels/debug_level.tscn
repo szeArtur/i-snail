@@ -53,5 +53,11 @@ position = Vector2(925, 256)
 position = Vector2(372, 388)
 item = ExtResource("4_nfmkk")
 
+[node name="GrabPoint2" parent="StaticBody2D" instance=ExtResource("2_7o5vt")]
+position = Vector2(545, 327)
+
+[node name="GrabPoint3" parent="StaticBody2D" instance=ExtResource("2_7o5vt")]
+position = Vector2(75, 483)
+
 [node name="Box" parent="." instance=ExtResource("2_r04o2")]
 position = Vector2(617, 595)

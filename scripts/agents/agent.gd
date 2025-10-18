@@ -103,8 +103,7 @@ func pull_and_collide(delta: float, target: Vector2) -> bool:
 	
 	rotation = lerp(rotation, velocity.rotated(PI/2).angle(), 4 * delta)
 	
-	if (get_slide_collision_count() > 0
-	or target.distance_to(position) < 40):
+	if (get_slide_collision_count() > 0 or target.distance_to(position) < 40):
 		return true
 	
 	return false

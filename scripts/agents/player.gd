@@ -89,7 +89,8 @@ func get_closest_grab_point() -> GrabPoint:
 	for grab_point in grab_points:
 		var point_distance = grab_point.position.distance_to(position)
 		var point_in_range = point_distance < max_grab_range and point_distance > min_grab_range
-		if point_in_range and not closest_grab_point:
+		
+		if point_in_range and grab_point.is_in_sight(position) and not closest_grab_point:
 			closest_grab_point = grab_point
 			grab_point.update(true)
 		else:
