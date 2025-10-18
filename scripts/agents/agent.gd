@@ -47,7 +47,7 @@ func reset() -> void:
 		shell_sprite.texture = shell.sprite
 
 
-func move(delta: float, input_direction: float) -> void:
+func move_and_stick(delta: float, input_direction: float) -> void:
 	# wall detection
 	floor_max_angle = PI if stick else PI/4
 	
@@ -96,6 +96,18 @@ func move(delta: float, input_direction: float) -> void:
 		sprite.scale.x = sign(fw_velocity) * abs(sprite.scale.y)
 		sprite.play("move")
 
+
+func pull_and_collide(delta: float, target: Vector2) -> bool:
+	velocity = lerp(velocity,(target - position).normalized() * 1000, 10 * delta)
+	move_and_slide()
+	
+	rotation = lerp(rotation, velocity.rotated(PI/2).angle(), 4 * delta)
+	
+	if (get_slide_collision_count() > 0
+	or target.distance_to(position) < 40):
+		return true
+	
+	return false
 
 
 func _on_hitbox_entered(_body: CollisionObject2D) -> void:

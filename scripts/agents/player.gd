@@ -43,14 +43,15 @@ func _physics_process(delta: float) -> void:
 	
 	match ability.type:
 		Ability.AbilityType.NONE:
-			move(delta, input_direction)
+			move_and_stick(delta, input_direction)
 		
 		Ability.AbilityType.GRAPPLE:
 			get_closest_grab_point()
 			if grab_point_target:
-				pull_and_collide(delta)
+				if pull_and_collide(delta, grab_point_target.position):
+					grab_point_target = null
 			else:
-				move(delta, input_direction)
+				move_and_stick(delta, input_direction)
 				
 				
 	
@@ -67,8 +68,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		match ability.type:
 			Ability.AbilityType.GRAPPLE:
-				pull_to_nearest_point()
-	
+				if get_closest_grab_point():
+					grab_point_target = get_closest_grab_point()
 	if event.is_action_pressed("drop_item"):
 		drop_shell()
 	
@@ -77,26 +78,6 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_released("stick"):
 		stick = false
-
-
-func pull_to_nearest_point() -> void:
-	if not get_closest_grab_point():
-		return
-	
-	print(get_closest_grab_point())
-	grab_point_target = get_closest_grab_point()
-
-
-func pull_and_collide(delta: float) -> bool:
-	velocity += (grab_point_target.position - position).normalized() * pull_acceleration * delta
-	move_and_slide()
-	
-	if (get_slide_collision_count() > 0
-	or grab_point_target.position.distance_to(position) < 40):
-		grab_point_target = null
-		return true
-	
-	return false
 
 
 func get_closest_grab_point() -> GrabPoint:
