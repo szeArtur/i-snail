@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://boacs1na5xt4l"
-path="res://.godot/imported/Myfont-Regular.ttf-62e343167ef6b7c5f53d647a1314bfc4.fontdata"
+uid="uid://cswnpcgyw0kx5"
+path="res://.godot/imported/Galindo-Regular.ttf-d934acc9e4a332e22b651887037960f7.fontdata"
 
 [deps]
 
-source_file="res://resources/Myfont-Regular.ttf"
-dest_files=["res://.godot/imported/Myfont-Regular.ttf-62e343167ef6b7c5f53d647a1314bfc4.fontdata"]
+source_file="res://fonts/Galindo-Regular.ttf"
+dest_files=["res://.godot/imported/Galindo-Regular.ttf-d934acc9e4a332e22b651887037960f7.fontdata"]
 
 [params]
 

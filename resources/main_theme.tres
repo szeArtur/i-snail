@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://csq1nd60hipkc"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://csq1nd60hipkc"]
+
+[ext_resource type="FontFile" uid="uid://cswnpcgyw0kx5" path="res://fonts/Galindo-Regular.ttf" id="1_ols5k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nojw"]
 bg_color = Color(0.140447, 0.140447, 0.140447, 1)
@@ -27,6 +29,7 @@ border_width_top = 4
 border_color = Color(0.118581, 0.118581, 0.118581, 1)
 
 [resource]
+default_font = ExtResource("1_ols5k")
 Button/styles/disabled = SubResource("StyleBoxFlat_2nojw")
 Button/styles/focus = SubResource("StyleBoxEmpty_pidlg")
 Button/styles/hover = SubResource("StyleBoxFlat_ols5k")
