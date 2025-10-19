@@ -15,7 +15,6 @@ extends CharacterBody2D
 @export var detatch_cooldown: Timer
 
 var stick := true
-var on_floor := false
 var target_velocity_fw := 0.0
 
 func on_hitbox_entered(_body: CollisionObject2D) -> void: pass
@@ -43,11 +42,9 @@ func _ready() -> void:
 func reset() -> void:
 	velocity = Vector2.ZERO
 	stick = false
-	on_floor = false
 	move_sound.playing = true
 	move_sound.stream_paused = true
-	if shell:
-		shell_sprite.texture = shell.sprite
+	shell = null
 
 
 func move_and_stick(delta: float, input_direction: float) -> void:
@@ -64,17 +61,7 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	var velocity_fw_component := fw_direction * velocity.dot(fw_direction)
 	var fw_velocity = velocity_fw_component.dot(fw_direction) / fw_direction.length_squared()
 	
-	# wall sticking behaviour/gravity
-	if stick and floor_detector.is_colliding() and detatch_cooldown.is_stopped():
-		up_direction = floor_detector.get_collision_normal(0)
-		move_and_collide(up_direction * -100)
-		apply_floor_snap()
-		if is_on_floor():
-			up_direction = get_floor_normal()
-		velocity_up_component = Vector2.ZERO
-	else:
-		up_direction = Vector2.UP
-		velocity_up_component += get_gravity() * delta
+	var on_floor = stick and floor_detector.is_colliding() and detatch_cooldown.is_stopped()
 	
 	# player input/modify velocity
 	var inertia_influence := 0.0 if floor_detector.is_colliding() else 0.95
@@ -85,9 +72,20 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	
 	# apply velocity
 	velocity_fw_component = fw_direction * target_velocity_fw
+	velocity_up_component = Vector2.ZERO if on_floor else velocity_up_component + get_gravity() * delta
 	velocity = velocity_up_component + velocity_fw_component
 	velocity *= 0.2 ** delta # apply drag
 	move_and_slide()
+	
+	# wall sticking behaviour (up direction)
+	if on_floor:
+		up_direction = floor_detector.get_collision_normal(0)
+		move_and_collide(up_direction * -100)
+		apply_floor_snap()
+		if is_on_floor():
+			up_direction = get_floor_normal()
+	else:
+		up_direction = Vector2.UP
 	
 	# update visuals
 	var target_rotation := fw_direction.angle() if is_on_floor() else 0.0
