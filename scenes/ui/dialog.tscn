@@ -1,18 +1,93 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhq4p4qdh3rkd"]
+[gd_scene load_steps=15 format=3 uid="uid://dhq4p4qdh3rkd"]
 
 [ext_resource type="Script" uid="uid://b8a42lg3y25et" path="res://scripts/ui/dialogue_manager.gd" id="1_756lo"]
-[ext_resource type="Resource" uid="uid://b8vuxlwl71gf5" path="res://resources/dialogues/dialogue04.tres" id="2_0try4"]
-[ext_resource type="Texture2D" uid="uid://cdnvt7laldqi5" path="res://textures/Namensbox.png" id="2_756lo"]
+[ext_resource type="Resource" uid="uid://buo5g8wo0ypvd" path="res://resources/dialogues/dialogue01.tres" id="2_0try4"]
 [ext_resource type="Texture2D" uid="uid://2478mict0gy0" path="res://textures/Textbox.png" id="5_kcpo2"]
-[ext_resource type="Script" uid="uid://bishmdvevs33d" path="res://scenes/ui/dialogue_box.gd" id="6_aq0jt"]
 [ext_resource type="Texture2D" uid="uid://cck74hgj7jhl5" path="res://textures/slucghub (1).png" id="6_mxih6"]
-[ext_resource type="StyleBox" uid="uid://d0onya2gk26d2" path="res://scenes/ui/style_box.tres" id="7_756lo"]
-[ext_resource type="Texture2D" uid="uid://dlofq0akr0vyo" path="res://textures/OppenLaber.png" id="7_ykpju"]
-[ext_resource type="Texture2D" uid="uid://bpklf0iicenvr" path="res://textures/Militar.png" id="8_p8gb2"]
+[ext_resource type="StyleBox" path="res://scenes/ui/style_box.tres" id="7_756lo"]
+[ext_resource type="FontFile" uid="uid://cswnpcgyw0kx5" path="res://fonts/Galindo-Regular.ttf" id="8_dos7u"]
+
+[sub_resource type="Animation" id="Animation_a22jh"]
+resource_name = "speaking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.46666667, 0.46666667, 0.46666667, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.685, 0.685), Vector2(0.765, 0.765)]
+}
+
+[sub_resource type="Animation" id="Animation_756lo"]
+resource_name = "resting"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.46666667, 0.46666667, 0.46666667, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0667, 0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.635, 0.635), Vector2(0.765, 0.765), Vector2(0.685, 0.685)]
+}
+
+[sub_resource type="Animation" id="Animation_aq0jt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.765, 0.765)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aq0jt"]
+_data = {
+&"RESET": SubResource("Animation_aq0jt"),
+&"resting": SubResource("Animation_756lo"),
+&"speaking": SubResource("Animation_a22jh")
+}
 
 [sub_resource type="SystemFont" id="SystemFont_0try4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a5b66"]
+font = ExtResource("8_dos7u")
+font_size = 19
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dos7u"]
@@ -24,9 +99,10 @@ texture = ExtResource("5_kcpo2")
 region_rect = Rect2(80, 80, 2400, 1120)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hucap"]
+font = ExtResource("8_dos7u")
 font_color = Color(0, 0, 0, 1)
 
-[node name="Textszene" type="Control" node_paths=PackedStringArray("name_box", "text_box")]
+[node name="Textszene" type="Control" node_paths=PackedStringArray("name_box", "text_box", "dialogue_box", "sprite_left", "sprite_right")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,6 +117,9 @@ script = ExtResource("1_756lo")
 dialogue = ExtResource("2_0try4")
 name_box = NodePath("MarginContainer/VBoxContainer/Name")
 text_box = NodePath("MarginContainer/VBoxContainer/TextBox")
+dialogue_box = NodePath("MarginContainer/VBoxContainer")
+sprite_left = NodePath("SpriteLeft")
+sprite_right = NodePath("SpriteRight")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -4
@@ -48,24 +127,27 @@ position = Vector2(632.6, 360.5)
 scale = Vector2(0.188046, 0.14777248)
 texture = ExtResource("6_mxih6")
 
-[node name="Right" type="Sprite2D" parent="."]
-z_index = -3
-position = Vector2(978.8621, 407.75134)
-scale = Vector2(0.19013819, 0.19640538)
-texture = ExtResource("7_ykpju")
-
-[node name="Mid" type="Sprite2D" parent="."]
+[node name="SpriteLeft" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(662.3631, 216.70398)
-scale = Vector2(0.00130321, 0.00130321)
+position = Vector2(297, 410)
+scale = Vector2(0.765, 0.765)
 
-[node name="Left" type="Sprite2D" parent="."]
-z_index = -3
-position = Vector2(257, 444)
-scale = Vector2(0.30888906, 0.35321668)
-texture = ExtResource("8_p8gb2")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpriteLeft"]
+libraries = {
+&"": SubResource("AnimationLibrary_aq0jt")
+}
 
-[node name="MarginContainer" type="MarginContainer" parent="." node_paths=PackedStringArray("container", "text_box", "name_box")]
+[node name="SpriteRight" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(991.99994, 400)
+scale = Vector2(0.765, 0.765)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpriteRight"]
+libraries = {
+&"": SubResource("AnimationLibrary_aq0jt")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 1
 anchors_preset = 7
@@ -79,15 +161,11 @@ offset_right = 500.0
 offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("6_aq0jt")
-container = NodePath("VBoxContainer")
-text_box = NodePath("VBoxContainer/TextBox")
-name_box = NodePath("VBoxContainer/Name")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(200, 211)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 
 [node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -102,13 +180,6 @@ autowrap_mode = 3
 autowrap_trim_flags = 128
 visible_characters_behavior = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/Name"]
-visible = false
-z_index = -1
-position = Vector2(252, 15.5)
-scale = Vector2(0.326, 0.156)
-texture = ExtResource("2_756lo")
-
 [node name="TextBox" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
@@ -120,10 +191,3 @@ label_settings = SubResource("LabelSettings_hucap")
 autowrap_mode = 3
 autowrap_trim_flags = 128
 visible_characters_behavior = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/TextBox"]
-visible = false
-z_index = -1
-position = Vector2(241.625, 62.625)
-scale = Vector2(0.24, 0.156)
-texture = ExtResource("5_kcpo2")

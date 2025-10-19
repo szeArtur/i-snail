@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b52qw1knqwalt"]
+[gd_scene load_steps=48 format=3 uid="uid://b52qw1knqwalt"]
 
 [ext_resource type="Texture2D" uid="uid://bh0k6xqk8wea8" path="res://textures/Hintergrund lvl 1.jpg" id="1_2ckv8"]
 [ext_resource type="Script" uid="uid://dw8jbb6bxdjh1" path="res://scripts/credits.gd" id="1_2fbfq"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ksnrcw5k37w7" path="res://audio/music/Credits.ogg" id="3_0ctdu"]
 [ext_resource type="Texture2D" uid="uid://b2ljksivcds5x" path="res://textures/Bild_2.png" id="3_75vm1"]
 [ext_resource type="Texture2D" uid="uid://dot1ryr56mqxo" path="res://textures/enemybuttonlv1/Buttonspawn1.png" id="5_y3tsm"]
+[ext_resource type="FontFile" uid="uid://boacs1na5xt4l" path="res://fonts/Myfont-Regular.ttf" id="5_yrgjy"]
 [ext_resource type="Texture2D" uid="uid://davhg4bh5tnfu" path="res://textures/enemybuttonlv1/Buttonspawn3.png" id="6_j5fw5"]
 [ext_resource type="Texture2D" uid="uid://b3t0q4yargukk" path="res://textures/enemybuttonlv1/Buttonspawn2.png" id="7_l2ylx"]
 [ext_resource type="Texture2D" uid="uid://c7qy6x58rm62p" path="res://textures/enemybuttonlv1/Schneckenbutton1.png" id="8_aw4ck"]
@@ -552,7 +553,7 @@ offset_top = 27.0
 offset_right = 1055.0
 offset_bottom = 3180.5562
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_0ctdu")
+theme_override_fonts/normal_font = ExtResource("5_yrgjy")
 theme_override_font_sizes/normal_font_size = 73
 text = "CREDITS
 
