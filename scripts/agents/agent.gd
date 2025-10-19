@@ -1,6 +1,5 @@
-class_name Agent
+@abstract class_name Agent
 extends CharacterBody2D
-
 
 
 @export var shell = Item.new()
@@ -15,26 +14,30 @@ extends CharacterBody2D
 @export var floor_detector: ShapeCast2D
 @export var detatch_cooldown: Timer
 
-
 var stick := true
 var on_floor := false
 var target_velocity_fw := 0.0
+
+func on_hitbox_entered(_body: CollisionObject2D) -> void: pass
+func on_hitbox_exited(_body: CollisionObject2D) -> void: pass
+func on_viewbox_entered(_body: CollisionObject2D) -> void: pass
+func on_viewbox_exited(_body: CollisionObject2D) -> void: pass
 
 
 func _ready() -> void:
 	reset()
 	
 	if hitbox:
-		hitbox.body_entered.connect(_on_hitbox_entered)
-		hitbox.area_entered.connect(_on_hitbox_entered)
-		hitbox.body_exited.connect(_on_hitbox_exited)
-		hitbox.area_exited.connect(_on_hitbox_exited)
+		hitbox.body_entered.connect(on_hitbox_entered)
+		hitbox.area_entered.connect(on_hitbox_entered)
+		hitbox.body_exited.connect(on_hitbox_exited)
+		hitbox.area_exited.connect(on_hitbox_exited)
 
 	if viewbox:
-		viewbox.body_entered.connect(_on_viewbox_entered)
-		viewbox.area_entered.connect(_on_viewbox_entered)
-		viewbox.body_exited.connect(_on_viewbox_exited)
-		viewbox.area_exited.connect(_on_viewbox_exited)
+		viewbox.body_entered.connect(on_viewbox_entered)
+		viewbox.area_entered.connect(on_viewbox_entered)
+		viewbox.body_exited.connect(on_viewbox_exited)
+		viewbox.area_exited.connect(on_viewbox_exited)
 
 
 func reset() -> void:
@@ -95,26 +98,3 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	else:
 		sprite.scale.x = sign(fw_velocity) * abs(sprite.scale.y)
 		sprite.play("move")
-
-
-func pull_and_collide(delta: float, target: Vector2) -> bool:
-	velocity = lerp(velocity,(target - position).normalized() * 1000, 10 * delta)
-	move_and_slide()
-	
-	rotation = lerp(rotation, velocity.rotated(PI/2).angle(), 4 * delta)
-	
-	if (get_slide_collision_count() > 0 or target.distance_to(position) < 40):
-		return true
-	
-	return false
-
-
-func _on_hitbox_entered(_body: CollisionObject2D) -> void:
-	pass
-func _on_hitbox_exited(_body: CollisionObject2D) -> void:
-	pass
-func _on_viewbox_entered(_body: CollisionObject2D) -> void:
-	pass
-func _on_viewbox_exited(_body: CollisionObject2D) -> void:
-	pass
-	pass
