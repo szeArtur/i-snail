@@ -2,8 +2,7 @@ class_name Player
 extends Agent
 
 
-@onready var item_drop_position_forward = $Sprite/ItemDropPositionForward
-@onready var item_drop_position_backward = $Sprite/ItemDropPositionBackward
+@onready var item_drop_position = $Sprite/ItemDropPosition
 
 
 func reset() -> void:
@@ -63,7 +62,7 @@ func drop_shell() -> void:
 		return
 	
 	$ShellCollider/Shell.disabled = true
-	var at: Vector2 = item_drop_position_backward.global_position
+	var at: Vector2 = item_drop_position.global_position
 	var toward = velocity + (at - global_position) * 3
 	
 	EventBus.drop_item.emit(shell, at, toward)
