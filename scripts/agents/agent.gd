@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 
-@export var shell = Item.new()
+@export var shell: Item
 @export var base_speed := 8000.0
 
 @export_group("Connections")
@@ -14,7 +14,7 @@ extends CharacterBody2D
 @export var floor_detector: ShapeCast2D
 @export var detatch_cooldown: Timer
 
-var stick := true
+var stick: bool
 var target_velocity_fw := 0.0
 
 func on_hitbox_entered(_body: CollisionObject2D) -> void: pass
@@ -63,8 +63,18 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	
 	var on_floor = stick and floor_detector.is_colliding() and detatch_cooldown.is_stopped()
 	
-	# player input/modify velocity
-	var inertia_influence := 0.0 if floor_detector.is_colliding() else 0.95
+	# inertia/drag
+	var inertia_influence: float 
+	if floor_detector.is_colliding() and input_direction != 0:
+		inertia_influence = 0.1
+	elif floor_detector.is_colliding() and input_direction == 0:
+		inertia_influence = 0.3
+	elif not floor_detector.is_colliding() and input_direction != 0:
+		inertia_influence = 0.6
+	else:
+		inertia_influence = 0.95
+	
+	# player input
 	if input_direction != 0 and sign(target_velocity_fw) != sign(input_direction):
 		target_velocity_fw *= 2 * delta
 	target_velocity_fw = lerp(target_velocity_fw, 100 * input_direction, 10 * delta)
