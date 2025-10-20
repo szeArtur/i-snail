@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dhq4p4qdh3rkd"]
 
-[ext_resource type="Script" path="res://scripts/ui/dialogue_manager.gd" id="1_756lo"]
+[ext_resource type="Script" uid="uid://b8a42lg3y25et" path="res://scripts/ui/game_dialogue.gd" id="1_756lo"]
 [ext_resource type="Resource" uid="uid://buo5g8wo0ypvd" path="res://resources/dialogues/dialogue01.tres" id="2_0try4"]
 [ext_resource type="Texture2D" uid="uid://dlofq0akr0vyo" path="res://textures/oppenslimer.png" id="4_a22jh"]
 [ext_resource type="Texture2D" uid="uid://2478mict0gy0" path="res://textures/Textbox.png" id="5_kcpo2"]
@@ -85,6 +85,7 @@ _data = {
 }
 
 [sub_resource type="SystemFont" id="SystemFont_0try4"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_a5b66"]
 font = ExtResource("8_dos7u")

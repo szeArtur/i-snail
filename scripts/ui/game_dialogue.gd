@@ -1,4 +1,5 @@
-extends Control
+class_name GameDialogue
+extends GameScene
 
 @export var dialogue: Dialogue
 @export var name_box: Label 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjs1wsriir3qi"]
 
-[ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/level.gd" id="1_hkwi7"]
+[ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/game_level.gd" id="1_hkwi7"]
 [ext_resource type="PackedScene" uid="uid://c1l6hkhcejtlw" path="res://scenes/assets/Box.tscn" id="2_r04o2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r04o2"]

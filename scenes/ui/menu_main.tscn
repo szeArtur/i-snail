@@ -3,7 +3,6 @@
 [ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_5ucki"]
 [ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_dk4ej"]
 [ext_resource type="AudioStream" uid="uid://db6txltebl0jo" path="res://audio/music/Titel_Theme_1_kürzer.ogg" id="3_4m3xn"]
-[ext_resource type="FontFile" path="res://resources/Myfont-Regular.otf" id="3_5soqu"]
 [ext_resource type="Texture2D" uid="uid://fxwt0ee1w0v0" path="res://textures/Front Face.png" id="4_4m3xn"]
 [ext_resource type="FontFile" uid="uid://boacs1na5xt4l" path="res://fonts/Myfont-Regular.ttf" id="4_yuyhb"]
 [ext_resource type="Texture2D" uid="uid://d2c0vcgjtsc33" path="res://textures/Salzkristalle_level2.png" id="5_4m3xn"]
@@ -16,6 +15,9 @@ colors = PackedColorArray(0, 0.90489334, 0.9793475, 1, 0.7461144, 0.7574889, 0.4
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1t6y3"]
 gradient = SubResource("Gradient_uioy2")
 fill_from = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1t6y3"]
+font_size = 38
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -112,17 +114,15 @@ rotation = -0.054105207
 scale = Vector2(0.5217677, 0.5217677)
 texture = ExtResource("5_4m3xn")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="RichTextLabel2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 917.0
+offset_left = 947.0
 offset_top = 200.0
 offset_right = 1217.8022
 offset_bottom = 250.0
-theme_override_colors/default_color = Color(18.892002, 18.892002, 18.892002, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_5soqu")
-theme_override_font_sizes/normal_font_size = 40
 text = "by DSM Crew"
+label_settings = SubResource("LabelSettings_1t6y3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4m3xn")
