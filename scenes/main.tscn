@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bui3s4bov4767" path="res://scripts/game_world.gd" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c6p80qds44o8p" path="res://scenes/player.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dhq4p4qdh3rkd" path="res://scenes/ui/game_dialogue.tscn" id="6_trceg"]
-[ext_resource type="Script" uid="uid://bwkwl8n2mcbu7" path="res://scripts/game_stage.gd" id="7_ya4ey"]
+[ext_resource type="Script" path="res://scripts/game_stage.gd" id="7_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://c5uyltcmbbrci" path="res://scenes/ui/menu_main.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://c5naht0xe6c2b" path="res://scenes/ui/menu_options.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dw01jx0pxjbn4" path="res://scenes/ui/menu_pause.tscn" id="10_eb6dy"]

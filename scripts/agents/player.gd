@@ -21,9 +21,6 @@ func on_viewbox_entered(body: CollisionObject2D) -> void:
 		shell = body.item
 		shell_sprite.texture = shell.sprite
 		shell.ability.agent = self
-		
-	if body is ShellDropArea:
-		drop_shell(false)
 
 
 func _physics_process(delta: float) -> void:
