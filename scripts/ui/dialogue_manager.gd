@@ -4,9 +4,7 @@ extends Control
 @export var name_box: Label 
 @export var text_box: Label
 @export var dialogue_box: Container
-
 @export var sprite_left: Sprite2D 
-
 @export var sprite_right: Sprite2D 
 
 var current_message := 0

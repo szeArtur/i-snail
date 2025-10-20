@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5uyltcmbbrci"]
+[gd_scene load_steps=11 format=3 uid="uid://c5uyltcmbbrci"]
 
 [ext_resource type="Theme" uid="uid://csq1nd60hipkc" path="res://resources/main_theme.tres" id="1_5ucki"]
 [ext_resource type="Script" uid="uid://cmiecqtx5038n" path="res://scripts/menu.gd" id="1_dk4ej"]
 [ext_resource type="AudioStream" uid="uid://db6txltebl0jo" path="res://audio/music/Titel_Theme_1_kürzer.ogg" id="3_4m3xn"]
-[ext_resource type="AudioStream" uid="uid://bpumgd405odoc" path="res://audio/music/Titel_Theme_2.ogg" id="5_uioy2"]
-[ext_resource type="FontFile" uid="uid://bmm3tkdfwcml3" path="res://resources/Myfont-Regular.otf" id="3_5soqu"]
+[ext_resource type="FontFile" path="res://resources/Myfont-Regular.otf" id="3_5soqu"]
 [ext_resource type="Texture2D" uid="uid://fxwt0ee1w0v0" path="res://textures/Front Face.png" id="4_4m3xn"]
+[ext_resource type="FontFile" uid="uid://boacs1na5xt4l" path="res://fonts/Myfont-Regular.ttf" id="4_yuyhb"]
 [ext_resource type="Texture2D" uid="uid://d2c0vcgjtsc33" path="res://textures/Salzkristalle_level2.png" id="5_4m3xn"]
+[ext_resource type="AudioStream" uid="uid://bpumgd405odoc" path="res://audio/music/Titel_Theme_2.ogg" id="5_uioy2"]
 
 [sub_resource type="Gradient" id="Gradient_uioy2"]
 offsets = PackedFloat32Array(0, 0.46282974, 1)
@@ -52,7 +53,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.50980395)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 4
-theme_override_fonts/normal_font = ExtResource("3_5soqu")
+theme_override_fonts/normal_font = ExtResource("4_yuyhb")
 theme_override_font_sizes/normal_font_size = 200
 text = "OPPENSLIMER"
 
