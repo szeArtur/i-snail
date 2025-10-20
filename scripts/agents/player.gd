@@ -17,15 +17,19 @@ func on_hitbox_entered(_body: CollisionObject2D) -> void:
 
 func on_viewbox_entered(body: CollisionObject2D) -> void:
 	if body is Collectable:
-		body.pickup()
-		call_deferred("collect", body.item)
+		call_deferred("collect", body)
 
 
-func collect(item: Item) -> void:
-		shell = item
-		shell_sprite.texture = shell.sprite
-		shell.ability.agent = self
-		$ShellCollider/Shell.disabled = false
+func collect(collectable: Collectable) -> void:
+	$ShellCollider/Shell.disabled = false
+	if shell_collider.test_move(shell_collider.global_transform, Vector2.ZERO):
+		$ShellCollider/Shell.disabled = true
+		return
+	
+	collectable.pickup()
+	shell = collectable.item
+	shell_sprite.texture = shell.sprite
+	shell.ability.agent = self
 
 
 func _physics_process(delta: float) -> void:
@@ -61,7 +65,6 @@ func drop_shell() -> void:
 	if not shell:
 		return
 	
-	$ShellCollider/Shell.disabled = true
 	var at: Vector2 = item_drop_position.global_position
 	var toward = velocity + (at - global_position) * 3
 	
@@ -79,3 +82,4 @@ func drop_shell() -> void:
 	EventBus.drop_item.emit(collectable)
 	shell = null
 	shell_sprite.texture = null
+	$ShellCollider/Shell.disabled = true
