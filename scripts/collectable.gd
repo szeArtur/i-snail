@@ -15,10 +15,6 @@ func _ready() -> void:
 
 func update_display() -> void:
 	sprite.texture = item.sprite
-	
-func jumppad(force):
-	apply_central_force(Vector2(0,-force*10))
-	
 
 
 func pickup() -> void:

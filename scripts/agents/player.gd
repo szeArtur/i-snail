@@ -58,18 +58,14 @@ func _input(event: InputEvent) -> void:
 		stick = false
 
 
-func drop_shell(forward := true) -> void:
+func drop_shell() -> void:
 	if not shell:
 		return
 	
 	$ShellCollider/Shell.disabled = true
-	var at : Vector2
-	if forward:
-		at = item_drop_position_forward.global_position
-	else:
-		at = item_drop_position_backward.global_position
-	
+	var at: Vector2 = item_drop_position_backward.global_position
 	var toward = velocity + (at - global_position) * 3
+	
 	EventBus.drop_item.emit(shell, at, toward)
 	shell = null
 	shell_sprite.texture = null
