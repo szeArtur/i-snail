@@ -9,6 +9,7 @@ extends Agent
 func reset() -> void:
 	super.reset()
 	shell = null
+	$ShellCollider/Shell.disabled = true
 
 
 func on_hitbox_entered(_body: CollisionObject2D) -> void:
@@ -18,9 +19,14 @@ func on_hitbox_entered(_body: CollisionObject2D) -> void:
 func on_viewbox_entered(body: CollisionObject2D) -> void:
 	if body is Collectable:
 		body.pickup()
-		shell = body.item
+		call_deferred("collect", body.item)
+
+
+func collect(item: Item) -> void:
+		shell = item
 		shell_sprite.texture = shell.sprite
 		shell.ability.agent = self
+		$ShellCollider/Shell.disabled = false
 
 
 func _physics_process(delta: float) -> void:
@@ -56,6 +62,7 @@ func drop_shell(forward := true) -> void:
 	if not shell:
 		return
 	
+	$ShellCollider/Shell.disabled = true
 	var at : Vector2
 	if forward:
 		at = item_drop_position_forward.global_position

@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var move_sound: AudioStreamPlayer2D
 @export var floor_detector: ShapeCast2D
 @export var detatch_cooldown: Timer
+@export var shell_collider: AnimatableBody2D
 
 var stick: bool
 var target_velocity_fw := 0.0
@@ -85,7 +86,11 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	velocity_up_component = Vector2.ZERO if on_floor else velocity_up_component + get_gravity() * delta
 	velocity = velocity_up_component + velocity_fw_component
 	velocity *= 0.2 ** delta # apply drag
-	move_and_slide()
+	
+	if shell_collider.test_move(shell_collider.global_transform, velocity * delta):
+		velocity = Vector2.ZERO
+	else:
+		move_and_slide()
 	
 	# wall sticking behaviour (up direction)
 	if on_floor:
