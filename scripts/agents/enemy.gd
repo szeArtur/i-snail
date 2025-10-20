@@ -24,14 +24,14 @@ func _physics_process(delta: float) -> void:
 			player_senn_prog=1
 	if player_senn_prog != 1:
 		if stop == false:
-			move(delta, movement_direction)
+			movement_controller.move(delta, movement_direction, true)
 	else: 
 		animated_sprite_2d.play("button")
 	
 		
-#func _on_hitbox_entered(body: CollisionObject2D) -> void:
-	#if body is TurnaroundEnemy:
-		#movement_direction *= -1
+func _on_hitbox_entered(body: CollisionObject2D) -> void:
+	if body is TurnaroundEnemy:
+		movement_direction *= -1
 
 
 func _on_visionbox_body_entered(_body: Node2D) -> void:

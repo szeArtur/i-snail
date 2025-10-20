@@ -1,10 +1,9 @@
-@abstract class_name Ability
+class_name Ability
 extends Resource
 
+enum AbilityType {
+	NONE,
+	GRAPPLE,
+}
 
-@export var name: String
-var agent: Agent
-
-
-@abstract func update(_delta: float, input_direction: float = 0) -> void
-@abstract func activate() -> void
+@export var type: AbilityType

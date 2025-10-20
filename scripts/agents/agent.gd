@@ -1,8 +1,9 @@
-@abstract class_name Agent
+class_name Agent
 extends CharacterBody2D
 
 
-@export var shell: Item
+
+@export var shell = Item.new()
 @export var base_speed := 8000.0
 
 @export_group("Connections")
@@ -14,95 +15,73 @@ extends CharacterBody2D
 @export var floor_detector: ShapeCast2D
 @export var detatch_cooldown: Timer
 
-var stick: bool
-var target_velocity_fw := 0.0
 
-func on_hitbox_entered(_body: CollisionObject2D) -> void: pass
-func on_hitbox_exited(_body: CollisionObject2D) -> void: pass
-func on_viewbox_entered(_body: CollisionObject2D) -> void: pass
-func on_viewbox_exited(_body: CollisionObject2D) -> void: pass
+var stick := true
+var on_floor := false
 
 
 func _ready() -> void:
 	reset()
 	
 	if hitbox:
-		hitbox.body_entered.connect(on_hitbox_entered)
-		hitbox.area_entered.connect(on_hitbox_entered)
-		hitbox.body_exited.connect(on_hitbox_exited)
-		hitbox.area_exited.connect(on_hitbox_exited)
+		hitbox.body_entered.connect(_on_hitbox_entered)
+		hitbox.area_entered.connect(_on_hitbox_entered)
+		hitbox.body_exited.connect(_on_hitbox_exited)
+		hitbox.area_exited.connect(_on_hitbox_exited)
 
 	if viewbox:
-		viewbox.body_entered.connect(on_viewbox_entered)
-		viewbox.area_entered.connect(on_viewbox_entered)
-		viewbox.body_exited.connect(on_viewbox_exited)
-		viewbox.area_exited.connect(on_viewbox_exited)
+		viewbox.body_entered.connect(_on_viewbox_entered)
+		viewbox.area_entered.connect(_on_viewbox_entered)
+		viewbox.body_exited.connect(_on_viewbox_exited)
+		viewbox.area_exited.connect(_on_viewbox_exited)
 
 
 func reset() -> void:
 	velocity = Vector2.ZERO
 	stick = false
+	on_floor = false
 	move_sound.playing = true
 	move_sound.stream_paused = true
-	shell = null
+	if shell:
+		shell_sprite.texture = shell.sprite
 
 
-func move_and_stick(delta: float, input_direction: float) -> void:
-	# wall detection
+func move(delta: float, direction: float) -> void:
+	if direction == 0:
+		sprite.play("idle")
+	else:
+		sprite.scale.x = sign(direction) * abs(sprite.scale.y)
+		sprite.play("move")
+	
 	floor_max_angle = PI if stick else PI/4
 	
-	# overhang detection
 	if sin(up_direction.angle()) > 0.4:
 		detatch_cooldown.start()
 	
-	# split up velocity in up and forward component
-	var fw_direction := up_direction.rotated(PI/2)
-	var velocity_up_component := up_direction * velocity.dot(up_direction)
-	var velocity_fw_component := fw_direction * velocity.dot(fw_direction)
-	var fw_velocity = velocity_fw_component.dot(fw_direction) / fw_direction.length_squared()
-	
-	var on_floor = stick and floor_detector.is_colliding() and detatch_cooldown.is_stopped()
-	
-	# inertia/drag
-	var inertia_influence: float 
-	if floor_detector.is_colliding() and input_direction != 0:
-		inertia_influence = 0.1
-	elif floor_detector.is_colliding() and input_direction == 0:
-		inertia_influence = 0.3
-	elif not floor_detector.is_colliding() and input_direction != 0:
-		inertia_influence = 0.6
-	else:
-		inertia_influence = 0.95
-	
-	# player input
-	if input_direction != 0 and sign(target_velocity_fw) != sign(input_direction):
-		target_velocity_fw *= 2 * delta
-	target_velocity_fw = lerp(target_velocity_fw, 100 * input_direction, 10 * delta)
-	target_velocity_fw = lerp(target_velocity_fw, fw_velocity, inertia_influence)
-	
-	# apply velocity
-	velocity_fw_component = fw_direction * target_velocity_fw
-	velocity_up_component = Vector2.ZERO if on_floor else velocity_up_component + get_gravity() * delta
-	velocity = velocity_up_component + velocity_fw_component
-	velocity *= 0.2 ** delta # apply drag
-	move_and_slide()
-	
-	# wall sticking behaviour (up direction)
-	if on_floor:
+	if stick and floor_detector.is_colliding() and detatch_cooldown.is_stopped():
 		up_direction = floor_detector.get_collision_normal(0)
+		velocity = up_direction.rotated(PI/2) * direction * base_speed * delta
 		move_and_collide(up_direction * -100)
 		apply_floor_snap()
-		if is_on_floor():
-			up_direction = get_floor_normal()
+		up_direction = get_floor_normal()
 	else:
+		velocity += get_gravity() * delta
+		velocity.x = direction * base_speed * delta
 		up_direction = Vector2.UP
 	
-	# update visuals
-	var target_rotation := fw_direction.angle() if is_on_floor() else 0.0
-	rotation = lerp(rotation, target_rotation, 10 * delta)
+	move_and_slide()
 	
-	if fw_velocity == 0:
-		sprite.play("idle")
-	else:
-		sprite.scale.x = sign(fw_velocity) * abs(sprite.scale.y)
-		sprite.play("move")
+	var target_rotation := get_floor_normal().rotated(PI/2).angle() if is_on_floor() else 0.0
+	rotation = lerp(rotation, target_rotation, 10 * delta)
+
+
+
+func _on_hitbox_entered(_body: CollisionObject2D) -> void:
+	pass
+func _on_hitbox_exited(_body: CollisionObject2D) -> void:
+	pass
+func _on_viewbox_entered(_body: CollisionObject2D) -> void:
+	pass
+func _on_viewbox_exited(_body: CollisionObject2D) -> void:
+	pass
+	pass

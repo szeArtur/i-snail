@@ -2,48 +2,69 @@ class_name Player
 extends Agent
 
 
+@export_category("Gappl")
+@export var min_grab_range := 60
+@export var max_grab_range := 300
+
+@export_category("Pulling")
+@export var pull_speed_max: float
+@export var pull_acceleration: float
+
 @onready var item_drop_position_forward = $Sprite/ItemDropPositionForward
 @onready var item_drop_position_backward = $Sprite/ItemDropPositionBackward
+
+var pulling := false
+var pull_target: Node2D
+var ability = Ability.new()
 
 
 func reset() -> void:
 	super.reset()
-	shell = null
+	pulling = false
+	ability.type = Ability.AbilityType.NONE
 
 
-func on_hitbox_entered(_body: CollisionObject2D) -> void:
+func _on_hitbox_entered(_body: CollisionObject2D) -> void:
 	GameManager.push_state(GameManager.GameState.RELOADING)
 
 
-func on_viewbox_entered(body: CollisionObject2D) -> void:
+func _on_viewbox_entered(body: CollisionObject2D) -> void:
 	if body is Collectable:
 		body.pickup()
 		shell = body.item
 		shell_sprite.texture = shell.sprite
-		shell.ability.agent = self
-		
+		ability.type = shell.ability.type
 	if body is ShellDropArea:
 		drop_shell(false)
 
 
 func _physics_process(delta: float) -> void:
-	var input_direction := Input.get_axis("move_left", "move_right")
+	var movement_direction := Input.get_axis("move_left", "move_right")
 	
-	if shell:
-		shell.ability.update(delta, input_direction)
-	else:
-		move_and_stick(delta, input_direction)
+	#if pulling:
+		#velocity += (pull_target.position - position).normalized() * pull_acceleration * delta
+		#move_and_slide()
+		#if position.distance_to(pull_target.position) < 40:
+			#pulling = false
+		#return
 	
-	if not stick:
-		for i in get_slide_collision_count():
-			var collidng_body = get_slide_collision(i)
-			if collidng_body.get_collider() is RigidBody2D:
-				collidng_body.get_collider().apply_central_impulse(-collidng_body.get_normal()*4)
+	move(delta, movement_direction)
+	get_closest_grab_point()
+	
+	if stick:
+		return
+	
+	for i in get_slide_collision_count():
+		var collidng_body = get_slide_collision(i)
+		if collidng_body.get_collider() is RigidBody2D:
+			collidng_body.get_collider().apply_central_impulse(-collidng_body.get_normal()*4)
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and shell:
-		shell.ability.activate()
+	if event.is_action_pressed("interact"):
+		match ability.type:
+			Ability.AbilityType.GRAPPLE:
+				pull_to_nearest_point()
 	
 	if event.is_action_pressed("drop_item"):
 		drop_shell()
@@ -54,6 +75,40 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("stick"):
 		stick = false
 
+
+func pull_to_nearest_point() -> void:
+	if not get_closest_grab_point():
+		return
+	
+	pull_target = get_closest_grab_point()
+	pulling = true
+
+func get_closest_grab_point() -> GrabPoint:
+	if ability.type != Ability.AbilityType.GRAPPLE:
+		return
+	
+	var grab_points := get_tree().get_nodes_in_group("GrabPoints")
+	grab_points.sort_custom(get_closer_point)
+	
+	var closest_grab_point: GrabPoint = null
+	
+	for grab_point in grab_points:
+		var point_distance = grab_point.position.distance_to(position)
+		var point_in_range = point_distance < max_grab_range and point_distance > min_grab_range
+		if point_in_range and closest_grab_point == null:
+			closest_grab_point = grab_point
+			grab_point.label.show()
+			grab_point.update_label()
+		else:
+			grab_point.label.hide()
+	
+	return closest_grab_point
+
+
+func get_closer_point(a: Node2D, b: Node2D) -> bool:
+	if a.position.distance_to(position) < b.position.distance_to(position):
+		return true
+	return false
 
 func drop_shell(forward := true) -> void:
 	if not shell:
