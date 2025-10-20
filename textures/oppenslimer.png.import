@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlofq0akr0vyo"
-path="res://.godot/imported/OppenLaber.png-eb432f9e9630686760fa38c135595612.ctex"
+path="res://.godot/imported/oppenslimer.png-ebef1a74c089d3ee452c2683dbb57d00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/OppenLaber.png"
-dest_files=["res://.godot/imported/OppenLaber.png-eb432f9e9630686760fa38c135595612.ctex"]
+source_file="res://textures/oppenslimer.png"
+dest_files=["res://.godot/imported/oppenslimer.png-ebef1a74c089d3ee452c2683dbb57d00.ctex"]
 
 [params]
 
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1080
 detect_3d/compress_to=1

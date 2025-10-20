@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4f5slhabuidq"
-path="res://.godot/imported/Kapitalist_Schnegge.png-c20ce21e2e2ac406543b81e7087f9d61.ctex"
+uid="uid://bpklf0iicenvr"
+path="res://.godot/imported/weinberg.png-7f49389b2a6594c7c7d949ad098ab5d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Kapitalist_Schnegge.png"
-dest_files=["res://.godot/imported/Kapitalist_Schnegge.png-c20ce21e2e2ac406543b81e7087f9d61.ctex"]
+source_file="res://textures/weinberg.png"
+dest_files=["res://.godot/imported/weinberg.png-7f49389b2a6594c7c7d949ad098ab5d4.ctex"]
 
 [params]
 
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1080
 detect_3d/compress_to=1

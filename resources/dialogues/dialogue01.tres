@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3 uid="uid://buo5g8wo0ypvd"]
 
-[ext_resource type="Script" uid="uid://ckikpbqfxhxhv" path="res://scripts/dialogue_message.gd" id="1_levpe"]
+[ext_resource type="Script" path="res://scripts/dialogue_message.gd" id="1_levpe"]
 [ext_resource type="Script" uid="uid://6cfcvrv5o8fd" path="res://scripts/dialogue.gd" id="2_levpe"]
 [ext_resource type="Resource" uid="uid://bvnc7xj3j157b" path="res://resources/characters/weinberg.tres" id="2_s130c"]
 [ext_resource type="Resource" uid="uid://dq38xhaedeuqu" path="res://resources/characters/agent_oppenslimer.tres" id="3_blra0"]

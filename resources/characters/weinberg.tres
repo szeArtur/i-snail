@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DialogueCharacter" load_steps=3 format=3 uid="uid://bvnc7xj3j157b"]
 
-[ext_resource type="Script" uid="uid://c2ye25n0fexkt" path="res://scripts/dialogue_character.gd" id="1_n8iev"]
-[ext_resource type="Texture2D" uid="uid://c4f5slhabuidq" path="res://textures/Kapitalist_Schnegge.png" id="2_m8n8u"]
+[ext_resource type="Script" path="res://scripts/dialogue_character.gd" id="1_n8iev"]
+[ext_resource type="Texture2D" uid="uid://bpklf0iicenvr" path="res://textures/weinberg.png" id="2_m8n8u"]
 
 [resource]
 script = ExtResource("1_n8iev")
