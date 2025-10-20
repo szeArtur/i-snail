@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://dlpafekiij322"]
+
+[ext_resource type="Script" uid="uid://bn8ffrk8shy76" path="res://scripts/grapple_ability.gd" id="1_8o6h1"]
+[ext_resource type="Script" uid="uid://cjccjs7oqnf0x" path="res://scripts/resource_scripts/item.gd" id="2_v11mo"]
+[ext_resource type="Texture2D" uid="uid://ce00xlof0yvyx" path="res://textures/Altes_schneckenhaus-1.png" id="3_eel0i"]
+
+[sub_resource type="Resource" id="Resource_1886l"]
+script = ExtResource("1_8o6h1")
+name = "grapple"
+metadata/_custom_type_script = "uid://bn8ffrk8shy76"
+
+[resource]
+script = ExtResource("2_v11mo")
+name = "grapple_shell"
+sprite = ExtResource("3_eel0i")
+ability = SubResource("Resource_1886l")
+metadata/_custom_type_script = "uid://cjccjs7oqnf0x"
