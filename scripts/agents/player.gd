@@ -65,6 +65,17 @@ func drop_shell() -> void:
 	var at: Vector2 = item_drop_position.global_position
 	var toward = velocity + (at - global_position) * 3
 	
-	EventBus.drop_item.emit(shell, at, toward)
+	var collectable: Collectable = load("res://scenes/assets/collectable.tscn").instantiate()
+	collectable.item = shell
+	collectable.position = at
+	collectable.apply_central_impulse(toward)
+	add_child(collectable)
+	
+	if collectable.test_move(item_drop_position.global_transform, Vector2.ZERO):
+		collectable.queue_free()
+		return
+	
+	remove_child(collectable)
+	EventBus.drop_item.emit(collectable)
 	shell = null
 	shell_sprite.texture = null
