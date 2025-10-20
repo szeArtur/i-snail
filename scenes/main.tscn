@@ -27,8 +27,7 @@ pull_acceleration = 0.0
 
 [node name="GameStage" type="Node2D" parent="GameWorld"]
 script = ExtResource("7_ya4ey")
-levels = Array[PackedScene]([ExtResource("12_dp3eg"), ExtResource("6_trceg")])
-active_scene_index = 1
+scenes = Array[PackedScene]([ExtResource("6_trceg"), ExtResource("12_dp3eg")])
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="GameWorld"]
 stream = ExtResource("12_muem4")

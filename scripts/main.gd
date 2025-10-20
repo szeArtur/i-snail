@@ -39,7 +39,7 @@ func _on_game_state_changed(state_new):
 			user_interface.open("main")
 		
 		GameManager.GameState.RELOADING:
-			await game_world.restart_level()
+			await game_world.restart()
 			GameManager.change_state(GameManager.GameState.PLAYING)
 
 		GameManager.GameState.LOADING:

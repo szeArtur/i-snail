@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dlofq0akr0vyo" path="res://textures/oppenslimer.png" id="4_a22jh"]
 [ext_resource type="Texture2D" uid="uid://2478mict0gy0" path="res://textures/Textbox.png" id="5_kcpo2"]
 [ext_resource type="Texture2D" uid="uid://cck74hgj7jhl5" path="res://textures/slucghub (1).png" id="6_mxih6"]
-[ext_resource type="StyleBox" path="res://scenes/ui/style_box.tres" id="7_756lo"]
+[ext_resource type="StyleBox" uid="uid://d0onya2gk26d2" path="res://scenes/ui/style_box.tres" id="7_756lo"]
 [ext_resource type="FontFile" uid="uid://cswnpcgyw0kx5" path="res://fonts/Galindo-Regular.ttf" id="8_dos7u"]
 
 [sub_resource type="Animation" id="Animation_aq0jt"]
@@ -104,17 +104,7 @@ region_rect = Rect2(80, 80, 2400, 1120)
 font = ExtResource("8_dos7u")
 font_color = Color(0, 0, 0, 1)
 
-[node name="Textszene" type="Control" node_paths=PackedStringArray("name_box", "text_box", "dialogue_box", "sprite_left", "sprite_right")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 6.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Textszene" type="Node" node_paths=PackedStringArray("name_box", "text_box", "dialogue_box", "sprite_left", "sprite_right")]
 script = ExtResource("1_756lo")
 dialogue = ExtResource("2_0try4")
 name_box = NodePath("MarginContainer/VBoxContainer/Name")
@@ -152,7 +142,6 @@ libraries = {
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(1000, 0)
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

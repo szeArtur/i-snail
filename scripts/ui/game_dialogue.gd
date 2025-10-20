@@ -20,6 +20,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if current_message < dialogue.messages.size() -1:
 			current_message += 1
 			say(dialogue.messages[current_message])
+		else:
+			EventBus.level_completed.emit()
 
 
 func say(message: DialogueMessage) -> void:
