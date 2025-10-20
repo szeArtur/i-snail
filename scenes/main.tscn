@@ -22,8 +22,6 @@ process_mode = 4
 script = ExtResource("2_sugp2")
 
 [node name="Player" parent="GameWorld" instance=ExtResource("4_tbgi4")]
-pull_speed_max = 0.0
-pull_acceleration = 0.0
 
 [node name="GameStage" type="Node2D" parent="GameWorld"]
 script = ExtResource("7_ya4ey")

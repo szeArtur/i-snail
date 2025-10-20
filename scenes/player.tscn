@@ -110,7 +110,8 @@ autoplay = "idle"
 
 [node name="ShellSprite" type="Sprite2D" parent="Sprite"]
 position = Vector2(-181.81818, -163.63637)
-scale = Vector2(0.6363636, 0.6363636)
+rotation = -0.0715585
+scale = Vector2(1.251, 1.251)
 
 [node name="ItemDropPositionForward" type="Marker2D" parent="Sprite"]
 position = Vector2(709.0909, -381.81818)
