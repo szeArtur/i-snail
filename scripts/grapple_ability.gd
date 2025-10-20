@@ -2,8 +2,9 @@ class_name GrappleAbility
 extends Ability
 
 
-@export var max_grab_range: float = 10000.0
-@export var min_grab_range: float = 200.0
+@export var max_grab_range: float = 10000
+@export var min_grab_range: float = 200
+@export var pull_velocity: float = 1000
 
 var grab_point_target: Node2D
 
@@ -23,7 +24,7 @@ func activate() -> void:
 
 
 func pull_and_collide(delta: float, target: Vector2) -> bool:
-	agent.velocity = lerp(agent.velocity,(target - agent.position).normalized() * 1000, 10 * delta)
+	agent.velocity = lerp(agent.velocity,(target - agent.position).normalized() * pull_velocity, 10 * delta)
 	agent.rotation = lerp(agent.rotation, agent.velocity.rotated(PI/2).angle(), 4 * delta)
 	
 	agent.move_and_slide()	
