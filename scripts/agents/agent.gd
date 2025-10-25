@@ -81,6 +81,8 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	target_velocity_fw = lerp(target_velocity_fw, 100 * input_direction, 10 * delta)
 	target_velocity_fw = lerp(target_velocity_fw, fw_velocity, inertia_influence)
 	
+	
+	
 	# apply velocity
 	velocity_fw_component = fw_direction * target_velocity_fw
 	velocity_up_component = Vector2.ZERO if on_floor else velocity_up_component + get_gravity() * delta
@@ -92,13 +94,23 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	else:
 		move_and_slide()
 	
+	# rigid body collision
+	# adapted from https://kidscancode.org/godot_recipes/4.x/physics/character_vs_rigid/
+	if not stick:
+		for i in get_slide_collision_count():
+			var collision := get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider is RigidBody2D:
+				collider.apply_central_impulse(-collision.get_normal() * 10)
+	
 	# wall sticking behaviour (up direction)
 	if on_floor:
-		up_direction = floor_detector.get_collision_normal(0)
-		move_and_collide(up_direction * -100)
-		apply_floor_snap()
 		if is_on_floor():
 			up_direction = get_floor_normal()
+		else:
+			up_direction = floor_detector.get_collision_normal(0)
+		move_and_collide(up_direction * -100)
+		apply_floor_snap()
 	else:
 		up_direction = Vector2.UP
 	

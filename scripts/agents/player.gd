@@ -39,12 +39,6 @@ func _physics_process(delta: float) -> void:
 		shell.ability.update(delta, input_direction)
 	else:
 		move_and_stick(delta, input_direction)
-	
-	if not stick:
-		for i in get_slide_collision_count():
-			var collidng_body = get_slide_collision(i)
-			if collidng_body.get_collider() is RigidBody2D:
-				collidng_body.get_collider().apply_central_impulse(-collidng_body.get_normal()*4)
 
 
 func _input(event: InputEvent) -> void:
@@ -82,4 +76,4 @@ func drop_shell() -> void:
 	EventBus.drop_item.emit(collectable)
 	shell = null
 	shell_sprite.texture = null
-	$ShellCollider/Shell.disabled = true
+	$ShellCollider/Shape.disabled = true

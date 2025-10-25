@@ -77,15 +77,16 @@ radius = 19.104973
 [sub_resource type="CircleShape2D" id="CircleShape2D_f1ej7"]
 radius = 19.104973
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3v2ag"]
-radius = 12.0415945
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
+radius = 5.0
+height = 26.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "viewbox", "shell_sprite", "sprite", "move_sound", "floor_detector", "detatch_cooldown", "shell_collider")]
 z_index = -1
 collision_layer = 2
 collision_mask = 65
 floor_max_angle = 3.1415927
-platform_floor_layers = 4294901761
+platform_floor_layers = 4294901760
 script = ExtResource("1_v0iea")
 hitbox = NodePath("Hitbox")
 viewbox = NodePath("Viewbox")
@@ -149,7 +150,9 @@ bus = &"Effects"
 
 [node name="ShellCollider" type="AnimatableBody2D" parent="."]
 position = Vector2(0, -16)
+collision_layer = 0
 
-[node name="Shell" type="CollisionShape2D" parent="ShellCollider"]
-shape = SubResource("CircleShape2D_3v2ag")
+[node name="Shape" type="CollisionShape2D" parent="ShellCollider"]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_d2wvv")
 debug_color = Color(0.7, 0.7, 0.7, 0.41960785)

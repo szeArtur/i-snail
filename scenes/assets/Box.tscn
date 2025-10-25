@@ -10,11 +10,8 @@ friction = 0.29
 size = Vector2(54, 50)
 
 [node name="Box" type="RigidBody2D"]
-mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_0bkxv")
 linear_damp = 1.0
-angular_damp_mode = 1
-angular_damp = 91.347
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 2)
