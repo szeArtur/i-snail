@@ -21,9 +21,9 @@ func on_viewbox_entered(body: CollisionObject2D) -> void:
 
 
 func collect(collectable: Collectable) -> void:
-	$ShellCollider/Shell.disabled = false
+	$ShellCollider/Shape.disabled = false
 	if shell_collider.test_move(shell_collider.global_transform, Vector2.ZERO):
-		$ShellCollider/Shell.disabled = true
+		$ShellCollider/Shape.disabled = true
 		return
 	
 	collectable.pickup()
