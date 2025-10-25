@@ -8,7 +8,7 @@ extends Agent
 func reset() -> void:
 	super.reset()
 	shell = null
-	$ShellCollider/Shell.disabled = true
+	$ShellCollider/Shape.disabled = true
 
 
 func on_hitbox_entered(_body: CollisionObject2D) -> void:
