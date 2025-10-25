@@ -46,6 +46,7 @@ func reset() -> void:
 	move_sound.playing = true
 	move_sound.stream_paused = true
 	shell = null
+	shell_sprite.texture = null
 
 
 func move_and_stick(delta: float, input_direction: float) -> void:
