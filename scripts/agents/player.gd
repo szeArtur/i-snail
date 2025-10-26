@@ -26,12 +26,11 @@ func collect(ref: Shell) -> void:
 		shell_collider_shape.disabled = true
 		return
 	
-	ref.reparent(shell_origin, false)
-	ref.position = Vector2.ZERO
-	ref.process_mode = Node.PROCESS_MODE_DISABLED
-	#collectable.pickup()
+	if not ref.is_collectable:
+		return
+	
 	shell = ref
-	ref.ability.agent = self
+	shell.collect(self)
 
 
 func _physics_process(delta: float) -> void:
@@ -60,15 +59,7 @@ func _input(event: InputEvent) -> void:
 func drop_shell() -> void:
 	if not shell:
 		return
-	#
-	#var at := item_drop_position.global_position
-	#var toward := velocity + (at - global_position) * 3
-	#
-	#if collectable.test_move(item_drop_position.global_transform, Vector2.ZERO):
-		#collectable.queue_free()
-		#return
-	#
-	#remove_child(collectable)
-	#EventBus.drop_item.emit(collectable)
-	#shell = null
-	#shell_collider_shape.disabled = true
+	
+	shell.drop(velocity + Vector2.UP * 60)
+	shell = null
+	shell_collider_shape.disabled = true
