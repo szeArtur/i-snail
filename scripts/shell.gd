@@ -1,5 +1,4 @@
 class_name Shell
-extends Item
-
+extends RigidBody2D
 
 @export var ability: Ability

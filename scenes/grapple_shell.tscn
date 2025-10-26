@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://by0b5towsx2lk"]
+
+[ext_resource type="PackedScene" uid="uid://drnhjvhrq78i0" path="res://scenes/shell.tscn" id="1_tjunw"]
+[ext_resource type="Script" uid="uid://bn8ffrk8shy76" path="res://scripts/grapple_ability.gd" id="2_eq60l"]
+[ext_resource type="Texture2D" uid="uid://58obda8r2ykl" path="res://textures/Grappleschneckenhaus.png" id="3_yu3u0"]
+
+[sub_resource type="Resource" id="Resource_yu3u0"]
+script = ExtResource("2_eq60l")
+metadata/_custom_type_script = "uid://bn8ffrk8shy76"
+
+[node name="Shell" instance=ExtResource("1_tjunw")]
+ability = SubResource("Resource_yu3u0")
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2(12.000002, 10)
+scale = Vector2(0.09586072, 0.09586072)
+texture = ExtResource("3_yu3u0")
