@@ -2,13 +2,14 @@ class_name Player
 extends Agent
 
 
-@onready var item_drop_position = $Sprite/ItemDropPosition
+@onready var item_drop_position: Marker2D = $FlipOrigin/ItemDropPosition
 
 
 func reset() -> void:
 	super.reset()
+	shell_collider_shape.disabled = true
 	shell = null
-	$ShellCollider/Shape.disabled = true
+	stick = false
 
 
 func on_hitbox_entered(_body: CollisionObject2D) -> void:
@@ -21,14 +22,16 @@ func on_viewbox_entered(body: CollisionObject2D) -> void:
 
 
 func collect(collectable: Collectable) -> void:
-	$ShellCollider/Shape.disabled = false
+	shell_collider_shape.disabled = false
 	if shell_collider.test_move(shell_collider.global_transform, Vector2.ZERO):
-		$ShellCollider/Shape.disabled = true
+		shell_collider_shape.disabled = true
 		return
 	
-	collectable.pickup()
+	collectable.reparent(shell_origin, false)
+	collectable.position = Vector2.ZERO
+	collectable.process_mode = Node.PROCESS_MODE_DISABLED
+	#collectable.pickup()
 	shell = collectable.item
-	shell_sprite.texture = shell.sprite
 	shell.ability.agent = self
 
 
@@ -59,8 +62,8 @@ func drop_shell() -> void:
 	if not shell:
 		return
 	
-	var at: Vector2 = item_drop_position.global_position
-	var toward = velocity + (at - global_position) * 3
+	var at := item_drop_position.global_position
+	var toward := velocity + (at - global_position) * 3
 	
 	var collectable: Collectable = load("res://scenes/assets/collectable.tscn").instantiate()
 	collectable.item = shell
@@ -75,5 +78,4 @@ func drop_shell() -> void:
 	remove_child(collectable)
 	EventBus.drop_item.emit(collectable)
 	shell = null
-	shell_sprite.texture = null
-	$ShellCollider/Shape.disabled = true
+	shell_collider_shape.disabled = true

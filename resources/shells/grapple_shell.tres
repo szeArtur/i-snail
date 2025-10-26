@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Shell" load_steps=6 format=3 uid="uid://dhoxb276uoc2a"]
 
 [ext_resource type="Script" uid="uid://bn8ffrk8shy76" path="res://scripts/grapple_ability.gd" id="1_8o6h1"]
-[ext_resource type="Script" path="res://scripts/shell.gd" id="1_orsif"]
+[ext_resource type="Script" uid="uid://dggeklv347vx3" path="res://scripts/shell.gd" id="1_orsif"]
 [ext_resource type="Texture2D" uid="uid://58obda8r2ykl" path="res://textures/Grappleschneckenhaus.png" id="3_8o6h1"]
 
 [sub_resource type="Resource" id="Resource_v11mo"]

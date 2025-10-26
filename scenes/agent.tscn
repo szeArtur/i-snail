@@ -1,0 +1,144 @@
+[gd_scene load_steps=18 format=3 uid="uid://wbogsduyh0ug"]
+
+[ext_resource type="Script" uid="uid://e8nulp3wmj6a" path="res://scripts/agents/agent.gd" id="1_q3gef"]
+[ext_resource type="Texture2D" uid="uid://bwg868fy8wvv6" path="res://textures/Schnecke1.png" id="2_f14ir"]
+[ext_resource type="Texture2D" uid="uid://bv8u3ydmdvbxm" path="res://textures/Schnecke2.png" id="3_tduqk"]
+[ext_resource type="Texture2D" uid="uid://cl63d4jv4tv0o" path="res://textures/Schnecke3.png" id="4_2rugh"]
+[ext_resource type="Texture2D" uid="uid://dd6ahlab8pe08" path="res://textures/Einzug_ins_haus1.png" id="5_xkbws"]
+[ext_resource type="Texture2D" uid="uid://dxmv54brf4523" path="res://textures/Einzug_ins_haus2.png" id="6_x1a88"]
+[ext_resource type="Texture2D" uid="uid://c2nvg7ockr3im" path="res://textures/Einzug_ins_haus3.png" id="7_xccks"]
+[ext_resource type="Texture2D" uid="uid://x7uf6ygcyani" path="res://textures/Einzug_ins_haus4.png" id="8_30rnm"]
+[ext_resource type="Texture2D" uid="uid://b48lna1xcyfri" path="res://textures/Einzug_ins_haus7.png" id="9_u666s"]
+[ext_resource type="Texture2D" uid="uid://c0u4y6yfvinjr" path="res://textures/Einzug_ins_Haus8.png" id="10_rscfb"]
+[ext_resource type="AudioStream" uid="uid://isy6k243bekc" path="res://audio/effects/walk on grass.ogg" id="11_exmry"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4r1p"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2wvv"]
+radius = 15.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3v2ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f14ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tduqk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f14ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tduqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2rugh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tduqk")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xkbws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x1a88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xccks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_30rnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u666s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rscfb")
+}],
+"loop": false,
+"name": &"retract",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1ej7"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jej6c"]
+radius = 16.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q3gef"]
+a = Vector2(0, -17)
+
+[node name="Agent" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 65
+floor_max_angle = 3.1415927
+platform_floor_layers = 4294901760
+script = ExtResource("1_q3gef")
+metadata/_custom_type_script = "uid://e8nulp3wmj6a"
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y4r1p")
+debug_color = Color(0.7, 0.7, 0.7, 0.08627451)
+
+[node name="FloorDetector" type="ShapeCast2D" parent="."]
+shape = SubResource("CircleShape2D_d2wvv")
+target_position = Vector2(0, 0)
+
+[node name="DetatchCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="MoveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_exmry")
+bus = &"Effects"
+
+[node name="FlipOrigin" type="Node2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="FlipOrigin"]
+position = Vector2(0, -12)
+scale = Vector2(0.075, 0.075)
+sprite_frames = SubResource("SpriteFrames_3v2ag")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="ShellOrigin" type="Node2D" parent="FlipOrigin"]
+position = Vector2(-15, -19)
+rotation = -0.29147
+
+[node name="Viewbox" type="Area2D" parent="FlipOrigin"]
+collision_layer = 0
+collision_mask = 200
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="FlipOrigin/Viewbox"]
+shape = SubResource("CircleShape2D_f1ej7")
+debug_color = Color(0.26249996, 0.63, 0, 0)
+
+[node name="Hitbox" type="Area2D" parent="FlipOrigin"]
+collision_layer = 0
+collision_mask = 32
+
+[node name="Shape" type="CollisionShape2D" parent="FlipOrigin/Hitbox"]
+shape = SubResource("CircleShape2D_jej6c")
+debug_color = Color(0.88, 0, 0.83600026, 0)
+
+[node name="ShellCollider" type="AnimatableBody2D" parent="FlipOrigin"]
+collision_layer = 0
+
+[node name="Shape" type="CollisionShape2D" parent="FlipOrigin/ShellCollider"]
+position = Vector2(0, -15)
+shape = SubResource("SegmentShape2D_q3gef")
+debug_color = Color(0.7, 0.7, 0.7, 0.41960785)

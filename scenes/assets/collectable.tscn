@@ -16,12 +16,12 @@ name = "Empty"
 sprite = SubResource("PlaceholderTexture2D_61c27")
 metadata/_custom_type_script = "uid://cjccjs7oqnf0x"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bkg8t"]
-radius = 17.029387
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8o6h1"]
 atlas = ExtResource("3_326mw")
 region = Rect2(490, 286, 622, 509)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkg8t"]
+radius = 22.0
 
 [node name="Collectable" type="RigidBody2D"]
 collision_layer = 8
@@ -31,13 +31,14 @@ angular_damp = 20.0
 script = ExtResource("1_bkg8t")
 item = SubResource("Resource_ga2k0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_bkg8t")
-
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = -0.00706113
-scale = Vector2(0.067655556, 0.067655556)
+scale = Vector2(0.088, 0.088)
 texture = SubResource("AtlasTexture_8o6h1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bkg8t")
+debug_color = Color(1, 1, 1, 0)
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 bus = &"Effects"

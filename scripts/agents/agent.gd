@@ -1,22 +1,31 @@
-@abstract class_name Agent
+## Abstract base class of player and enemy. Enables basic movement including sticking to walls
+## and interacting with rigid bodies.
+class_name Agent
 extends CharacterBody2D
 
-
-@export var shell: Item
+## Shell resource, from which the shell sprite and [Ability] can be used at runtime.
+@export var shell: Shell
+## Base speed of the agent. May be modified by [member sticky_speed_modifier]
 @export var base_speed := 8000.0
+## Gets multiplied to [member base_speed] when [member stick] is set to [code]true[/code]
+@export var sticky_speed_modifier := 1.0
+@export var stick := false
 
-@export_group("Connections")
-@export var hitbox: Area2D
-@export var viewbox: Area2D
-@export var shell_sprite: Sprite2D
-@export var sprite: AnimatedSprite2D
-@export var move_sound: AudioStreamPlayer2D
-@export var floor_detector: ShapeCast2D
-@export var detatch_cooldown: Timer
-@export var shell_collider: AnimatableBody2D
 
-var stick: bool
+@onready var hitbox: Area2D = $FlipOrigin/Hitbox
+@onready var viewbox: Area2D = $FlipOrigin/Viewbox
+@onready var sprite: AnimatedSprite2D = $FlipOrigin/Sprite
+@onready var move_sound: AudioStreamPlayer2D = $MoveSound
+@onready var floor_detector: ShapeCast2D = $FloorDetector
+@onready var shell_collider: AnimatableBody2D = $FlipOrigin/ShellCollider
+@onready var detatch_cooldown: Timer = $DetatchCooldown
+@onready var flip_origin: Node2D = $FlipOrigin
+@onready var shell_collider_shape: CollisionShape2D = $FlipOrigin/ShellCollider/Shape
+@onready var shell_origin: Node2D = $FlipOrigin/ShellOrigin
+
+
 var target_velocity_fw := 0.0
+
 
 func on_hitbox_entered(_body: CollisionObject2D) -> void: pass
 func on_hitbox_exited(_body: CollisionObject2D) -> void: pass
@@ -42,12 +51,12 @@ func _ready() -> void:
 
 func reset() -> void:
 	velocity = Vector2.ZERO
-	stick = false
 	move_sound.playing = true
 	move_sound.stream_paused = true
-	shell = null
 
 
+## General move method of an agent. The agent will stick to walls as long as
+## [member stick] is [code]true[/code].
 func move_and_stick(delta: float, input_direction: float) -> void:
 	# wall detection
 	floor_max_angle = PI if stick else PI/4
@@ -60,9 +69,9 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	var fw_direction := up_direction.rotated(PI/2)
 	var velocity_up_component := up_direction * velocity.dot(up_direction)
 	var velocity_fw_component := fw_direction * velocity.dot(fw_direction)
-	var fw_velocity = velocity_fw_component.dot(fw_direction) / fw_direction.length_squared()
+	var fw_velocity := velocity_fw_component.dot(fw_direction) / fw_direction.length_squared()
 	
-	var on_floor = stick and floor_detector.is_colliding() and detatch_cooldown.is_stopped()
+	var sicking_to_floor = stick and floor_detector.is_colliding() and detatch_cooldown.is_stopped()
 	
 	# inertia/drag
 	var inertia_influence: float 
@@ -85,7 +94,7 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	
 	# apply velocity
 	velocity_fw_component = fw_direction * target_velocity_fw
-	velocity_up_component = Vector2.ZERO if on_floor else velocity_up_component + get_gravity() * delta
+	velocity_up_component = Vector2.ZERO if sicking_to_floor else velocity_up_component + get_gravity() * delta
 	velocity = velocity_up_component + velocity_fw_component
 	velocity *= 0.2 ** delta # apply drag
 	
@@ -104,7 +113,7 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 				collider.apply_central_impulse(-collision.get_normal() * 10)
 	
 	# wall sticking behaviour (up direction)
-	if on_floor:
+	if sicking_to_floor:
 		if is_on_floor():
 			up_direction = get_floor_normal()
 		else:
@@ -121,5 +130,5 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	if fw_velocity == 0:
 		sprite.play("idle")
 	else:
-		sprite.scale.x = sign(fw_velocity) * abs(sprite.scale.y)
+		flip_origin.scale.x = sign(fw_velocity) * abs(flip_origin.scale.y)
 		sprite.play("move")

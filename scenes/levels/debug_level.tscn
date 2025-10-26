@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjs1wsriir3qi"]
+[gd_scene load_steps=12 format=3 uid="uid://cjs1wsriir3qi"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/game_level.gd" id="1_hkwi7"]
 [ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/assets/grab_point.tscn" id="2_7o5vt"]
 [ext_resource type="PackedScene" uid="uid://c1l6hkhcejtlw" path="res://scenes/assets/Box.tscn" id="2_r04o2"]
 [ext_resource type="PackedScene" uid="uid://cv61jprq08u6b" path="res://scenes/assets/collectable.tscn" id="3_dk8gf"]
 [ext_resource type="Resource" uid="uid://dhoxb276uoc2a" path="res://resources/shells/grapple_shell.tres" id="4_nfmkk"]
+[ext_resource type="PackedScene" uid="uid://3p5waqxg5ngx" path="res://scenes/enemy.tscn" id="6_nfmkk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r04o2"]
 size = Vector2(1293, 40.00003)
@@ -26,7 +27,7 @@ script = ExtResource("1_hkwi7")
 player_spawn = NodePath("PlayerSpawn")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(388, 439)
+position = Vector2(349, 417)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -58,7 +59,7 @@ shape = SubResource("RectangleShape2D_nfmkk")
 position = Vector2(581, 636)
 
 [node name="Collectable" parent="." instance=ExtResource("3_dk8gf")]
-position = Vector2(363, 376)
+position = Vector2(436, 157)
 item = ExtResource("4_nfmkk")
 
 [node name="GrabPoint" parent="." instance=ExtResource("2_7o5vt")]
@@ -68,4 +69,8 @@ position = Vector2(925, 256)
 position = Vector2(545, 327)
 
 [node name="GrabPoint3" parent="." instance=ExtResource("2_7o5vt")]
-position = Vector2(75, 483)
+position = Vector2(273, 414)
+
+[node name="Enemy" parent="." instance=ExtResource("6_nfmkk")]
+z_index = -1
+position = Vector2(738, 651)
