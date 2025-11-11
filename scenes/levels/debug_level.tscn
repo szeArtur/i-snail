@@ -85,3 +85,8 @@ position = Vector2(684, 645)
 [node name="ParticleEmitter" parent="." instance=ExtResource("7_yj7dt")]
 position = Vector2(633, 16)
 particle_scene = ExtResource("8_2tovo")
+
+[node name="CollisionShape2D" parent="ParticleEmitter" index="0"]
+position = Vector2(6, 5.5)
+
+[editable path="ParticleEmitter"]

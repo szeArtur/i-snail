@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b12yxxtq81pcf"]
+[gd_scene load_steps=8 format=3 uid="uid://b12yxxtq81pcf"]
 
 [ext_resource type="Script" uid="uid://c1coi02627rbm" path="res://scripts/resource_scripts/random_texture.gd" id="1_7j77k"]
+[ext_resource type="Script" uid="uid://qpdq2ycgbn3m" path="res://scripts/salt_particle.gd" id="1_f303d"]
 [ext_resource type="Texture2D" uid="uid://48236nn4uwis" path="res://textures/Salzregenpartikel1.png" id="2_u2mfc"]
 [ext_resource type="Texture2D" uid="uid://buyr0hlgxokss" path="res://textures/Salzregenpartikel2.png" id="3_f303d"]
 [ext_resource type="Texture2D" uid="uid://cicmr6u8tfhkm" path="res://textures/Salzregenpartikel3.png" id="4_s0u50"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hia0o"]
+radius = 2.0
 
 [sub_resource type="Texture2D" id="Texture2D_kfmc8"]
 resource_local_to_scene = false
@@ -15,10 +17,21 @@ textures = Array[Texture2D]([ExtResource("2_u2mfc"), ExtResource("3_f303d"), Ext
 metadata/_custom_type_script = "uid://c1coi02627rbm"
 
 [node name="SaltParticle" type="RigidBody2D"]
-gravity_scale = 0.0
+collision_layer = 128
+collision_mask = 129
+lock_rotation = true
+script = ExtResource("1_f303d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hia0o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
 texture = SubResource("Texture2D_kfmc8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
