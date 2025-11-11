@@ -2,12 +2,8 @@ class_name Player
 extends Agent
 
 
-@onready var item_drop_position: Marker2D = $FlipOrigin/ItemDropPosition
-
-
 func reset() -> void:
 	super.reset()
-	shell_collider_shape.disabled = true
 	stick = false
 
 
@@ -21,11 +17,6 @@ func on_viewbox_entered(body: CollisionObject2D) -> void:
 
 
 func collect(ref: Shell) -> void:
-	shell_collider_shape.disabled = false
-	if shell_collider.test_move(shell_collider.global_transform, Vector2.ZERO):
-		shell_collider_shape.disabled = true
-		return
-	
 	if not ref.is_collectable:
 		return
 	
@@ -62,4 +53,3 @@ func drop_shell() -> void:
 	
 	shell.drop(velocity + Vector2.UP * 60)
 	shell = null
-	shell_collider_shape.disabled = true

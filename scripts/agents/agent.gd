@@ -12,16 +12,14 @@ extends CharacterBody2D
 @export var stick := false
 
 
-@onready var hitbox: Area2D = $FlipOrigin/Hitbox
-@onready var viewbox: Area2D = $FlipOrigin/Viewbox
-@onready var sprite: AnimatedSprite2D = $FlipOrigin/Sprite
+@onready var hitbox: Area2D = $Origin/Hitbox
+@onready var viewbox: Area2D = $Origin/Viewbox
+@onready var sprite: AnimatedSprite2D = $Origin/Sprite
 @onready var move_sound: AudioStreamPlayer2D = $MoveSound
 @onready var floor_detector: ShapeCast2D = $FloorDetector
-@onready var shell_collider: AnimatableBody2D = $FlipOrigin/ShellCollider
 @onready var detatch_cooldown: Timer = $DetatchCooldown
-@onready var flip_origin: Node2D = $FlipOrigin
-@onready var shell_collider_shape: CollisionShape2D = $FlipOrigin/ShellCollider/Shape
-@onready var shell_origin: Node2D = $FlipOrigin/ShellOrigin
+@onready var origin: Node2D = $Origin
+@onready var shell_origin: Node2D = $Origin/ShellOrigin
 
 
 var target_velocity_fw := 0.0
@@ -90,18 +88,12 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	target_velocity_fw = lerp(target_velocity_fw, 100 * input_direction, 10 * delta)
 	target_velocity_fw = lerp(target_velocity_fw, fw_velocity, inertia_influence)
 	
-	
-	
 	# apply velocity
 	velocity_fw_component = fw_direction * target_velocity_fw
 	velocity_up_component = Vector2.ZERO if sicking_to_floor else velocity_up_component + get_gravity() * delta
 	velocity = velocity_up_component + velocity_fw_component
 	velocity *= 0.2 ** delta # apply drag
-	
-	if shell_collider.test_move(shell_collider.global_transform, velocity * delta):
-		velocity = Vector2.ZERO
-	else:
-		move_and_slide()
+	move_and_slide()
 	
 	# rigid body collision
 	# adapted from https://kidscancode.org/godot_recipes/4.x/physics/character_vs_rigid/
@@ -125,10 +117,10 @@ func move_and_stick(delta: float, input_direction: float) -> void:
 	
 	# update visuals
 	var target_rotation := fw_direction.angle() if is_on_floor() else 0.0
-	rotation = lerp(rotation, target_rotation, 10 * delta)
+	origin.rotation = lerp(origin.rotation, target_rotation, 10 * delta)
 	
 	if fw_velocity == 0:
 		sprite.play("idle")
 	else:
-		flip_origin.scale.x = sign(fw_velocity) * abs(flip_origin.scale.y)
+		origin.scale.x = sign(fw_velocity) * abs(origin.scale.y)
 		sprite.play("move")

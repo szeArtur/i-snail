@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1l6hkhcejtlw"]
+[gd_scene load_steps=4 format=3 uid="uid://c1l6hkhcejtlw"]
 
 [ext_resource type="Texture2D" uid="uid://ccy6pncw045y1" path="res://textures/box.png" id="1_0bkxv"]
-[ext_resource type="PackedScene" uid="uid://n4y7igwhb6wj" path="res://scenes/assets/turnaround_enemy.tscn" id="3_speaj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0bkxv"]
 friction = 0.29
@@ -21,7 +20,3 @@ shape = SubResource("RectangleShape2D_ew2ip")
 position = Vector2(2, -2)
 scale = Vector2(0.054, 0.054)
 texture = ExtResource("1_0bkxv")
-
-[node name="turnaround" parent="." instance=ExtResource("3_speaj")]
-position = Vector2(-2, -1)
-scale = Vector2(2.200002, 2.0745816)

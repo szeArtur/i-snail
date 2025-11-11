@@ -9,5 +9,7 @@ stopped = false
 facing_right = true
 stick = true
 
-[node name="FOV" type="CollisionPolygon2D" parent="FlipOrigin/Viewbox" index="1"]
+[node name="PlayerDetection" type="Area2D" parent="Origin" index="4"]
+
+[node name="FOV" type="CollisionPolygon2D" parent="Origin/PlayerDetection" index="0"]
 polygon = PackedVector2Array(1139, 134, 1039, -217, 0, 0)

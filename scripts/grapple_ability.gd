@@ -25,7 +25,7 @@ func activate() -> void:
 
 func pull_and_collide(delta: float, target: Vector2) -> bool:
 	agent.velocity = lerp(agent.velocity,(target - agent.position).normalized() * pull_velocity, 10 * delta)
-	agent.rotation = lerp(agent.rotation, agent.velocity.rotated(PI/2).angle(), 4 * delta)
+	agent.origin.rotation = lerp(agent.origin.rotation, agent.velocity.rotated(PI/2).angle(), 4 * delta)
 	
 	agent.move_and_slide()	
 	if (agent.get_slide_collision_count() > 0 or target.distance_to(agent.position) < 40):

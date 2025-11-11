@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1k8hcg4h0g4g"]
+
+[ext_resource type="Script" uid="uid://cgpvciv1hgxjf" path="res://scripts/turn_area.gd" id="1_l41ko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75ewq"]
+size = Vector2(32, 32)
+
+[node name="TurnArea" type="Area2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_l41ko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_75ewq")
+debug_color = Color(1, 0.011764706, 0.05490196, 0)
