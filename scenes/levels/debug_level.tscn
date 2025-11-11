@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjs1wsriir3qi"]
+[gd_scene load_steps=14 format=3 uid="uid://cjs1wsriir3qi"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/game_level.gd" id="1_hkwi7"]
 [ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/assets/grab_point.tscn" id="2_7o5vt"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://by0b5towsx2lk" path="res://scenes/grapple_shell.tscn" id="5_dk8gf"]
 [ext_resource type="PackedScene" uid="uid://3p5waqxg5ngx" path="res://scenes/enemy.tscn" id="6_nfmkk"]
 [ext_resource type="PackedScene" uid="uid://b1k8hcg4h0g4g" path="res://scenes/assets/turn_area.tscn" id="6_yj7dt"]
+[ext_resource type="PackedScene" uid="uid://dn0yfj4uu8ohv" path="res://scenes/assets/particle_emitter.tscn" id="7_yj7dt"]
+[ext_resource type="PackedScene" uid="uid://b12yxxtq81pcf" path="res://scenes/salt_particle.tscn" id="8_2tovo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r04o2"]
 size = Vector2(1293, 40.00003)
@@ -79,3 +81,7 @@ position = Vector2(1237, 295)
 
 [node name="TurnArea2" parent="." instance=ExtResource("6_yj7dt")]
 position = Vector2(684, 645)
+
+[node name="ParticleEmitter" parent="." instance=ExtResource("7_yj7dt")]
+position = Vector2(633, 16)
+particle_scene = ExtResource("8_2tovo")
