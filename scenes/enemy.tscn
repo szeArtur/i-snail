@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://3p5waqxg5ngx"]
+[gd_scene load_steps=9 format=3 uid="uid://3p5waqxg5ngx"]
 
 [ext_resource type="PackedScene" uid="uid://wbogsduyh0ug" path="res://scenes/agent.tscn" id="1_4ra3w"]
 [ext_resource type="Script" uid="uid://cow1mno6lo36i" path="res://scripts/agents/enemy.gd" id="1_md0e3"]
 [ext_resource type="AudioStream" uid="uid://dfa60e3fpdvct" path="res://audio/effects/enemy_spotted.mp3" id="3_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://trar3sdypi71" path="res://textures/Lichtkegel.png" id="3_5uy6h"]
+[ext_resource type="PackedScene" uid="uid://by0b5towsx2lk" path="res://scenes/grapple_shell.tscn" id="3_c4w8v"]
 
 [sub_resource type="Animation" id="Animation_4ra3w"]
 length = 0.001
@@ -92,18 +94,36 @@ _data = {
 }
 
 [node name="Enemy" instance=ExtResource("1_4ra3w")]
+light_mask = 0
 script = ExtResource("1_md0e3")
 stopped = false
 facing_right = true
 looking_for_player = true
 stick = true
 
+[node name="Shell" parent="Origin/ShellOrigin" index="0" instance=ExtResource("3_c4w8v")]
+process_mode = 4
+is_collectable = false
+
 [node name="PlayerDetection" type="Area2D" parent="Origin" index="4"]
 collision_layer = 0
 collision_mask = 2
 
 [node name="FOV" type="CollisionPolygon2D" parent="Origin/PlayerDetection" index="0"]
-polygon = PackedVector2Array(1139, 134, 1039, -217, 0, 0)
+position = Vector2(0, -8)
+polygon = PackedVector2Array(723, 93, 717, -137, 0, 0, 6, 12)
+
+[node name="Light2D" type="PointLight2D" parent="Origin" index="5"]
+position = Vector2(-1.9999981, -6)
+rotation = 1.5358897
+scale = Vector2(0.705, 0.342)
+energy = 0.4
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("3_5uy6h")
+offset = Vector2(8, -1049)
+texture_scale = 0.3
 
 [node name="ViewRay" type="RayCast2D" parent="." index="5"]
 
