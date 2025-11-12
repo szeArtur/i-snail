@@ -1,7 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://3p5waqxg5ngx"]
+[gd_scene load_steps=7 format=3 uid="uid://3p5waqxg5ngx"]
 
 [ext_resource type="PackedScene" uid="uid://wbogsduyh0ug" path="res://scenes/agent.tscn" id="1_4ra3w"]
 [ext_resource type="Script" uid="uid://cow1mno6lo36i" path="res://scripts/agents/enemy.gd" id="1_md0e3"]
+[ext_resource type="AudioStream" uid="uid://dfa60e3fpdvct" path="res://audio/effects/enemy_spotted.mp3" id="3_4ra3w"]
+
+[sub_resource type="Animation" id="Animation_4ra3w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:stopped")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:looking_for_player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_md0e3"]
 resource_name = "spot_player"
@@ -44,29 +72,14 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
-
-[sub_resource type="Animation" id="Animation_4ra3w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:stopped")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:looking_for_player")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemySpotted:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.06666668),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -98,6 +111,10 @@ polygon = PackedVector2Array(1139, 134, 1039, -217, 0, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_5uy6h")
 }
+
+[node name="EnemySpotted" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("3_4ra3w")
+bus = &"Effects"
 
 [connection signal="area_entered" from="Origin/PlayerDetection" to="." method="on_player_detection_entered"]
 [connection signal="area_exited" from="Origin/PlayerDetection" to="." method="on_player_detection_exited"]
