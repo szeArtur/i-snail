@@ -10,6 +10,15 @@ facing_right = true
 stick = true
 
 [node name="PlayerDetection" type="Area2D" parent="Origin" index="4"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="FOV" type="CollisionPolygon2D" parent="Origin/PlayerDetection" index="0"]
 polygon = PackedVector2Array(1139, 134, 1039, -217, 0, 0)
+
+[node name="ViewRay" type="RayCast2D" parent="." index="5"]
+
+[connection signal="area_entered" from="Origin/PlayerDetection" to="." method="on_player_detection_entered"]
+[connection signal="area_exited" from="Origin/PlayerDetection" to="." method="on_player_detection_exited"]
+[connection signal="body_entered" from="Origin/PlayerDetection" to="." method="on_player_detection_entered"]
+[connection signal="body_exited" from="Origin/PlayerDetection" to="." method="on_player_detection_exited"]
