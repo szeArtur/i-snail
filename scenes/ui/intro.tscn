@@ -1,7 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://cidd160mkyugb"]
+[gd_scene load_steps=7 format=3 uid="uid://cidd160mkyugb"]
 
-[ext_resource type="VideoStream" path="res://textures/intro.ogv" id="1_s2ta7"]
+[ext_resource type="VideoStream" uid="uid://ce5uwgoupgec" path="res://textures/intro.ogv" id="1_s2ta7"]
 [ext_resource type="Script" uid="uid://y6c1ksb20wyl" path="res://scripts/intro.gd" id="2_ayt76"]
+
+[sub_resource type="Animation" id="Animation_7a8ye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ayt76"]
 resource_name = "intro"
@@ -48,8 +75,9 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_7a8ye"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_i2slu"]
+resource_name = "skip"
+length = 14.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -57,10 +85,10 @@ tracks/0/path = NodePath(".:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.5666667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, -80.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -69,16 +97,34 @@ tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.03333333, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.3666666),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"switch_to_menu"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0a7ni"]
 _data = {
 &"RESET": SubResource("Animation_7a8ye"),
-&"intro": SubResource("Animation_ayt76")
+&"intro": SubResource("Animation_ayt76"),
+&"skip": SubResource("Animation_i2slu")
 }
 
 [node name="Intro" type="VideoStreamPlayer"]
