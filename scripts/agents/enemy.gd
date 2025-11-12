@@ -1,50 +1,50 @@
 class_name Enemy
 extends Agent
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var ray_cast_2d: RayCast2D = $AnimatedSprite2D/RayCast2D
 
-@export var stop := false
-@export var jumpforce := 10.0
-@export var start_links:= true
-var player_senn_prog =0
-var movement_direction
+@export var stopped := false
+@export var facing_right := true
+@export var looking_for_player: bool = true
 
+var player: Player
 
-func _ready() -> void:
-	super._ready()
-	if start_links:
-		movement_direction = -1
-	else:
-		movement_direction = 1
+@onready var view_ray: RayCast2D = $ViewRay
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func _physics_process(delta: float) -> void:
-	if ray_cast_2d.is_colliding():
-		#line_2d.
-		if ray_cast_2d.get_collider() is Player and player_senn_prog==0:
-			player_senn_prog=1
-	if player_senn_prog != 1:
-		if stop == false:
-			move(delta, movement_direction)
-	else: 
-		animated_sprite_2d.play("button")
+	if not stopped:
+		move_and_stick(delta, 1 if facing_right else -1)
 	
-		
-#func _on_hitbox_entered(body: CollisionObject2D) -> void:
-	#if body is TurnaroundEnemy:
-		#movement_direction *= -1
+	if is_player_in_sight() and looking_for_player:
+		animation_player.play("spot_player")
 
 
-func _on_visionbox_body_entered(_body: Node2D) -> void:
-	if player_senn_prog == 0:
-		player_senn_prog=1
+func spot_player() -> void:
+	EventBus.player_detected.emit()
 
 
-func _on_animated_sprite_2d_animation_finished() -> void:
-	if player_senn_prog ==1:
-		player_senn_prog=2
+func on_viewbox_entered(body: CollisionObject2D) -> void:
+	if body is TurnArea:
+		facing_right = not facing_right
 
 
-func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body.get_linear_velocity().length() >=70:
-		queue_free()
+func is_player_in_sight() -> bool:
+	if not player:
+		return false
 	
+	view_ray.target_position = player.global_position - global_position
+	view_ray.force_raycast_update()
+	if view_ray.is_colliding():
+		return false
+	
+	return true
+
+
+func on_player_detection_entered(body: CollisionObject2D) -> void:
+	if body is Player:
+		player = body
+
+
+func on_player_detection_exited(body: CollisionObject2D) -> void:
+	if body is Player:
+		player = null

@@ -2,34 +2,21 @@ class_name Player
 extends Agent
 
 
-@onready var item_drop_position = $Sprite/ItemDropPosition
-
-
-func reset() -> void:
-	super.reset()
-	shell = null
-	$ShellCollider/Shape.disabled = true
-
-
 func on_hitbox_entered(_body: CollisionObject2D) -> void:
 	GameManager.push_state(GameManager.GameState.RELOADING)
 
 
 func on_viewbox_entered(body: CollisionObject2D) -> void:
-	if body is Collectable:
+	if body is Shell:
 		call_deferred("collect", body)
 
 
-func collect(collectable: Collectable) -> void:
-	$ShellCollider/Shape.disabled = false
-	if shell_collider.test_move(shell_collider.global_transform, Vector2.ZERO):
-		$ShellCollider/Shape.disabled = true
+func collect(ref: Shell) -> void:
+	if not ref.is_collectable:
 		return
 	
-	collectable.pickup()
-	shell = collectable.item
-	shell_sprite.texture = shell.sprite
-	shell.ability.agent = self
+	shell = ref
+	shell.collect(self)
 
 
 func _physics_process(delta: float) -> void:
@@ -59,21 +46,5 @@ func drop_shell() -> void:
 	if not shell:
 		return
 	
-	var at: Vector2 = item_drop_position.global_position
-	var toward = velocity + (at - global_position) * 3
-	
-	var collectable: Collectable = load("res://scenes/assets/collectable.tscn").instantiate()
-	collectable.item = shell
-	collectable.position = at
-	collectable.apply_central_impulse(toward)
-	add_child(collectable)
-	
-	if collectable.test_move(item_drop_position.global_transform, Vector2.ZERO):
-		collectable.queue_free()
-		return
-	
-	remove_child(collectable)
-	EventBus.drop_item.emit(collectable)
+	shell.drop(velocity + Vector2.UP * 60)
 	shell = null
-	shell_sprite.texture = null
-	$ShellCollider/Shape.disabled = true

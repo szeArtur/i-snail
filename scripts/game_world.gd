@@ -2,7 +2,6 @@ class_name GameWorld
 extends Node2D
 
 
-@onready var player: Player = $Player
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var game_stage: GameStage = $GameStage
 
@@ -30,7 +29,6 @@ func load_data(data : Dictionary) -> void:
 ## takes one frame to reset, [param await] this method to function properly
 func reset() -> void:
 	game_stage.close()
-	player.reset()
 
 	var previous_process_mode := process_mode
 	process_mode = PROCESS_MODE_INHERIT

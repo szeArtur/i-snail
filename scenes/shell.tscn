@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drnhjvhrq78i0"]
+
+[ext_resource type="Script" uid="uid://dggeklv347vx3" path="res://scripts/shell.gd" id="2_6fq18"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efm2f"]
+radius = 25.0
+
+[node name="Shell" type="RigidBody2D"]
+collision_layer = 9
+script = ExtResource("2_6fq18")
+metadata/_custom_type_script = "uid://dggeklv347vx3"
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_efm2f")
+
+[node name="Sprite" type="Sprite2D" parent="."]

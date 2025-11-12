@@ -1,8 +1,8 @@
+## Abstract base class of all abilities. Provides [member agent] variable.
 @abstract class_name Ability
 extends Resource
 
 
-@export var name: String
 var agent: Agent
 
 
