@@ -4,6 +4,7 @@ extends GameScene
 
 @export var player_spawn: Node2D
 @export var salt_rain_emitter: ParticleEmitter
+@export_range(0.1, 10, 0.1, "suffix:s") var salt_rain_length: float = 4
 
 
 func _ready() -> void:
@@ -16,5 +17,5 @@ func drop_shell(shell: Shell) -> void:
 
 func salt_rain() -> void:
 	salt_rain_emitter.emitting = true
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(salt_rain_length).timeout
 	salt_rain_emitter.emitting = false
