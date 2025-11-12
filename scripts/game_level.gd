@@ -2,7 +2,6 @@ class_name GameLevel
 extends GameScene
 
 
-@export var player_spawn: Node2D
 @export var salt_rain_emitter: ParticleEmitter
 @export_range(0.1, 10, 0.1, "suffix:s") var salt_rain_length: float = 4
 

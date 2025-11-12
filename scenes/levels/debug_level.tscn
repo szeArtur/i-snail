@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjs1wsriir3qi"]
+[gd_scene load_steps=15 format=3 uid="uid://cjs1wsriir3qi"]
 
 [ext_resource type="Script" uid="uid://drqipnirsffjv" path="res://scripts/game_level.gd" id="1_hkwi7"]
 [ext_resource type="PackedScene" uid="uid://do3slmuqeq3mm" path="res://scenes/assets/grab_point.tscn" id="2_7o5vt"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b1k8hcg4h0g4g" path="res://scenes/assets/turn_area.tscn" id="6_yj7dt"]
 [ext_resource type="PackedScene" uid="uid://dn0yfj4uu8ohv" path="res://scenes/assets/particle_emitter.tscn" id="7_yj7dt"]
 [ext_resource type="PackedScene" uid="uid://b12yxxtq81pcf" path="res://scenes/salt_particle.tscn" id="8_2tovo"]
+[ext_resource type="PackedScene" uid="uid://b7vhlbv3udsni" path="res://scenes/player.tscn" id="9_w6k0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r04o2"]
 size = Vector2(1293, 40.00003)
@@ -24,13 +25,9 @@ size = Vector2(334, 373)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfmkk"]
 size = Vector2(103.59723, 49.699173)
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("player_spawn", "salt_rain_emitter")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("salt_rain_emitter")]
 script = ExtResource("1_hkwi7")
-player_spawn = NodePath("PlayerSpawn")
 salt_rain_emitter = NodePath("ParticleEmitter")
-
-[node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(349, 417)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -89,5 +86,8 @@ particle_scene = ExtResource("8_2tovo")
 
 [node name="CollisionShape2D" parent="ParticleEmitter" index="0"]
 position = Vector2(6, 5.5)
+
+[node name="Player" parent="." instance=ExtResource("9_w6k0c")]
+position = Vector2(79, 651)
 
 [editable path="ParticleEmitter"]

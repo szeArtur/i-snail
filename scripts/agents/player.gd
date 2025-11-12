@@ -2,11 +2,6 @@ class_name Player
 extends Agent
 
 
-func reset() -> void:
-	super.reset()
-	stick = false
-
-
 func on_hitbox_entered(_body: CollisionObject2D) -> void:
 	GameManager.push_state(GameManager.GameState.RELOADING)
 

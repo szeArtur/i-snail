@@ -32,8 +32,6 @@ func on_viewbox_exited(_body: CollisionObject2D) -> void: pass
 
 
 func _ready() -> void:
-	reset()
-	
 	if hitbox:
 		hitbox.body_entered.connect(on_hitbox_entered)
 		hitbox.area_entered.connect(on_hitbox_entered)
@@ -46,11 +44,6 @@ func _ready() -> void:
 		viewbox.body_exited.connect(on_viewbox_exited)
 		viewbox.area_exited.connect(on_viewbox_exited)
 
-
-func reset() -> void:
-	velocity = Vector2.ZERO
-	move_sound.playing = true
-	move_sound.stream_paused = true
 
 
 ## General move method of an agent. The agent will stick to walls as long as

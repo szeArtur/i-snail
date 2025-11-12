@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3kyp7wchpb83"]
+[gd_scene load_steps=13 format=3 uid="uid://b3kyp7wchpb83"]
 
 [ext_resource type="Script" uid="uid://bdawwvism8vcw" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cv8x2tg6vxtq4" path="res://scripts/user_interface.gd" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://bui3s4bov4767" path="res://scripts/game_world.gd" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://b7vhlbv3udsni" path="res://scenes/player.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dhq4p4qdh3rkd" path="res://scenes/ui/game_dialogue.tscn" id="6_trceg"]
 [ext_resource type="Script" uid="uid://bwkwl8n2mcbu7" path="res://scripts/game_stage.gd" id="7_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://c5uyltcmbbrci" path="res://scenes/ui/menu_main.tscn" id="8_choun"]
@@ -20,8 +19,6 @@ script = ExtResource("1_o5qli")
 [node name="GameWorld" type="Node2D" parent="." groups=["Persist"]]
 process_mode = 4
 script = ExtResource("2_sugp2")
-
-[node name="Player" parent="GameWorld" instance=ExtResource("4_tbgi4")]
 
 [node name="GameStage" type="Node2D" parent="GameWorld"]
 script = ExtResource("7_ya4ey")

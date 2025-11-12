@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	
 	if is_player_in_sight() and looking_for_player:
 		animation_player.play("spot_player")
-		
 
 
 func spot_player() -> void:
