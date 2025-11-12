@@ -33,6 +33,7 @@ func is_player_in_sight() -> bool:
 		return false
 	
 	view_ray.target_position = player.global_position - global_position
+	view_ray.force_raycast_update()
 	if view_ray.is_colliding():
 		return false
 	
