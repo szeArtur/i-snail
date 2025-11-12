@@ -5,7 +5,7 @@ extends Area2D
 @export var particle_scene: PackedScene
 ## amount of particles per second
 @export var amount: int = 100
-@export var emitting: bool = true
+@export var emitting: bool = false
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 

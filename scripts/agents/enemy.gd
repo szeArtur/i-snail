@@ -14,8 +14,8 @@ func _physics_process(delta: float) -> void:
 		move_and_stick(delta, 1 if facing_right else -1)
 	
 	if is_player_in_sight():
-		# TODO do something
-		print("player detected")
+		EventBus.player_detected.emit()
+
 
 func on_viewbox_entered(body: CollisionObject2D) -> void:
 	if body is TurnArea:

@@ -5,3 +5,4 @@ extends Node
 signal level_completed
 signal drop_shell(shell: Shell)
 signal restart_level
+signal player_detected
